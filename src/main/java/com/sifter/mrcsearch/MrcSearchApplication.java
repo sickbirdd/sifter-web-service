@@ -1,0 +1,13 @@
+package com.sifter.mrcsearch;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MrcSearchApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MrcSearchApplication.class, args);
+	}
+
+}
