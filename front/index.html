@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,61 +8,88 @@
     <link rel="stylesheet" href="./asset/css/style.css" />
     <link rel="icon" href="./img/favicon.ico">
     <title>SIFTER</title>
-    <script src="https://kit.fontawesome.com/667fce3c60.js" crossorigin="anonymous"></script>   
+    <script src="https://kit.fontawesome.com/667fce3c60.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- Header : 로고, 버튼, 검색 바 -->
     <header>
-        <div class="logoAndBar">
-            <img class="logo" src="./img/android-chrome-192x192.png"/>
-            <div class="buttons">
-                <button class="textBtn">
-                    <i class="fa-solid fa-file-lines"></i>
-                    <span>TEXT 입력</span>
-                </button>
-                <button class="attachBtn">
-                    <i class="fa-solid fa-file-arrow-up"></i>
-                    <span>첨부 파일</span>
-                </button>
-                <button class="helpBtn">
-                    <i class="fa-solid fa-circle-question"></i>
-                    <div class="helpText">
-                        <div>설명서</div>
-                        <ol>
-                            <li>DOMAIN 선택</li>
-                            <li>검색어 입력</li>
-                            <li>검색을 원하는 TEXT 입력 가능</li>
-                            <li>검색을 원하는 첨부 파일 첨부 가능</li>           
-                        </ol>
-                    </div>
-                </button>
-            </div>
-            <div class="searchBar">
-                <div class="dropdown">
-                    <button class="dropBtn">
-                        <span>DOMAIN</span> 
-                        <i class="fa-solid fa-caret-down"></i>
-                    </button>
-                    <div class="dropdownContent">
-                        <a href="#">Sport</a>
-                        <a href="#">IT</a>
-                        <a href="#">ERICA</a>
-                    </div>
+        <img class="logo" src="./img/android-chrome-192x192.png" />
+        <!-- 정답 들어오면 활성화 -->
+        <!-- <img class="logo" src="./img/favicon-32x32.png" /> -->
+        <div class="buttons">
+            <button class="textBtn">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>TEXT 입력</span>
+            </button>
+            <button class="attachBtn">
+                <i class="fa-solid fa-file-arrow-up"></i>
+                <span>첨부 파일</span>
+            </button>
+            <button class="helpBtn">
+                <i class="fa-solid fa-circle-question"></i>
+                <div class="helpText">
+                    <div>설명서</div>
+                    <ol>
+                        <li>DOMAIN 선택</li>
+                        <li>검색어 입력</li>
+                        <li>검색을 원하는 TEXT 입력 가능</li>
+                        <li>검색을 원하는 첨부 파일 첨부 가능</li>
+                    </ol>
                 </div>
-                <input type="text" placeholder="검색어 입력">
-                <button class="searchBtn">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>  
-            </div>
+            </button>
         </div>
-        
+        <div class="searchBar">
+            <div class="dropdown">
+                <button class="dropBtn">
+                    <span>DOMAIN</span>
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <div class="dropdownContent">
+                    <a href="#">Sport</a>
+                    <a href="#">IT</a>
+                    <a href="#">ERICA</a>
+                </div>
+            </div>
+            <input class="searching" type="text" placeholder="검색어 입력">
+            <button class="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
     </header>
     <!-- Result : 검색 결과 예시 및 실제 결과 -->
     <div class="main">
-        <div class="example"></div>
-        <div class="result"></div>
-        <div class="attachText"></div>
-        <div class="attachFile"></div>
+        <!-- 
+            초기 -> example
+            text -> attachText
+            file -> attachFile
+            정답 -> result
+        -->
+        <div class="example">
+            <div class="rank">Top 1</div>
+            <div class="answer">
+                ANSWER : ~~~~~~~~~~
+            </div>  
+            <div class="context">
+                <span>지문보기</span>
+                <!-- <i class="fa-solid fa-caret-up"></i> -->
+                <i class="fa-solid fa-caret-down"></i>
+            </div>
+            <div class="paragarph">adjf;akln;nwklnd;kls</div>
+        </div>
+        <div class="attachText">
+            <button class="exitBtn">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+            <textarea cols="30" rows="10" placeholder=""></textarea>
+            <button class="textAttachBtn">입력</button>
+        </div>
+        <div class="attachFile">
+            <span>Drag and drop your files!</span>
+            <!-- 끝나면 밑에 빼기 -->
+            <div>input[type="file"]로 하면 디자인 하기 힘들듯</div>
+            <div>div로 디자인 해놓은 부분에 자스로 드래그 앤 드롭 구현해야 할 듯</div>
+        </div>
     </div>
     <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 -->
     <footer>
@@ -69,4 +97,5 @@
         <div>@copyright 2023. SIFTER</div>
     </footer>
 </body>
+
 </html>

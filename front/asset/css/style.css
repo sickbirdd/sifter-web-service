@@ -29,6 +29,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    /* 정답되면 */
+    /* padding-top: 100px;  */
 }
 
 button{
@@ -39,35 +42,36 @@ button{
 
 header{
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    margin: var(--spacing-medium);
-    padding-bottom: var(--spacing-small);
-    border-bottom: 3px solid var(--black-color);
-}
-
-.logoAndBar{
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 100%;
+
+    /* 정답들어오면 비활성화 */
+    flex-direction: column;
+
+    /* 정답들어오면 활성화 */
+    /* background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0; */
 }
 
 .logo{
     border: 3px solid var(--dark-grey-color);
     border-radius: 50%;
+
+    margin: var(--spacing-small);
 }
 
 .buttons{
     display: flex;
     justify-content: center;
-    width: 70%;
+    /* width: 70%; */
 }
 
 .buttons button{
-    margin: var(--spacing-small);
+    margin: var(--spacing-micro);
 }
 
 .textBtn:hover, .attachBtn:hover{
@@ -190,10 +194,90 @@ header{
 .main{
     display: flex;
     flex-direction: column;
-    height: 50rem;
+    margin: var(--spacing-medium);
+
+    /* height: 1000px; */
+}
+
+.example{
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+    padding: var(--spacing-medium);
     border: 3px solid var(--dark-grey-color);
     border-radius: 8px;
-    margin: 0 var(--spacing-medium) var(--spacing-medium) var(--spacing-medium);
+}
+
+.example .context{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example .context span{
+    margin-right: var(--spacing-small);
+}
+
+.paragarph{
+    display: none;
+}
+
+.result{
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+    border: 3px solid var(--dark-grey-color);
+}
+
+.attachText{
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+}
+
+.attachText .exitBtn{
+    align-self: flex-end;
+    font-size: var(--font-medium);
+}
+
+.attachText textarea{   
+    border: 3px dashed var(--dark-grey-color);  
+    border-radius: 8px;
+    font-size: var(--font-medium);
+}
+
+.attachText textarea:focus{
+    outline: none;
+}
+
+.attachText .textAttachBtn{
+    align-self: center;
+    margin-top: var(--spacing-micro);
+    border: 3px solid var(--dark-grey-color);  
+    border-radius: 8px;
+    background-color: var(--dark-grey-color);
+    color: var(--light-grey-color);
+    font-size: var(--font-small);
+    font-weight: bold;
+}
+
+.attachText .textAttachBtn:hover{
+    border: 3px solid var(--dark-grey-color);
+    background-color: var(--light-grey-color);
+    color: var(--blue-color);
+}
+
+.attachFile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 10rem;
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium); 
+    border-radius: 8px; 
+    outline: 2px dashed var(--light-grey-color);
+    outline-offset:-10px; 
+    transition: all .15s ease-in-out;
+    background-color: var(--dark-grey-color);
+    color: var(--light-grey-color);
 }
 
 footer {
@@ -204,6 +288,10 @@ footer {
     color: var(--white-color);
     /* position: absolute;
     bottom: 0; */
+}
+
+footer div{
+    padding: var(--spacing-small)
 }
 
 footer a{
