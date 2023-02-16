@@ -1,3 +1,27 @@
+:root {
+    /* Color */
+    --white-color: #f9f9f9;
+    --black-color: #140a00;
+    --blue-color: #045fd4;
+    --red-color: #ff0000;
+    --dark-grey-color: #555;
+    --light-grey-color: #ececec;
+
+    /* Font size */
+    --font-large: 1.4rem;
+    --font-regular: 1.2rem; 
+    --font-medium: 1rem;
+    --font-small: 0.8rem; 
+    --font-micro: 0.6rem;
+
+    /* Size */
+    --avatar-size: 36px;
+    --spacing-large: 18px;
+    --spacing-medium: 12px;
+    --spacing-small: 6px;
+    --spacing-micro: 3px;
+}
+
 body {
     font-family: "Leckerli One";
     margin: 0;
@@ -18,9 +42,9 @@ header{
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    padding-bottom: 10px;
-    border-bottom: 3px solid black;
+    margin: var(--spacing-medium);
+    padding-bottom: var(--spacing-small);
+    border-bottom: 3px solid var(--black-color);
 }
 
 .logoAndBar{
@@ -32,7 +56,7 @@ header{
 }
 
 .logo{
-    border: 3px solid #555;
+    border: 3px solid var(--dark-grey-color);
     border-radius: 50%;
 }
 
@@ -43,12 +67,12 @@ header{
 }
 
 .buttons button{
-    margin: 0.3em;
+    margin: var(--spacing-small);
 }
 
 .textBtn:hover, .attachBtn:hover{
-    background-color : #ececec;
-    border: 1px solid black;
+    background-color : var(--light-grey-color);
+    border: 1px solid var(--black-color);
     border-radius: 4px;
 }
 
@@ -62,9 +86,9 @@ header{
 .helpText {
     visibility: hidden;
     width: 20rem;
-    font-size: 0.8rem;
-    background-color: #555;
-    color: #fff;
+    font-size: var(--font-small);
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
     border-radius: 6px; 
     /* Position the tooltip text */
     position: absolute;
@@ -77,13 +101,9 @@ header{
 }
 
 .helpText div{
-    font-size: 1rem;
-    margin-top: 0.6rem;
+    font-size: var(--font-medium);
+    margin-top: var(--spacing-small);
     text-align: center;
-}
-
-.helpText ol{
-    padding-left: 2rem;
 }
 
 .helpText li{
@@ -107,19 +127,18 @@ header{
     justify-content: center;
     align-items: center;
     width: 70%;
-    padding: 1px;
     border: 2px solid black;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: var(--white-color);
 }
 
 .searchBar input[type=text] {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-size: 1rem;
+    font-size: var(--font-medium);
     border: none;
-    background-color: #f9f9f9;
+    background-color: var(--white-color);
 }
 
 .searchBar input[type=text]:focus {
@@ -129,39 +148,39 @@ header{
 .dropdown{
     position : relative;
     display : inline-block;
-    padding: 3px;
+    padding: var(--spacing-micro);
 }
 .dropBtn{
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor : pointer;
-    font-size : 0.8rem;
-    background-color: #f9f9f9;
+    font-size: var(--font-small);
+    background-color: var(--white-color);
 }
 
 .dropBtn span{
-    padding: 8px;
+    padding: var(--spacing-small);
 }
 
 .dropdownContent{
     display : none;
     position : absolute;
     z-index : 1; /*다른 요소들보다 앞에 배치*/
-    background-color: #f9f9f9;
+    background-color: var(--white-color);
     min-width : 100%;
 }
 
 .dropdownContent a{
     display : block;
     text-decoration : none;
-    color : black;
-    font-size: 0.8rem;
-    padding : 12px 20px;
+    color : var(--black-color);
+    font-size: var(--font-small);
+    padding : var(--spacing-medium) var(--spacing-medium);
 }
 
 .dropdownContent a:hover{
-    background-color : #ececec
+    background-color : var(--light-grey-color)
 }
 
 .dropdown:hover .dropdownContent {
@@ -171,24 +190,24 @@ header{
 .main{
     display: flex;
     flex-direction: column;
-    height: 22rem;
-    border: 3px solid #555;
+    height: 50rem;
+    border: 3px solid var(--dark-grey-color);
     border-radius: 8px;
-    margin: 0 20px 20px 20px;
+    margin: 0 var(--spacing-medium) var(--spacing-medium) var(--spacing-medium);
 }
 
 footer {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color:#555;
-    color: #fff;
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
     /* position: absolute;
     bottom: 0; */
 }
 
 footer a{
     text-decoration: none;
-    color: #fff;
+    color: var(--white-color);
 }
 
