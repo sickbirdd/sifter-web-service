@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Leckerli+One" />
+    <link rel="stylesheet" href="./asset/css/style.css" />
+    <link rel="icon" href="./img/favicon.ico">
+    <title>SIFTER</title>
+    <script src="https://kit.fontawesome.com/667fce3c60.js" crossorigin="anonymous"></script>   
+</head>
+<body>
+    <!-- Header : 로고, 버튼, 검색 바 -->
+    <header>
+        <div class="logoAndBar">
+            <img class="logo" src="./img/android-chrome-192x192.png"/>
+            <div class="buttons">
+                <button class="textBtn">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>TEXT 입력</span>
+                </button>
+                <button class="attachBtn">
+                    <i class="fa-solid fa-file-arrow-up"></i>
+                    <span>첨부 파일</span>
+                </button>
+                <button class="helpBtn">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <div class="helpText">
+                        <div>설명서</div>
+                        <ol>
+                            <li>DOMAIN 선택</li>
+                            <li>검색어 입력</li>
+                            <li>검색을 원하는 TEXT 입력 가능</li>
+                            <li>검색을 원하는 첨부 파일 첨부 가능</li>           
+                        </ol>
+                    </div>
+                </button>
+            </div>
+            <div class="searchBar">
+                <div class="dropdown">
+                    <button class="dropBtn">
+                        <span>DOMAIN</span> 
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdownContent">
+                        <a href="#">Sport</a>
+                        <a href="#">IT</a>
+                        <a href="#">ERICA</a>
+                    </div>
+                </div>
+                <input type="text" placeholder="검색어 입력">
+                <button class="searchBtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>  
+            </div>
+        </div>
+        
+    </header>
+    <!-- Result : 검색 결과 예시 및 실제 결과 -->
+    <div class="main">
+        <div class="example"></div>
+        <div class="result"></div>
+        <div class="attachText"></div>
+        <div class="attachFile"></div>
+    </div>
+    <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 -->
+    <footer>
+        <a href="#">문서화</a>
+        <div>@copyright 2023. SIFTER</div>
+    </footer>
+</body>
+</html>

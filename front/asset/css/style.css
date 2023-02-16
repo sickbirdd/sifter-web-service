@@ -1,0 +1,194 @@
+body {
+    font-family: "Leckerli One";
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+button{
+    font-family: "Leckerli One";
+    border: none;
+    background: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid black;
+}
+
+.logoAndBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.logo{
+    border: 3px solid #555;
+    border-radius: 50%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+}
+
+.buttons button{
+    margin: 0.3em;
+}
+
+.textBtn:hover, .attachBtn:hover{
+    background-color : #ececec;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+/* Tooltip container */
+.helpBtn {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.helpText {
+    visibility: hidden;
+    width: 20rem;
+    font-size: 0.8rem;
+    background-color: #555;
+    color: #fff;
+    border-radius: 6px; 
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: -650%;
+    left: -550%;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.helpText div{
+    font-size: 1rem;
+    margin-top: 0.6rem;
+    text-align: center;
+}
+
+.helpText ol{
+    padding-left: 2rem;
+}
+
+.helpText li{
+    text-align: left;
+}
+
+/* Tooltip arrow */
+.helpText::after {
+    content: "";
+    position: absolute;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.helpBtn:hover .helpText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    padding: 1px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.searchBar input[type=text] {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    border: none;
+    background-color: #f9f9f9;
+}
+
+.searchBar input[type=text]:focus {
+    outline: none;
+}
+
+.dropdown{
+    position : relative;
+    display : inline-block;
+    padding: 3px;
+}
+.dropBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor : pointer;
+    font-size : 0.8rem;
+    background-color: #f9f9f9;
+}
+
+.dropBtn span{
+    padding: 8px;
+}
+
+.dropdownContent{
+    display : none;
+    position : absolute;
+    z-index : 1; /*다른 요소들보다 앞에 배치*/
+    background-color: #f9f9f9;
+    min-width : 100%;
+}
+
+.dropdownContent a{
+    display : block;
+    text-decoration : none;
+    color : black;
+    font-size: 0.8rem;
+    padding : 12px 20px;
+}
+
+.dropdownContent a:hover{
+    background-color : #ececec
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    height: 22rem;
+    border: 3px solid #555;
+    border-radius: 8px;
+    margin: 0 20px 20px 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color:#555;
+    color: #fff;
+    /* position: absolute;
+    bottom: 0; */
+}
+
+footer a{
+    text-decoration: none;
+    color: #fff;
+}
+
