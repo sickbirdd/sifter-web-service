@@ -30,8 +30,8 @@ body {
     flex-direction: column;
     justify-content: space-around;
 
-    /* 정답되면 */
-    /* padding-top: 100px;  */
+    /* 정답이 하나라도 들어오면 활성화 */
+    padding-top: 100px; 
 }
 
 button{
@@ -47,14 +47,14 @@ header{
     width: 100%;
 
     /* 정답들어오면 비활성화 */
-    flex-direction: column;
+    /* flex-direction: column; */
 
     /* 정답들어오면 활성화 */
-    /* background-color: var(--white-color);
+    background-color: var(--white-color);
     position: fixed;
     top: 0;
     left: 0;
-    right: 0; */
+    right: 0;
 }
 
 .logo{
@@ -196,7 +196,7 @@ header{
     flex-direction: column;
     margin: var(--spacing-medium);
 
-    /* height: 1000px; */
+    height: 1000px;
 }
 
 .example{
