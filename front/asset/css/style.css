@@ -32,7 +32,7 @@ body {
     background-color: var(--white-color);
 
     /* 정답이 하나라도 들어오면 활성화 */
-    padding-top: 10px; 
+    /* padding-top: 5px;  */
 }
 
 
@@ -49,14 +49,14 @@ header{
     width: 100%;
 
     /* 정답들어오면 비활성화 */
-    /* flex-direction: column; */
+    flex-direction: column;
 
     /* 정답들어오면 활성화 */
-    background-color: var(--white-color);
+    /* background-color: var(--white-color);
     position: sticky;
     top: 0;
     left: 0;
-    right: 0;
+    right: 0; */
 }
 
 .logo{
@@ -198,7 +198,7 @@ header{
     flex-direction: column;
     margin: var(--spacing-medium);
 
-    /* min-height: 50rem; */
+    min-height: 50rem;
 }
 
 .example{
@@ -288,8 +288,9 @@ footer {
     background-color: var(--dark-grey-color);
     color: var(--white-color);
     
-    /* position: relative;
-    transform : translateY(-100%); */
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 footer div{
