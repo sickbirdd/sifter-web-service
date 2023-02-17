@@ -1,8 +1,8 @@
-import {search_api, inference_api} from '../apis/api.js';
 import Logo from '../img/android-chrome-192x192.png'
 import React, { useState } from 'react';
-
-function Header() {
+import config from '../config.json';
+function Header({searchApi}) {
+    const [question, setQuestion] = useState("");
     return (
         <header>
             {/* <!-- 
@@ -68,8 +68,8 @@ function Header() {
                 {/* <!-- 
                     밑에 돋보기 버튼 누르면 내용 입력, ENTER 입력 시 내용 입력
                 --> */}
-                <input class="searching" type="text" placeholder="검색어 입력"/>
-                <button class="searchBtn">
+                <input class="searching" type="text" placeholder="검색어 입력" onChange={(e)=>{setQuestion(e.target.value);}} />
+                <button class="searchBtn" onClick={() => searchApi(config['queryInit'], question, true)}>
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>

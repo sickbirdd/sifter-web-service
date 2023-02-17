@@ -1,7 +1,6 @@
-import {search_api, inference_api} from '../apis/api.js';
-import React, { useState } from 'react';
+import React from 'react';
 
-function Content() {
+function Content({data}) {
     return (
         <div class="main">
             {/* <!-- 
@@ -11,9 +10,11 @@ function Content() {
                 정답 -> result ... 검색 시 결과 띄워줘야 한다
             --> */}
             <div class="example">
-                <div class="rank">Top 1</div>
+                <div class="rank">Top 1 {data[0]['fields']['title']}</div>
                 <div class="answer">
-                    ANSWER : ~~~~~~~~~~
+                    {
+                        `ANSWER : `
+                    }
                 </div>  
                 <div class="context">
                     {/* <!-- 
@@ -22,7 +23,7 @@ function Content() {
                         다시 버튼을 누르면 지문 일부만 보이도록하고
                         다시 버튼을 돌려야함
                     --> */}
-                    <span>지문 ~~~~</span>
+                    <span>{data[0]['fields']['content']}</span>
                     {/* <!-- <i class="fa-solid fa-caret-up"></i> : 버튼 1 --> */}
                     {/* <i class="fa-solid fa-caret-down"></i> <!-- : 버튼 2 --> */}
                 </div>
@@ -47,5 +48,7 @@ function Content() {
         </div>
     );
 }
-
+Content.defaultProps = {
+    data: [{"fields":{"content":"여기에 본문이", "title":"예제"}}]
+};
 export default Content;
