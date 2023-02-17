@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Leckerli+One" />
+    <link rel="stylesheet" href="./asset/css/style.css" />
+    <link rel="icon" href="./img/favicon.ico">
+    <title>SIFTER</title>
+    <script src="https://kit.fontawesome.com/667fce3c60.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Header : 로고, 버튼, 검색 바 -->
+    <header>
+        <!-- 
+            정답 들어오면 비활성화
+            초기 Logo : 사진 크기 큰 것
+            CSS 파트에 header 관련 배치 달라지는 부분 적용 
+        -->
+        <img class="logo" src="./img/android-chrome-192x192.png" />
+        <!-- 
+            정답 들어오면 활성화
+            사지 크기 작아지고, CSS 파트에 header 관련 배치 달라지는 부분 적용 
+        -->
+        <!-- <img class="logo" src="./img/favicon-32x32.png" /> -->
+        <div class="buttons">
+            <!-- 
+                TEXT 입력 버튼 클릭시 main 파트에 text 입력 창 띄워짐
+            -->
+            <button class="textBtn">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>TEXT 입력</span>
+            </button>
+            <!-- 
+                첨부 파일 버튼 클릭시 main 파트에 Drag&Drop 창 띄워짐
+            -->
+            <button class="attachBtn">
+                <i class="fa-solid fa-file-arrow-up"></i>
+                <span>첨부 파일</span>
+            </button>
+            <!-- 
+                ? 버튼에 마우스 호버 시 설명서가 뜬다.
+                PC가 아닌 경우 따로 옆에 뜨도록 만들어야 할 듯
+            -->
+            <button class="helpBtn">
+                <i class="fa-solid fa-circle-question"></i>
+                <div class="helpText">
+                    <div>설명서</div>
+                    <ol>
+                        <li>DOMAIN 선택</li>
+                        <li>검색어 입력</li>
+                        <li>검색을 원하는 TEXT 입력 가능</li>
+                        <li>검색을 원하는 첨부 파일 첨부 가능</li>
+                    </ol>
+                </div>
+            </button>
+        </div>
+        <div class="searchBar">
+            <!-- 
+                초기에는 Default 도메인이 써져있고 
+                드롭다운 선택지 클릭 시 그 도메인으로 바뀐 후
+                모델도 바뀌도록 해야함
+            -->
+            <div class="dropdown">
+                <button class="dropBtn">
+                    <span>DOMAIN</span>
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+                <div class="dropdownContent">
+                    <a href="#">Sport</a>
+                    <a href="#">IT</a>
+                    <a href="#">ERICA</a>
+                </div>
+            </div>
+            <!-- 
+                밑에 돋보기 버튼 누르면 내용 입력, ENTER 입력 시 내용 입력
+            -->
+            <input class="searching" type="text" placeholder="검색어 입력">
+            <button class="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+    </header>
+    <!-- Result : 검색 결과 예시 및 실제 결과 -->
+    <div class="main">
+        <!-- 
+            초기 -> example ... 정답 예시 내용만 띄워둠
+            text -> attachText ... text 입력 버튼 클릭 시 보여줌
+            file -> attachFile ... 첨부 파일 버튼 클릭 시 보여줌
+            정답 -> result ... 검색 시 결과 띄워줘야 한다
+        -->
+        <div class="example">
+            <div class="rank">Top 1</div>
+            <div class="answer">
+                ANSWER : ~~~~~~~~~~
+            </div>  
+            <div class="context">
+                <!-- 
+                    지문을 일부 띄워두고, 옆의 버튼을 누르면
+                    버튼이 돌아가고, 지문 전체를 보여줘야함
+                    다시 버튼을 누르면 지문 일부만 보이도록하고
+                    다시 버튼을 돌려야함
+                -->
+                <span>지문 ~~~~</span>
+                <!-- <i class="fa-solid fa-caret-up"></i> : 버튼 1 -->
+                <i class="fa-solid fa-caret-down"></i> <!-- : 버튼 2 -->
+            </div>
+        </div>
+        <div class="attachText">
+            <!-- 
+                오른쪽 상단에 X 버튼을 누르면 창 비활성화
+                지문 입력 후, 입력 버튼 누르면 입력되도록
+            -->
+            <button class="exitBtn">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+            <textarea cols="30" rows="10" placeholder=""></textarea>
+            <button class="textAttachBtn">입력</button>
+        </div>
+        <div class="attachFile">
+            <span>Drag and drop your files!</span>
+            <!-- 끝나면 밑에 빼기 -->
+            <div>input[type="file"]로 하면 디자인 하기 힘들듯</div>
+            <div>div로 디자인 해놓은 부분에 자스로 드래그 앤 드롭 구현해야 할 듯</div>
+        </div>
+    </div>
+    <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 -->
+    <footer>
+        <a href="#">문서화</a>
+        <div>@copyright 2023. SIFTER</div>
+    </footer>
+</body>
+
+</html>

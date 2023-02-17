@@ -1,0 +1,305 @@
+:root {
+    /* Color */
+    --white-color: #f9f9f9;
+    --black-color: #140a00;
+    --blue-color: #045fd4;
+    --red-color: #ff0000;
+    --dark-grey-color: #555;
+    --light-grey-color: #ececec;
+
+    /* Font size */
+    --font-large: 1.4rem;
+    --font-regular: 1.2rem; 
+    --font-medium: 1rem;
+    --font-small: 0.8rem; 
+    --font-micro: 0.6rem;
+
+    /* Size */
+    --avatar-size: 36px;
+    --spacing-large: 18px;
+    --spacing-medium: 12px;
+    --spacing-small: 6px;
+    --spacing-micro: 3px;
+}
+
+body {
+    font-family: "Leckerli One";
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--white-color);
+
+    /* 정답이 하나라도 들어오면 활성화 */
+    /* padding-top: 5px;  */
+}
+
+
+button{
+    font-family: "Leckerli One";
+    border: none;
+    background: none;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    /* 정답들어오면 비활성화 */
+    flex-direction: column;
+
+    /* 정답들어오면 활성화 */
+    /* background-color: var(--white-color);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0; */
+}
+
+.logo{
+    border: 3px solid var(--dark-grey-color);
+    border-radius: 50%;
+
+    margin: var(--spacing-small);
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    /* width: 70%; */
+}
+
+.buttons button{
+    margin: var(--spacing-micro);
+}
+
+.textBtn:hover, .attachBtn:hover{
+    background-color : var(--light-grey-color);
+    border: 1px solid var(--black-color);
+    border-radius: 4px;
+}
+
+/* Tooltip container */
+.helpBtn {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.helpText {
+    visibility: hidden;
+    width: 20rem;
+    font-size: var(--font-small);
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
+    border-radius: 6px; 
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: -650%;
+    left: -550%;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.helpText div{
+    font-size: var(--font-medium);
+    margin-top: var(--spacing-small);
+    text-align: center;
+}
+
+.helpText li{
+    text-align: left;
+}
+
+/* Tooltip arrow */
+.helpText::after {
+    content: "";
+    position: absolute;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.helpBtn:hover .helpText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.searchBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: var(--white-color);
+}
+
+.searchBar input[type=text] {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-size: var(--font-medium);
+    border: none;
+    background-color: var(--white-color);
+}
+
+.searchBar input[type=text]:focus {
+    outline: none;
+}
+
+.dropdown{
+    position : relative;
+    display : inline-block;
+    padding: var(--spacing-micro);
+}
+.dropBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor : pointer;
+    font-size: var(--font-small);
+    background-color: var(--white-color);
+}
+
+.dropBtn span{
+    padding: var(--spacing-small);
+}
+
+.dropdownContent{
+    display : none;
+    position : absolute;
+    z-index : 1; /*다른 요소들보다 앞에 배치*/
+    background-color: var(--white-color);
+    min-width : 100%;
+}
+
+.dropdownContent a{
+    display : block;
+    text-decoration : none;
+    color : var(--black-color);
+    font-size: var(--font-small);
+    padding : var(--spacing-medium) var(--spacing-medium);
+}
+
+.dropdownContent a:hover{
+    background-color : var(--light-grey-color)
+}
+
+.dropdown:hover .dropdownContent {
+    display: block;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-medium);
+
+    min-height: 50rem;
+}
+
+.example{
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+    padding: var(--spacing-medium);
+    border: 3px solid var(--dark-grey-color);
+    border-radius: 8px;
+}
+
+.example .context{
+    display: flex;
+    align-items: center;
+}
+
+.example .context span{
+    margin-right: var(--spacing-small);
+}
+
+.paragarph{
+    display: none;
+}
+
+.result{
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+    border: 3px solid var(--dark-grey-color);
+}
+
+.attachText{
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+}
+
+.attachText .exitBtn{
+    align-self: flex-end;
+    font-size: var(--font-medium);
+}
+
+.attachText textarea{   
+    border: 3px dashed var(--dark-grey-color);  
+    border-radius: 8px;
+    font-size: var(--font-medium);
+}
+
+.attachText textarea:focus{
+    outline: none;
+}
+
+.attachText .textAttachBtn{
+    align-self: center;
+    margin-top: var(--spacing-micro);
+    border: 3px solid var(--dark-grey-color);  
+    border-radius: 8px;
+    background-color: var(--dark-grey-color);
+    color: var(--light-grey-color);
+    font-size: var(--font-small);
+    font-weight: bold;
+}
+
+.attachText .textAttachBtn:hover{
+    border: 3px solid var(--dark-grey-color);
+    background-color: var(--light-grey-color);
+    color: var(--blue-color);
+}
+
+.attachFile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 10rem;
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium); 
+    border-radius: 8px; 
+    outline: 2px dashed var(--light-grey-color);
+    outline-offset:-10px; 
+    transition: all .15s ease-in-out;
+    background-color: var(--dark-grey-color);
+    color: var(--light-grey-color);
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+footer div{
+    padding: var(--spacing-small);
+}
+
+footer a{
+    padding: var(--spacing-small);
+    text-decoration: none;
+    color: var(--white-color);
+}
+
