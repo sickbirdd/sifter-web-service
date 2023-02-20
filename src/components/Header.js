@@ -18,7 +18,15 @@ function Header({searchApi, isLoad}) {
                 CSS 파트에 header 관련 배치 달라지는 부분 적용 
             --> */}
             {
-                isLoad ? <img alt="LOGO-SMALL" className="logo" src={SearchLogo} /> : <img alt="LOGO-BIG" className="logo" src={MainLogo} />
+                isLoad ? 
+                <img 
+                    alt="LOGO-SMALL" className="logo" src={SearchLogo} 
+                    onClick={() => window.location.reload()} 
+                /> : 
+                <img 
+                    alt="LOGO-BIG" className="logo" src={MainLogo} 
+                    onClick={() => window.location.reload()} 
+                />
             }
             <div className="buttons">
                 {/* <!-- 
