@@ -7,6 +7,28 @@ import {CONF} from './config';
 import './index.css';
 function App() {
   const [data, setData] = useState([{"fields":{"content":"여기에 본문이", "title":"예제"}}]);
+  const [answer, setAnswer] = useState("정답 예시");
+  const inferenceApi = async (question, context) => {
+    try {
+      const query = {
+        inputs: {
+            context: context,
+            question: question
+        },
+        parameters: {
+            "top_k": 1
+        }
+      }
+      const guess = await axios.post(CONF['MODEL_URL'], query, { headers: {Authorization: `Bearer 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`} });
+      setData(context);
+      setAnswer(guess);
+      console.log(guess);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("finally!")
+    }
+  };
   const searchApi = async(query, question="") => {
     try {
       query['commonQuery'] = question
@@ -23,7 +45,7 @@ function App() {
         {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
         <Header searchApi={searchApi}/>
         {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
-        <Content data={data}/>
+        <Content data={data} answer={answer}/>
         {/* <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 --> */}
         <Footer />
     </div>

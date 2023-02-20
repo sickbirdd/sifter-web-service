@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Content({data}) {
+function Content({data, answer}) {
     return (
         <div className="main">
             {/* <!-- 
@@ -13,7 +13,7 @@ function Content({data}) {
                 <div className="rank">Top 1 {data[0]['fields']['title']}</div>
                 <div className="answer">
                     {
-                        `ANSWER : `
+                        `ANSWER : ${answer}`
                     }
                 </div>  
                 <div className="context">
