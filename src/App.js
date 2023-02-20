@@ -8,6 +8,7 @@ import './index.css';
 function App() {
   const [data, setData] = useState([{"fields":{"content":"여기에 본문이", "title":"예제"}}]);
   const [answer, setAnswer] = useState("정답 예시");
+  const [isLoad, setLoad] = useState(false);
   const inferenceApi = async (question, context) => {
     try {
       const query = {
@@ -19,9 +20,8 @@ function App() {
             "top_k": 1
         }
       }
-      const guess = await axios.post(CONF['MODEL_URL'], query, { headers: {Authorization: `Bearer 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`} });
-      setData(context);
-      setAnswer(guess);
+      const guess = await axios.post(CONF['BASE_URL'] + CONF['MODEL_PATH'], query, { headers: {Authorization: CONF['TOKEN']} });
+      setAnswer(guess['data']['answer']);
       console.log(guess);
     } catch (error) {
       console.log(error);
@@ -33,7 +33,9 @@ function App() {
     try {
       query['commonQuery'] = question
       const article = await axios.post(CONF['BASE_URL'] + "/search" , query);
+      setLoad(true);
       setData(article['data']['sample']['document']);
+      inferenceApi(question, article['data']['sample']['document'][0]['fields']['content']);
     } catch (error) {
       console.log(error);
     } finally {
@@ -43,7 +45,7 @@ function App() {
   return (
     <div>
         {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
-        <Header searchApi={searchApi}/>
+        <Header searchApi={searchApi} isLoad={isLoad}/>
         {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
         <Content data={data} answer={answer}/>
         {/* <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 --> */}
