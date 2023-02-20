@@ -20,10 +20,12 @@ function Header({searchApi, isLoad, domainSelect}) {
             {
                 isLoad ? 
                 <img 
-                    alt="LOGO-SMALL" className="logo" src={SearchLogo}  
+                    alt="LOGO-SMALL" className="logo" src={SearchLogo} 
+                    onClick={() => window.location.reload()} 
                 /> : 
                 <img 
                     alt="LOGO-BIG" className="logo" src={MainLogo} 
+                    onClick={() => window.location.reload()} 
                 />
             }
             <div className="buttons">
