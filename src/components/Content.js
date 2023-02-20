@@ -1,6 +1,8 @@
-import React from 'react';
+import {React, useState} from 'react';
+import ContextBox from './ContextBox'
 
-function Content({data, answer}) {
+function Content({data, answer, isClick}) {
+
     return (
         <div className="main">
             {/* <!-- 
@@ -28,17 +30,7 @@ function Content({data, answer}) {
                     {/* <i class="fa-solid fa-caret-down"></i> <!-- : 버튼 2 --> */}
                 </div>
             </div>
-            <div className="attachText">
-                {/* <!-- 
-                    오른쪽 상단에 X 버튼을 누르면 창 비활성화
-                    지문 입력 후, 입력 버튼 누르면 입력되도록
-                --> */}
-                <button className="exitBtn">
-                    <i className="fa-solid fa-circle-xmark"></i>
-                </button>
-                <textarea cols="30" rows="10" placeholder=""></textarea>
-                <button className="textAttachBtn">입력</button>
-            </div>
+            <ContextBox isClick={isClick}/>
             <div className="attachFile">
                 <span>Drag and drop your files!</span>
                 {/* <!-- 끝나면 밑에 빼기 --> */}
