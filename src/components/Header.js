@@ -4,15 +4,21 @@ import React, { useState } from 'react';
 import {CONF} from '../config';
 function Header({searchApi, isLoad}) {
     const [question, setQuestion] = useState("");
+
+    const handleOnKeyPress = e => {
+        if (e.key === 'Enter') {
+            searchApi(CONF['QUERY'], question); // Enter 입력이 되면 클릭 이벤트 실행
+        }
+    };
     return (
-        <header>
+        <header className={isLoad ? "logoSmall" : "logoBig"}>
             {/* <!-- 
                 MainLogo : 사진 크기 큰 것(정답 들어오면 비활성화)
                 SearchLogo: 사진 크기 작은 것(정답 들어오면 활성화)
                 CSS 파트에 header 관련 배치 달라지는 부분 적용 
             --> */}
             {
-                isLoad ? <img className="logo" src={SearchLogo} /> : <img className="logo" src={MainLogo} />
+                isLoad ? <img alt="LOGO-SMALL" className="logo" src={SearchLogo} /> : <img alt="LOGO-BIG" className="logo" src={MainLogo} />
             }
             <div className="buttons">
                 {/* <!-- 
@@ -66,7 +72,12 @@ function Header({searchApi, isLoad}) {
                 {/* <!-- 
                     밑에 돋보기 버튼 누르면 내용 입력, ENTER 입력 시 내용 입력
                 --> */}
-                <input className="searching" type="text" placeholder="검색어 입력" onChange={(e)=>{setQuestion(e.target.value);}} />
+
+                <input 
+                    className="searching" type="text" placeholder="질문을 입력해주세요." 
+                    onChange={(e)=>{setQuestion(e.target.value);}} 
+                    onKeyDown={handleOnKeyPress}
+                />
                 <button className="searchBtn" onClick={() => searchApi(CONF['QUERY'], question)}>
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>

@@ -35,7 +35,6 @@ body {
     /* padding-top: 5px;  */
 }
 
-
 button{
     font-family: "Leckerli One";
     border: none;
@@ -47,16 +46,20 @@ header{
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: var(--white-color);
+}
 
+.logoBig {
     /* 정답들어오면 비활성화 */
     flex-direction: column;
+}
 
+.logoSmall {
     /* 정답들어오면 활성화 */
-    /* background-color: var(--white-color);
     position: sticky;
     top: 0;
     left: 0;
-    right: 0; */
+    right: 0;
 }
 
 .logo{
