@@ -2,21 +2,21 @@ import React from 'react';
 
 function Content({data}) {
     return (
-        <div class="main">
+        <div className="main">
             {/* <!-- 
                 초기 -> example ... 정답 예시 내용만 띄워둠
                 text -> attachText ... text 입력 버튼 클릭 시 보여줌
                 file -> attachFile ... 첨부 파일 버튼 클릭 시 보여줌
                 정답 -> result ... 검색 시 결과 띄워줘야 한다
             --> */}
-            <div class="example">
-                <div class="rank">Top 1 {data[0]['fields']['title']}</div>
-                <div class="answer">
+            <div className="example">
+                <div className="rank">Top 1 {data[0]['fields']['title']}</div>
+                <div className="answer">
                     {
                         `ANSWER : `
                     }
                 </div>  
-                <div class="context">
+                <div className="context">
                     {/* <!-- 
                         지문을 일부 띄워두고, 옆의 버튼을 누르면
                         버튼이 돌아가고, 지문 전체를 보여줘야함
@@ -28,18 +28,18 @@ function Content({data}) {
                     {/* <i class="fa-solid fa-caret-down"></i> <!-- : 버튼 2 --> */}
                 </div>
             </div>
-            <div class="attachText">
+            <div className="attachText">
                 {/* <!-- 
                     오른쪽 상단에 X 버튼을 누르면 창 비활성화
                     지문 입력 후, 입력 버튼 누르면 입력되도록
                 --> */}
-                <button class="exitBtn">
-                    <i class="fa-solid fa-circle-xmark"></i>
+                <button className="exitBtn">
+                    <i className="fa-solid fa-circle-xmark"></i>
                 </button>
                 <textarea cols="30" rows="10" placeholder=""></textarea>
-                <button class="textAttachBtn">입력</button>
+                <button className="textAttachBtn">입력</button>
             </div>
-            <div class="attachFile">
+            <div className="attachFile">
                 <span>Drag and drop your files!</span>
                 {/* <!-- 끝나면 밑에 빼기 --> */}
                 <div>input[type="file"]로 하면 디자인 하기 힘들듯</div>
