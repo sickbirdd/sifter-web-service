@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import {CONF} from '../config';
 import Content from './Content';
 import ContextBox from './ContextBox';
-function Header({searchApi, isLoad, isClick, setClick}) {
+function Header({searchApi, isLoad, domainSelect, isClick, setClick}) {
     const [question, setQuestion] = useState("");
-
+    const [domain, setDomain] = useState("Sport");
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
             searchApi(CONF['QUERY'], question); // Enter 입력이 되면 클릭 이벤트 실행
@@ -25,7 +25,13 @@ function Header({searchApi, isLoad, isClick, setClick}) {
                 CSS 파트에 header 관련 배치 달라지는 부분 적용 
             --> */}
             {
-                isLoad ? <img alt="LOGO-SMALL" className="logo" src={SearchLogo} /> : <img alt="LOGO-BIG" className="logo" src={MainLogo} />
+                isLoad ? 
+                <img 
+                    alt="LOGO-SMALL" className="logo" src={SearchLogo}  
+                /> : 
+                <img 
+                    alt="LOGO-BIG" className="logo" src={MainLogo} 
+                />
             }
             <div className="buttons">
                 {/* <!-- 
@@ -67,13 +73,13 @@ function Header({searchApi, isLoad, isClick, setClick}) {
                 --> */}
                 <div className="dropdown">
                     <button className="dropBtn">
-                        <span>DOMAIN</span>
+                        <span>{domain}</span>
                         <i className="fa-solid fa-caret-down"></i>
                     </button>
                     <div className="dropdownContent">
-                        <a href="#">Sport</a>
-                        <a href="#">IT</a>
-                        <a href="#">ERICA</a>
+                        <button onClick={() => setDomain(domainSelect("SPORTS"))}>Sports</button>
+                        <button onClick={() => setDomain(domainSelect("IT"))}>IT</button>
+                        <button onClick={() => setDomain(domainSelect("ERICA"))}>ERICA</button>
                     </div>
                 </div>
                 {/* <!-- 
