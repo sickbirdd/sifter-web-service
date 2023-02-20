@@ -19,7 +19,8 @@ function App() {
             question: question
         },
         parameters: {
-            "top_k": 1
+            "top_k": 1,
+            "wait_for_model": true
         }
       }
       const guess = await axios.post(CONF['BASE_URL'] + modelPath, query, { headers: {Authorization: CONF['TOKEN']} });
