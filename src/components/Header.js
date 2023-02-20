@@ -2,7 +2,9 @@ import MainLogo from '../img/android-chrome-192x192.png';
 import SearchLogo from '../img/favicon-32x32.png';
 import React, { useState } from 'react';
 import {CONF} from '../config';
-function Header({searchApi, isLoad}) {
+import Content from './Content';
+import ContextBox from './ContextBox';
+function Header({searchApi, isLoad, isClick, setClick}) {
     const [question, setQuestion] = useState("");
 
     const handleOnKeyPress = e => {
@@ -10,6 +12,11 @@ function Header({searchApi, isLoad}) {
             searchApi(CONF['QUERY'], question); // Enter 입력이 되면 클릭 이벤트 실행
         }
     };
+
+    function textAction() {
+        setClick(!isClick);
+    }
+
     return (
         <header className={isLoad ? "logoSmall" : "logoBig"}>
             {/* <!-- 
@@ -24,7 +31,7 @@ function Header({searchApi, isLoad}) {
                 {/* <!-- 
                     TEXT 입력 버튼 클릭시 main 파트에 text 입력 창 띄워짐
                 --> */}
-                <button className="textBtn">
+                <button className="textBtn" onClick={() => textAction()}>
                     <i className="fa-solid fa-file-lines"></i>
                     <span>TEXT 입력</span>
                 </button>
