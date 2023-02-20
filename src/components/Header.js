@@ -1,21 +1,19 @@
-import Logo from '../img/android-chrome-192x192.png'
+import MainLogo from '../img/android-chrome-192x192.png';
+import SearchLogo from '../img/favicon-32x32.png';
 import React, { useState } from 'react';
 import {CONF} from '../config';
-function Header({searchApi}) {
+function Header({searchApi, isLoad}) {
     const [question, setQuestion] = useState("");
     return (
         <header>
             {/* <!-- 
-                정답 들어오면 비활성화
-                초기 Logo : 사진 크기 큰 것
+                MainLogo : 사진 크기 큰 것(정답 들어오면 비활성화)
+                SearchLogo: 사진 크기 작은 것(정답 들어오면 활성화)
                 CSS 파트에 header 관련 배치 달라지는 부분 적용 
             --> */}
-            <img className="logo" src={Logo} />
-            {/* <!-- 
-                정답 들어오면 활성화
-                사지 크기 작아지고, CSS 파트에 header 관련 배치 달라지는 부분 적용 
-            -->
-            <!-- <img class="logo" src="./img/favicon-32x32.png" /> --> */}
+            {
+                isLoad ? <img className="logo" src={SearchLogo} /> : <img className="logo" src={MainLogo} />
+            }
             <div className="buttons">
                 {/* <!-- 
                     TEXT 입력 버튼 클릭시 main 파트에 text 입력 창 띄워짐
