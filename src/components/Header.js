@@ -2,9 +2,9 @@ import MainLogo from '../img/android-chrome-192x192.png';
 import SearchLogo from '../img/favicon-32x32.png';
 import React, { useState } from 'react';
 import {CONF} from '../config';
-function Header({searchApi, isLoad}) {
+function Header({searchApi, isLoad, domainSelect}) {
     const [question, setQuestion] = useState("");
-
+    const [domain, setDomain] = useState("Sport");
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
             searchApi(CONF['QUERY'], question); // Enter 입력이 되면 클릭 이벤트 실행
@@ -68,13 +68,13 @@ function Header({searchApi, isLoad}) {
                 --> */}
                 <div className="dropdown">
                     <button className="dropBtn">
-                        <span>DOMAIN</span>
+                        <span>{domain}</span>
                         <i className="fa-solid fa-caret-down"></i>
                     </button>
                     <div className="dropdownContent">
-                        <a href="#">Sport</a>
-                        <a href="#">IT</a>
-                        <a href="#">ERICA</a>
+                        <button onClick={() => setDomain(domainSelect("SPORTS"))}>Sports</button>
+                        <button onClick={() => setDomain(domainSelect("IT"))}>IT</button>
+                        <button onClick={() => setDomain(domainSelect("ERICA"))}>ERICA</button>
                     </div>
                 </div>
                 {/* <!-- 
