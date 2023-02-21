@@ -11,6 +11,7 @@ function App() {
   const [isLoad, setLoad] = useState(false);
   const [isClick, setClick] = useState(false);
   const [modelPath, setModelPath] = useState(CONF['SPORTS_MODEL_PATH']);
+  const [context, setContext] = useState("");
 
   const inferenceApi = async (question, context) => {
     try {
@@ -39,13 +40,13 @@ function App() {
       const article = await axios.post(CONF['BASE_URL'] + "/search" , query);
       setLoad(true);
       setData(article['data']['sample']['document']);
-      inferenceApi(question, article['data']['sample']['document'][0]['fields']['content']);
+      //inferenceApi(question, article['data']['sample']['document'][0]['fields']['content']);
     } catch (error) {
       console.log(error);
     } finally {
       console.log("Search Query")
     }
-  }
+  };
   const domainSelect = (sel) => {
     if(sel === "SPORTS") {
       setModelPath(CONF['SPORTS_MODEL_PATH']);
@@ -61,11 +62,22 @@ function App() {
     }
     else sel = "NULL";
     return sel;
-  }
+  };
+
+  function search(question, context) {
+    if(context.length === 0){ // context가 입력되지 않을 경우 => 검색엔진 사용
+      searchApi(CONF['QUERY'], question);
+      inferenceApi(question, data);
+    } else{
+      setData([{"fields":{"content":context, "title":"입력한 문장"}}]);
+      inferenceApi(question, context);
+    }
+  };
+  
   return (
     <div>
         {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
-        <Header searchApi={searchApi} isLoad={isLoad} domainSelect={domainSelect} isClick = {isClick} setClick={setClick}/>
+        <Header search={search} context={context} isLoad={isLoad} domainSelect={domainSelect} isClick = {isClick} setClick={setClick}/>
         {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
         <Content data={data} isLoad={isLoad} answer={answer} isClick={isClick}/>
         {/* <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 --> */}

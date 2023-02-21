@@ -1,21 +1,18 @@
 import MainLogo from '../img/android-chrome-192x192.png';
 import SearchLogo from '../img/favicon-32x32.png';
 import React, { useState } from 'react';
-import {CONF} from '../config';
-import Content from './Content';
-import ContextBox from './ContextBox';
-function Header({searchApi, isLoad, domainSelect, isClick, setClick}) {
+function Header({search, context, isLoad, domainSelect, isClick, setClick}) {
     const [question, setQuestion] = useState("");
     const [domain, setDomain] = useState("Sport");
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
-            searchApi(CONF['QUERY'], question); // Enter 입력이 되면 클릭 이벤트 실행
+            search(question, context);
         }
     };
 
     function textAction() {
         setClick(!isClick);
-    }
+    };
 
     return (
         <header className={isLoad ? "logoSmall" : "logoBig"}>
@@ -93,7 +90,7 @@ function Header({searchApi, isLoad, domainSelect, isClick, setClick}) {
                     onChange={(e)=>{setQuestion(e.target.value);}} 
                     onKeyDown={handleOnKeyPress}
                 />
-                <button className="searchBtn" onClick={() => searchApi(CONF['QUERY'], question)}>
+                <button className="searchBtn" onClick={() => search(question, context)}>
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
