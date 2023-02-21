@@ -39,8 +39,10 @@ button{
     font-family: "Leckerli One";
     border: none;
     background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
-
 header{
     display: flex;
     justify-content: center;
@@ -75,13 +77,13 @@ header{
     /* width: 70%; */
 }
 
-.buttons button{
-    margin: var(--spacing-micro);
+.buttons button {
+    margin: var(--spacing-small);
 }
 
 .textBtn:hover, .attachBtn:hover{
     background-color : var(--light-grey-color);
-    border: 1px solid var(--black-color);
+    outline: 1px solid var(--black-color);
     border-radius: 4px;
 }
 
@@ -144,7 +146,6 @@ header{
 .searchBar input[type=text] {
     padding: 0;
     width: 100%;
-    height: 100%;
     font-size: var(--font-medium);
     border: none;
     background-color: var(--white-color);
@@ -162,8 +163,6 @@ header{
 
 .searchBtn:hover{
     font-size: var(--font-medium);
-    margin-top: -2px;
-    margin-left: 0px;
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
@@ -217,7 +216,7 @@ header{
     display: flex;
     flex-direction: column;
     margin: var(--spacing-medium);
-    min-height: 50rem;
+    /* min-height: 50rem; */
 }
 
 .example{
@@ -229,22 +228,26 @@ header{
     border-radius: 8px;
 }
 
-.example .context{
-    display: flex;
-    align-items: center;
+.example .title button {
+    margin-left: var(--spacing-small);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.example .context span{
-    margin-right: var(--spacing-small);
-}
+.example .title button:hover{
+    font-size: var(--font-small);
+    transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
+} 
 
-.paragarph{
+.example .hide{
     display: none;
 }
 
-.result{
-    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
-    border: 3px solid var(--dark-grey-color);
+.example .context{
+    display: block;
+    margin-right: var(--spacing-small);
 }
 
 .attachText{
@@ -256,6 +259,16 @@ header{
 .attachText .exitBtn{
     align-self: flex-end;
     font-size: var(--font-medium);
+    margin-right: var(--spacing-micro);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.attachText .exitBtn:hover{
+    align-self: flex-end;
+    transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
 .attachText textarea{   
@@ -266,23 +279,6 @@ header{
 
 .attachText textarea:focus{
     outline: none;
-}
-
-.attachText .textAttachBtn{
-    align-self: center;
-    margin-top: var(--spacing-micro);
-    border: 3px solid var(--dark-grey-color);  
-    border-radius: 8px;
-    background-color: var(--dark-grey-color);
-    color: var(--light-grey-color);
-    font-size: var(--font-small);
-    font-weight: bold;
-}
-
-.attachText .textAttachBtn:hover{
-    border: 3px solid var(--dark-grey-color);
-    background-color: var(--light-grey-color);
-    color: var(--blue-color);
 }
 
 .attachFile{

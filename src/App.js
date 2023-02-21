@@ -38,7 +38,6 @@ function App() {
     try {
       query['commonQuery'] = question
       const article = await axios.post(CONF['BASE_URL'] + "/search" , query);
-      setLoad(true);
       setData(article['data']['sample']['document']);
       //inferenceApi(question, article['data']['sample']['document'][0]['fields']['content']);
     } catch (error) {
@@ -68,9 +67,11 @@ function App() {
     if(context.length === 0){ // context가 입력되지 않을 경우 => 검색엔진 사용
       searchApi(CONF['QUERY'], question);
       inferenceApi(question, data);
+      setLoad(true);
     } else{
       setData([{"fields":{"content":context, "title":"입력한 문장"}}]);
       inferenceApi(question, context);
+      setLoad(true);
     }
   };
   
@@ -79,7 +80,7 @@ function App() {
         {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
         <Header search={search} context={context} isLoad={isLoad} domainSelect={domainSelect} isClick = {isClick} setClick={setClick}/>
         {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
-        <Content data={data} answer={answer} isClick={isClick} setContext={setContext}/>
+        <Content data={data} isLoad={isLoad} answer={answer} isClick={isClick} context={context} setContext={setContext}/>
         {/* <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 --> */}
         <Footer />
     </div>
