@@ -20,8 +20,8 @@ function Content({data, isLoad, answer, isClick}) {
                 </div>
                 <div className='title'>
                     <span>Title : {data[0]['fields']['title']}</span>
-                    <button className={visible ? "hide" : "downBtn"} onClick={() => isLoad ? setVisible(!visible) : ""}><i class="fa-solid fa-caret-down"></i></button>
-                    <button className={visible ? "upBtn" : "hide"} onClick={() => setVisible(!visible)}><i class="fa-solid fa-caret-up"></i></button>
+                    <button className={visible ? "hide" : "downBtn"} onClick={() => isLoad ? setVisible(!visible) : ""}><i className="fa-solid fa-caret-down"></i></button>
+                    <button className={visible ? "upBtn" : "hide"} onClick={() => setVisible(!visible)}><i className="fa-solid fa-caret-up"></i></button>
                 </div>
                 <div className={visible ? "context" : "hide"}>
                     {/* <!-- 
@@ -35,12 +35,12 @@ function Content({data, isLoad, answer, isClick}) {
                 </div>
             </div>
             <ContextBox isClick={isClick}/>
-            {/* <div className="attachFile">
+            <div className="attachFile">
                 <span>Drag and drop your files!</span>
-                { <!-- 끝나면 밑에 빼기 --> }
+                {/* <!-- 끝나면 밑에 빼기 --> */}
                 <div>input[type="file"]로 하면 디자인 하기 힘들듯</div>
                 <div>div로 디자인 해놓은 부분에 자스로 드래그 앤 드롭 구현해야 할 듯</div>
-            </div> */}
+            </div>
         </div>
     );
 }
