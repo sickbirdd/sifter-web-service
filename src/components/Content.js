@@ -35,12 +35,12 @@ function Content({data, isLoad, answer, isClick}) {
                 </div>
             </div>
             <ContextBox isClick={isClick}/>
-            <div className="attachFile">
+            {/*<div className="attachFile">
                 <span>Drag and drop your files!</span>
-                {/* <!-- 끝나면 밑에 빼기 --> */}
+                <!-- 끝나면 밑에 빼기 --> 
                 <div>input[type="file"]로 하면 디자인 하기 힘들듯</div>
                 <div>div로 디자인 해놓은 부분에 자스로 드래그 앤 드롭 구현해야 할 듯</div>
-            </div>
+            </div>*/}
         </div>
     );
 }

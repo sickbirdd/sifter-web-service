@@ -41,14 +41,14 @@ function Header({searchApi, isLoad, domainSelect, isClick, setClick}) {
                 --> */}
                 <button className="textBtn" onClick={() => textAction()}>
                     <i className="fa-solid fa-file-lines"></i>
-                    <span>TEXT 입력</span>
+                    <span> TEXT 입력</span>
                 </button>
                 {/* <!-- 
                     첨부 파일 버튼 클릭시 main 파트에 Drag&Drop 창 띄워짐
                 --> */}
                 <button className="attachBtn">
                     <i className="fa-solid fa-file-arrow-up"></i>
-                    <span>첨부 파일</span>
+                    <span> 첨부 파일</span>
                 </button>
                 {/* <!-- 
                     ? 버튼에 마우스 호버 시 설명서가 뜬다.

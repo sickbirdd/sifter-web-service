@@ -22,7 +22,6 @@
     --spacing-micro: 3px;
 }
 
-
 body {
     font-family: "Leckerli One";
     margin: 0;
@@ -40,8 +39,10 @@ button{
     font-family: "Leckerli One";
     border: none;
     background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
-
 header{
     display: flex;
     justify-content: center;
@@ -76,13 +77,13 @@ header{
     /* width: 70%; */
 }
 
-.buttons button{
-    margin: var(--spacing-micro);
+.buttons button {
+    margin: var(--spacing-small);
 }
 
 .textBtn:hover, .attachBtn:hover{
     background-color : var(--light-grey-color);
-    border: 1px solid var(--black-color);
+    outline: 1px solid var(--black-color);
     border-radius: 4px;
 }
 
