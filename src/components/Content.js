@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import ContextBox from './ContextBox'
 
-function Content({data, isLoad, answer, isClick}) {
+function Content({data, isLoad, answer, isClick, context, setContext}) {
     const [visible, setVisible] = useState(false);
     return (
         <div className="main">
@@ -18,7 +18,7 @@ function Content({data, isLoad, answer, isClick}) {
                         `ANSWER : ${answer}`
                     }
                 </div>
-                <div className='title'>
+                <div className={ (isLoad && context) ? "hide" : "title"}>
                     <span>Title : {data[0]['fields']['title']}</span>
                     <button className={visible ? "hide" : "downBtn"} onClick={() => isLoad ? setVisible(!visible) : ""}><i className="fa-solid fa-caret-down"></i></button>
                     <button className={visible ? "upBtn" : "hide"} onClick={() => setVisible(!visible)}><i className="fa-solid fa-caret-up"></i></button>
@@ -34,8 +34,8 @@ function Content({data, isLoad, answer, isClick}) {
                     
                 </div>
             </div>
-            <ContextBox isClick={isClick} setContext={setContext}/>
-            <div className="attachFile">
+            <ContextBox isClick={isClick} context={context} setContext={setContext}/>
+            {/*<div className="attachFile">
                 <span>Drag and drop your files!</span>
                 <!-- 끝나면 밑에 빼기 --> 
                 <div>input[type="file"]로 하면 디자인 하기 힘들듯</div>

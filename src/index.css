@@ -163,8 +163,6 @@ header{
 
 .searchBtn:hover{
     font-size: var(--font-medium);
-    margin-top: -2px;
-    margin-left: 0px;
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
@@ -237,7 +235,6 @@ header{
 
 .example .title button:hover{
     font-size: var(--font-small);
-    margin-top: -2px;
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
@@ -262,6 +259,16 @@ header{
 .attachText .exitBtn{
     align-self: flex-end;
     font-size: var(--font-medium);
+    margin-right: var(--spacing-micro);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.attachText .exitBtn:hover{
+    align-self: flex-end;
+    transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
 .attachText textarea{   
@@ -272,23 +279,6 @@ header{
 
 .attachText textarea:focus{
     outline: none;
-}
-
-.attachText .textAttachBtn{
-    align-self: center;
-    margin-top: var(--spacing-micro);
-    border: 3px solid var(--dark-grey-color);  
-    border-radius: 8px;
-    background-color: var(--dark-grey-color);
-    color: var(--light-grey-color);
-    font-size: var(--font-small);
-    font-weight: bold;
-}
-
-.attachText .textAttachBtn:hover{
-    border: 3px solid var(--dark-grey-color);
-    background-color: var(--light-grey-color);
-    color: var(--blue-color);
 }
 
 .attachFile{
