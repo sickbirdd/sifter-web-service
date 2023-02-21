@@ -217,7 +217,7 @@ header{
     display: flex;
     flex-direction: column;
     margin: var(--spacing-medium);
-    min-height: 50rem;
+    /* min-height: 50rem; */
 }
 
 .example{
@@ -229,22 +229,17 @@ header{
     border-radius: 8px;
 }
 
-.example .context{
-    display: flex;
-    align-items: center;
+.example .title button {
+    margin-left: var(--spacing-small);
 }
 
-.example .context span{
-    margin-right: var(--spacing-small);
-}
-
-.paragarph{
+.example .hide{
     display: none;
 }
 
-.result{
-    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
-    border: 3px solid var(--dark-grey-color);
+.example .context{
+    display: block;
+    margin-right: var(--spacing-small);
 }
 
 .attachText{

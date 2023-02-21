@@ -67,7 +67,7 @@ function App() {
         {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
         <Header searchApi={searchApi} isLoad={isLoad} domainSelect={domainSelect} isClick = {isClick} setClick={setClick}/>
         {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
-        <Content data={data} answer={answer} isClick={isClick}/>
+        <Content data={data} isLoad={isLoad} answer={answer} isClick={isClick}/>
         {/* <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 --> */}
         <Footer />
     </div>
