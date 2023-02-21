@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import ContextBox from './ContextBox'
 
-function Content({data, answer, isClick}) {
+function Content({data, answer, isClick, setContext}) {
 
     return (
         <div className="main">
@@ -30,7 +30,7 @@ function Content({data, answer, isClick}) {
                     {/* <i class="fa-solid fa-caret-down"></i> <!-- : 버튼 2 --> */}
                 </div>
             </div>
-            <ContextBox isClick={isClick}/>
+            <ContextBox isClick={isClick} setContext={setContext}/>
             <div className="attachFile">
                 <span>Drag and drop your files!</span>
                 {/* <!-- 끝나면 밑에 빼기 --> */}

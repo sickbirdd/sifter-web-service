@@ -1,6 +1,6 @@
-function ContextBox(props) {
+function ContextBox({isClick, setContext}) {
 
-    if(props.isClick){
+    if(isClick){
         return (
             <div className="attachText">
                 {/* <!-- 
@@ -10,7 +10,7 @@ function ContextBox(props) {
                 <button className="exitBtn">
                     <i className="fa-solid fa-circle-xmark"></i>
                 </button>
-                <textarea cols="30" rows="10" placeholder=""></textarea>
+                <textarea cols="30" rows="10" placeholder="" onChange={(e) => setContext(e.target.value)}></textarea>
                 <button className="textAttachBtn">입력</button>
             </div>
         )
