@@ -13,38 +13,38 @@ function App() {
   const [modelPath, setModelPath] = useState(CONF['SPORTS_MODEL_PATH']);
   const [context, setContext] = useState("");
 
-  const inferenceApi = async (question, context) => {
-    try {
-      const query = {
-        inputs: {
-            context: context,
-            question: question
-        },
-        parameters: {
-            "top_k": 1,
-            "wait_for_model": true
+  const inferenceApi = (question, context) => {
+    return new Promise(async(resolve, reject) => {
+      try {
+        const query = {
+          params: {
+              context: context,
+              question: question
+          }
         }
+        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question}});
+        console.log(guess);
+        resolve(guess['data'][0]['answer']);
+      } catch (error) {
+        reject(error);
+      } finally {
+        console.log("finally!")
       }
-      const guess = await axios.post(CONF['BASE_URL'] + modelPath, query, { headers: {Authorization: CONF['TOKEN']} });
-      setAnswer(guess['data']['answer']);
-      console.log(guess);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      console.log("finally!")
-    }
+    });
   };
-  const searchApi = async(query, question="") => {
-    try {
-      query['commonQuery'] = question
-      const article = await axios.post(CONF['BASE_URL'] + "/search" , query);
-      setData(article['data']['sample']['document']);
-      //inferenceApi(question, article['data']['sample']['document'][0]['fields']['content']);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      console.log("Search Query")
-    }
+
+  const searchApi = (query, question="") => {
+    return new Promise(async(resolve, reject) => {
+      try {
+        query['commonQuery'] = question;
+        const article = await axios.post(CONF['BASE_URL'] + "/search" , query);
+        resolve(article['data']['sample']['document']);
+      } catch (error) {
+        reject(error);
+      } finally {
+        console.log("Search Query")
+      }
+    });
   };
   const domainSelect = (sel) => {
     if(sel === "SPORTS") {
@@ -64,13 +64,28 @@ function App() {
   };
 
   function search(question, context) {
-    if(context.length === 0){ // context가 입력되지 않을 경우 => 검색엔진 사용
-      searchApi(CONF['QUERY'], question);
-      inferenceApi(question, data);
+    if(context.length === 0) { // context가 입력되지 않을 경우 => 검색엔진 사용
+      searchApi(CONF['QUERY'], question)
+      .then((data) => {
+        inferenceApi(question, data[0]['fields']['content'])
+        .then((answer) => {
+          setAnswer(answer)
+          setData(data)
+        }).catch((err) => {
+          console.log(err);
+        });
+      }).catch((err) => {
+        console.log(err);
+      });
       setLoad(true);
     } else{
-      setData([{"fields":{"content":context, "title":"입력한 문장"}}]);
-      inferenceApi(question, context);
+      inferenceApi(question, context)
+      .then((answer) => {
+        setData([{"fields":{"content":context, "title":"입력한 문장"}}]);
+        setAnswer(answer)
+      }).catch((err) => {
+        console.log(err);
+      });
       setLoad(true);
     }
   };
