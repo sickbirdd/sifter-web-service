@@ -35,6 +35,16 @@ body {
     /* padding-top: 5px;  */
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.contentWrapper {
+    flex: 1;
+}
+
 button{
     font-family: "Leckerli One";
     border: none;
@@ -87,13 +97,13 @@ header{
     border-radius: 4px;
 }
 
-/* Tooltip container */
+/* Helptip container */
 .helpBtn {
     position: relative;
     display: inline-block;
 }
 
-/* Tooltip text */
+/* Helptip text */
 .helpText {
     visibility: hidden;
     width: 20rem;
@@ -101,12 +111,12 @@ header{
     background-color: var(--dark-grey-color);
     color: var(--white-color);
     border-radius: 6px; 
-    /* Position the tooltip text */
+    /* Position the helptip text */
     position: absolute;
     z-index: 1;
     bottom: -650%;
     left: -550%;
-    /* Fade in tooltip */
+    /* Fade in helptip */
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -121,13 +131,13 @@ header{
     text-align: left;
 }
 
-/* Tooltip arrow */
+/* Helptip arrow */
 .helpText::after {
     content: "";
     position: absolute;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* Show the helptip text when you mouse over the helptip container */
 .helpBtn:hover .helpText {
     visibility: visible;
     opacity: 1;
@@ -224,8 +234,22 @@ header{
     flex-direction: column;
     margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
     padding: var(--spacing-medium);
-    border: 3px solid var(--dark-grey-color);
-    border-radius: 8px;
+    /* border: 3px solid var(--dark-grey-color);
+    border-radius: 8px; */
+
+    /* 임시 */
+    text-align: center;
+}
+
+.example span {
+    /* 임시 */
+    margin-bottom: var(--spacing-large);
+}
+
+.example .answer {
+    /* 임시 */
+    color: goldenrod;
+    font-weight: bolder;
 }
 
 .example .title button {
@@ -247,24 +271,31 @@ header{
 
 .example .context{
     display: block;
-    margin-right: var(--spacing-small);
+    margin: var(--spacing-small);
+    padding: var(--spacing-small);
+    text-align: justify;
+
+    /* 임시 */
+    align-self: center;
+    width: 60%;
+    border: 3px solid var(--dark-grey-color);  
+    border-radius: 8px;
 }
 
 .attachText{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
 }
 
 .attachText .exitBtn{
-    align-self: flex-end;
     font-size: var(--font-medium);
     margin-right: var(--spacing-micro);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 .attachText .exitBtn:hover{
-    align-self: flex-end;
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
@@ -275,6 +306,8 @@ header{
     border: 3px dashed var(--dark-grey-color);  
     border-radius: 8px;
     font-size: var(--font-medium);
+
+    width: 60%;
 }
 
 .attachText textarea:focus{
@@ -286,7 +319,6 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 10rem;
     margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium); 
     border-radius: 8px; 
     outline: 2px dashed var(--light-grey-color);
@@ -302,10 +334,6 @@ footer {
     width: 100%;
     background-color: var(--dark-grey-color);
     color: var(--white-color);
-    
-    position: fixed;
-    left: 0;
-    bottom: 0;
 }
 
 footer div{

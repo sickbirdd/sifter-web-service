@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
-import ContextBox from './ContextBox'
-
-function Content({data, isLoad, answer, isClick, context, setContext}) {
+import ContextBox from './ContextBox';
+import AnswerBox from './AnswerBox';
+function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
     const [visible, setVisible] = useState(false);
     return (
         <div className="main">
@@ -12,12 +12,11 @@ function Content({data, isLoad, answer, isClick, context, setContext}) {
                 정답 -> result ... 검색 시 결과 띄워줘야 한다
             --> */}
             <div className="example">
-                <div className="rank">Top 1</div>
-                <div className="answer">
-                    {
-                        `ANSWER : ${answer}`
-                    }
-                </div>
+                {
+                    topAnswers.map((answer, idx) => 
+                        <AnswerBox text={answer['answer']} key={idx + 1} rank={idx + 1} score={answer['score']}/>
+                    )
+                }
                 <div className={ (isLoad && context) ? "hide" : "title"}>
                     <span>Title : {data[0]['fields']['title']}</span>
                     <button className={visible ? "hide" : "downBtn"} onClick={() => isLoad ? setVisible(!visible) : ""}><i className="fa-solid fa-caret-down"></i></button>
