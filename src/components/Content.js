@@ -14,7 +14,7 @@ function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
             <div className="example">
                 {
                     topAnswers.map((answer, idx) => 
-                        <AnswerBox text={answer['answer']} rank={idx + 1} score={answer['score']}/>
+                        <AnswerBox text={answer['answer']} key={idx + 1} rank={idx + 1} score={answer['score']}/>
                     )
                 }
                 <div className={ (isLoad && context) ? "hide" : "title"}>
