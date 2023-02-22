@@ -17,17 +17,14 @@ function App() {
     return new Promise(async(resolve, reject) => {
       try {
         const query = {
-          inputs: {
+          params: {
               context: context,
               question: question
-          },
-          parameters: {
-              "top_k": 1,
-              "wait_for_model": true
           }
         }
-        const guess = await axios.post(CONF['BASE_URL'] + modelPath, query, { headers: {Authorization: CONF['TOKEN']} });
-        resolve(guess['data']['answer']);
+        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question}});
+        console.log(guess);
+        resolve(guess['data'][0]['answer']);
       } catch (error) {
         reject(error);
       } finally {
