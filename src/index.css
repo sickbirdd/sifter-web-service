@@ -324,15 +324,25 @@ header{
     border-radius: 8px;
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-medium);
-
-    /* 임시 */
-    /* text-align: center; */
 }
 
-.result span {
-    /* 임시 */
-    margin-bottom: var(--spacing-large);
-    font-weight: bolder;
+.result .list div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list div .ranking {
+    display: flex;
+    flex-direction: column;
+}
+
+.ranking .score {
+    font-size: var(--font-micro);
+}
+
+.result .answer {
+    /* width: 100%; */
 }
 
 .result .answerbox-gold .answer {
@@ -356,17 +366,21 @@ header{
     font-size: var(--font-large);
 }
 
-.result .title span {
+.result .showContext {
+    align-self: flex-end;
+    font-size: var(--font-small);
+}
+
+.result .showContext span {
     font-weight: bolder;
 }
 
-.result .title button {
+.result .showContext button {
     margin-left: var(--spacing-small);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 .result .showContext button:hover{
-    font-size: var(--font-small);
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
@@ -375,14 +389,20 @@ header{
 
 .result .context{
     display: block;
-    /* margin: var(--spacing-large); */
     padding: var(--spacing-large);
     text-align: justify;
     line-height : 1.5;
-    /* 임시 */
-    align-self: center;
-    /* border: 3px solid var(--dark-grey-color);  
-    border-radius: 8px; */
+    
+}
+
+.result .context .title {
+    font-weight: bolder;
+    font-size: var(--font-small);
+    text-align: center;
+}
+
+.result .context div {
+    font-size: var(--font-small);
 }
 
 .attachText{
