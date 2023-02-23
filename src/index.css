@@ -14,20 +14,52 @@
     --dark-grey-color: #555;
     --light-grey-color: #ececec;
 
-    /* Font size */
-    --font-large: 1.7rem;
-    --font-regular: 1.5rem; 
-    --font-medium: 1.2rem;
-    --font-small: 1.0rem; 
-    --font-micro: 0.8rem;
-
     /* Size */
-    --avatar-size: 36px;
+    --spacing-huge: 25px;
     --spacing-large: 18px;
     --spacing-medium: 12px;
     --spacing-small: 6px;
     --spacing-micro: 3px;
+
+    /* Font size */
+    --font-large: 1.4rem;
+    --font-regular: 1.2rem; 
+    --font-medium: 1.0rem;
+    --font-small: 0.8rem; 
+    --font-micro: 0.6rem;
 }
+
+/* @media all and (min-width:320px) {
+    :root{
+        Font size
+        --font-large: 3px;
+        --font-regular: 1px; 
+        --font-medium: 1px;
+        --font-small: 1px; 
+        --font-micro: 1px;
+    }
+}
+@media all and (min-width:768px) {
+    :root{
+        Font size
+        --font-large: 1.5rem;
+        --font-regular: 1.3rem; 
+        --font-medium: 1rem;
+        --font-small: 0.8rem; 
+        --font-micro: 0.6rem;
+    }
+}
+@media all and (min-width:1024px) {
+    :root{
+        Font size
+        --font-large: 1.7rem;
+        --font-regular: 1.5rem; 
+        --font-medium: 1.2rem;
+        --font-small: 1.0rem; 
+        --font-micro: 0.8rem;
+    }
+} */
+
 
 body {
     font-family: 'NEXON Lv1 Gothic OTF';
@@ -50,6 +82,10 @@ body {
 
 .contentWrapper {
     flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 button{
@@ -66,36 +102,58 @@ header{
     align-items: center;
     width: 100%;
     background-color: var(--white-color);
+    margin-top: var(--spacing-huge);
+    margin-bottom: var(--spacing-huge);
 }
 
 .logoBig {
     /* 정답들어오면 비활성화 */
     flex-direction: column;
+    width: 100%;
 }
 
 .logoSmall {
     /* 정답들어오면 활성화 */
+    width: 70%;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
 }
 
+.notLogo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.Big {
+    flex-direction: column;
+}
+
+.Small {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
 .logo{
     border: 3px solid var(--dark-grey-color);
     border-radius: 50%;
-
     margin: var(--spacing-small);
 }
 
 .buttons{
     display: flex;
-    justify-content: center;
-    /* width: 70%; */
+    justify-content: flex-end;
+}
+
+.btnBig {
+    width: 70%;
 }
 
 .buttons button {
     margin: var(--spacing-small);
+    font-size: var(--font-small);
 }
 
 .textBtn:hover, .attachBtn:hover{
@@ -154,10 +212,16 @@ header{
     justify-content: center;
     align-items: center;
     width: 70%;
-    border: 2px solid black;
+    border: 2px solid var(--black-color);
     border-radius: 8px;
     background-color: var(--white-color);
+    padding: var(--spacing-small);
 }
+
+.searchSmall {
+    width: 100%;
+}
+
 .searching {
     font-family: 'NEXON Lv1 Gothic OTF';
 }
@@ -233,20 +297,36 @@ header{
 .main{
     display: flex;
     flex-direction: column;
-    margin: var(--spacing-medium);
-    /* min-height: 50rem; */
+    /* margin: var(--spacing-medium); */
+    
+    width: 100%;
+    align-items: center;
 }
 
-.result{
+.hide{
+    display: none;
+}
+
+.example {
+    width: 70%;
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-small);
+    border: 2px solid var(--black-color);
+    border-radius: 8px;
+}
+
+.result {
     display: flex;
     flex-direction: column;
-    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
-    padding: var(--spacing-medium);
-    /* border: 3px solid var(--dark-grey-color);
-    border-radius: 8px; */
+
+    width: 70%;
+    border: 2px solid var(--black-color);
+    border-radius: 8px;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
 
     /* 임시 */
-    text-align: center;
+    /* text-align: center; */
 }
 
 .result span {
@@ -285,7 +365,7 @@ header{
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.result .title button:hover{
+.result .showContext button:hover{
     font-size: var(--font-small);
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
@@ -293,33 +373,29 @@ header{
     box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 } 
 
-.result .hide{
-    display: none;
-}
-
 .result .context{
     display: block;
-    margin: var(--spacing-large);
+    /* margin: var(--spacing-large); */
     padding: var(--spacing-large);
     text-align: justify;
     line-height : 1.5;
     /* 임시 */
     align-self: center;
-    width: 60%;
-    border: 3px solid var(--dark-grey-color);  
-    border-radius: 8px;
+    /* border: 3px solid var(--dark-grey-color);  
+    border-radius: 8px; */
 }
 
 .attachText{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
+
+    width: 70%;
 }
 
 .attachText .exitBtn{
+    align-self: flex-end;
     font-size: var(--font-medium);
-    margin-right: var(--spacing-micro);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -331,11 +407,12 @@ header{
 }
 
 .attachText textarea{   
-    border: 3px dashed var(--dark-grey-color);  
+    border: 2px dashed var(--dark-grey-color);  
     border-radius: 8px;
     font-size: var(--font-medium);
-
-    width: 60%;
+    
+    width: 100%;
+    padding: var(--spacing-small);
 }
 
 .attachText textarea:focus{
@@ -354,10 +431,6 @@ header{
     transition: all .15s ease-in-out;
     background-color: var(--dark-grey-color);
     color: var(--light-grey-color);
-}
-
-.hide_footer {
-    display: none;
 }
 
 footer {
