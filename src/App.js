@@ -16,7 +16,7 @@ function App() {
   const inferenceApi = (question, context) => {
     return new Promise(async(resolve, reject) => {
       try {
-        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question}});
+        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question, top_k: 1}});
         console.log(guess);
         resolve(guess['data']);
       } catch (error) {
