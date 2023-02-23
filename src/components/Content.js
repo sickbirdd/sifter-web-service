@@ -1,6 +1,10 @@
 import {React, useState} from 'react';
 import ContextBox from './ContextBox';
 import AnswerBox from './AnswerBox';
+import GoldMedal from '../img/gold.png';
+import SilverMedal from '../img/silver.png';
+import BronzeMedal from '../img/bronze.png';
+
 function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
     const [visible, setVisible] = useState(false);
     return (
@@ -12,10 +16,17 @@ function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
                 정답 -> result ... 검색 시 결과 띄워줘야 한다
             --> */}
             <div className="example">
-                {
-                    topAnswers.map((answer, idx) => 
-                        <AnswerBox text={answer['answer']} key={idx + 1} rank={idx + 1} score={answer['score']}/>
-                    )
+                {   
+                    isLoad ? <div>
+                        <AnswerBox text={topAnswers[0]['answer']} key={1} score={topAnswers[0]['score']} img={GoldMedal}/>
+                        <AnswerBox text={topAnswers[1]['answer']} key={2} score={topAnswers[1]['score']} img={SilverMedal}/>
+                        <AnswerBox text={topAnswers[2]['answer']} key={3} score={topAnswers[2]['score']} img={BronzeMedal}/>
+                        {
+                            topAnswers.slice(3).map((answer, idx) => {
+                                return <AnswerBox text={answer['answer']} key={idx + 4}score={answer['score']}/>
+                            })
+                        }
+                    </div> : <div></div>
                 }
                 <div className={ (isLoad && context) ? "hide" : "title"}>
                     <span>Title : {data[0]['fields']['title']}</span>
@@ -44,6 +55,7 @@ function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
     );
 }
 Content.defaultProps = {
-    data: [{"fields":{"content":"여기에 본문이", "title":"예제"}}]
+    isLoad: false,
+    data: [{"fields":{"content":"여기에 본문이", "title":"예제"}}],
 };
 export default Content;
