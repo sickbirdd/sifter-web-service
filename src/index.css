@@ -237,7 +237,7 @@ header{
     /* min-height: 50rem; */
 }
 
-.example{
+.result{
     display: flex;
     flex-direction: column;
     margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium);
@@ -249,43 +249,43 @@ header{
     text-align: center;
 }
 
-.example span {
+.result span {
     /* 임시 */
     margin-bottom: var(--spacing-large);
     font-weight: bolder;
 }
 
-.example .answerbox-gold .answer {
+.result .answerbox-gold .answer {
     /* 임시 */
     color: goldenrod;
     font-weight: bolder;
     font-size: var(--font-large);
 }
 
-.example .answerbox-silver .answer {
+.result .answerbox-silver .answer {
     /* 임시 */
     color: silver;
     font-weight: bolder;
     font-size: var(--font-large);
 }
 
-.example .answerbox-bronze .answer {
+.result .answerbox-bronze .answer {
     /* 임시 */
     color: #CD7F32;
     font-weight: bolder;
     font-size: var(--font-large);
 }
 
-.example .title span {
+.result .title span {
     font-weight: bolder;
 }
 
-.example .title button {
+.result .title button {
     margin-left: var(--spacing-small);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.example .title button:hover{
+.result .title button:hover{
     font-size: var(--font-small);
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
@@ -293,11 +293,11 @@ header{
     box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 } 
 
-.example .hide{
+.result .hide{
     display: none;
 }
 
-.example .context{
+.result .context{
     display: block;
     margin: var(--spacing-large);
     padding: var(--spacing-large);

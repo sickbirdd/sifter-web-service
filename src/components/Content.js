@@ -15,7 +15,7 @@ function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
                 file -> attachFile ... 첨부 파일 버튼 클릭 시 보여줌
                 정답 -> result ... 검색 시 결과 띄워줘야 한다
             --> */}
-            <div className="example">
+            <div className="result">
                 {   
                     isLoad ? <div>
                         <AnswerBox text={topAnswers[0]['answer']} key={1} score={topAnswers[0]['score']} img={GoldMedal} type="gold"/>
