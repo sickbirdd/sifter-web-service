@@ -11,7 +11,7 @@ function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
                 file -> attachFile ... 첨부 파일 버튼 클릭 시 보여줌
                 정답 -> result ... 검색 시 결과 띄워줘야 한다
             --> */}
-            <div className="example">
+            <div className="result">
                 {
                     topAnswers.map((answer, idx) => 
                         <AnswerBox text={answer['answer']} key={idx + 1} rank={idx + 1} score={answer['score']}/>

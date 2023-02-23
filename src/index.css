@@ -22,11 +22,11 @@
     --spacing-micro: 3px;
 
     /* Font size */
-    --font-large: 1.7rem;
-    --font-regular: 1.5rem; 
-    --font-medium: 1.2rem;
-    --font-small: 1.0rem; 
-    --font-micro: 0.8rem;
+    --font-large: 1.4rem;
+    --font-regular: 1.2rem; 
+    --font-medium: 1.0rem;
+    --font-small: 0.8rem; 
+    --font-micro: 0.6rem;
 }
 
 /* @media all and (min-width:320px) {
@@ -109,23 +109,37 @@ header{
 .logoBig {
     /* 정답들어오면 비활성화 */
     flex-direction: column;
-    margin-top: 5rem;
+    width: 100%;
 }
 
 .logoSmall {
     /* 정답들어오면 활성화 */
-    /* flex-direction: column; */
-    width: 80%;
-    
+    width: 70%;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
 }
 
+.notLogo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.Big {
+    flex-direction: column;
+}
+
+.Small {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
 .logo{
     border: 3px solid var(--dark-grey-color);
     border-radius: 50%;
+    margin: var(--spacing-small);
 }
 
 .buttons{
@@ -198,11 +212,16 @@ header{
     justify-content: center;
     align-items: center;
     width: 70%;
-    border: 2px solid black;
+    border: 2px solid var(--black-color);
     border-radius: 8px;
     background-color: var(--white-color);
     padding: var(--spacing-small);
 }
+
+.searchSmall {
+    width: 100%;
+}
+
 .searching {
     font-family: 'NEXON Lv1 Gothic OTF';
 }
@@ -304,6 +323,7 @@ header{
     border: 2px solid var(--black-color);
     border-radius: 8px;
     padding: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
 
     /* 임시 */
     /* text-align: center; */
@@ -349,13 +369,13 @@ header{
 .attachText{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     width: 70%;
 }
 
 .attachText .exitBtn{
+    align-self: flex-end;
     font-size: var(--font-medium);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
