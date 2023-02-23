@@ -18,12 +18,12 @@ function Content({data, isLoad, topAnswers, isClick, context, setContext}) {
             <div className="example">
                 {   
                     isLoad ? <div>
-                        <AnswerBox text={topAnswers[0]['answer']} key={1} score={topAnswers[0]['score']} img={GoldMedal}/>
-                        <AnswerBox text={topAnswers[1]['answer']} key={2} score={topAnswers[1]['score']} img={SilverMedal}/>
-                        <AnswerBox text={topAnswers[2]['answer']} key={3} score={topAnswers[2]['score']} img={BronzeMedal}/>
+                        <AnswerBox text={topAnswers[0]['answer']} key={1} score={topAnswers[0]['score']} img={GoldMedal} type="gold"/>
+                        <AnswerBox text={topAnswers[1]['answer']} key={2} score={topAnswers[1]['score']} img={SilverMedal} type="silver"/>
+                        <AnswerBox text={topAnswers[2]['answer']} key={3} score={topAnswers[2]['score']} img={BronzeMedal} type="bronze"/>
                         {
                             topAnswers.slice(3).map((answer, idx) => {
-                                return <AnswerBox text={answer['answer']} key={idx + 4}score={answer['score']}/>
+                                return <AnswerBox text={answer['answer']} key={idx + 4} score={answer['score']} type="common"/>
                             })
                         }
                     </div> : <div></div>

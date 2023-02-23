@@ -1,13 +1,11 @@
 import {React} from 'react';
 
-function AnswerBox({text, score, img}) {
+function AnswerBox({text, score, img, type}) {
     return (
-        <span>
-            <div className="rank">
-                {
+        <div className={`answerbox-${type}`}>
+            {
                     (img === null) ? "" : <img alt="Medal" className="medal" src={img}/> 
-                }
-            </div>
+            }
             <div className="answer">
                 {
                     `ANSWER : ${text}`
@@ -18,7 +16,7 @@ function AnswerBox({text, score, img}) {
                     `${score.toFixed(5)}`
                 }
             </div>
-        </span>
+        </div>
     )
 }
 AnswerBox.defaultProps = { 

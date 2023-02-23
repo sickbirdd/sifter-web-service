@@ -255,10 +255,25 @@ header{
     font-weight: bolder;
 }
 
-.example .answer {
+.example .answerbox-gold .answer {
     /* 임시 */
     color: goldenrod;
     font-weight: bolder;
+    font-size: var(--font-large);
+}
+
+.example .answerbox-silver .answer {
+    /* 임시 */
+    color: silver;
+    font-weight: bolder;
+    font-size: var(--font-large);
+}
+
+.example .answerbox-bronze .answer {
+    /* 임시 */
+    color: #CD7F32;
+    font-weight: bolder;
+    font-size: var(--font-large);
 }
 
 .example .title span {
