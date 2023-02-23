@@ -335,13 +335,32 @@ header{
     font-weight: bolder;
 }
 
-.result .answer {
+.result .answerbox-gold .answer {
     /* 임시 */
     color: goldenrod;
     font-weight: bolder;
+    font-size: var(--font-large);
 }
 
-.result .showContext button {
+.result .answerbox-silver .answer {
+    /* 임시 */
+    color: silver;
+    font-weight: bolder;
+    font-size: var(--font-large);
+}
+
+.result .answerbox-bronze .answer {
+    /* 임시 */
+    color: #CD7F32;
+    font-weight: bolder;
+    font-size: var(--font-large);
+}
+
+.result .title span {
+    font-weight: bolder;
+}
+
+.result .title button {
     margin-left: var(--spacing-small);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
