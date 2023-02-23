@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Footer() {
+function Footer({isLoad}) {
     return (
-        <footer>
+        <footer className={isLoad ? "" : "hide_footer"}>
             <a href="#">문서화</a>
             <div>@copyright 2023. SIFTER</div>
         </footer>

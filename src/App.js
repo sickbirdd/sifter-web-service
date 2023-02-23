@@ -16,7 +16,7 @@ function App() {
   const inferenceApi = (question, context) => {
     return new Promise(async(resolve, reject) => {
       try {
-        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question}});
+        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question, top_k: 1}});
         console.log(guess);
         resolve(guess['data']);
       } catch (error) {
@@ -93,7 +93,7 @@ function App() {
           <Content data={data} isLoad={isLoad} topAnswers={topAnswers} isClick={isClick} context={context} setContext={setContext}/>
         </div>
         {/* <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 --> */}
-        <Footer />
+        <Footer isLoad={isLoad} />
     </div>
   );
 }
