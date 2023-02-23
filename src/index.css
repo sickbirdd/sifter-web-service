@@ -121,7 +121,6 @@ header{
     /* Position the helptip text */
     position: absolute;
     z-index: 1;
-    bottom: -650%;
     left: -550%;
     /* Fade in helptip */
     opacity: 0;
@@ -129,7 +128,7 @@ header{
 }
 
 .helpText div{
-    font-size: var(--font-medium);
+    font-size: var(--font-);
     margin-top: var(--spacing-small);
     text-align: center;
 }
@@ -340,6 +339,10 @@ header{
     transition: all .15s ease-in-out;
     background-color: var(--dark-grey-color);
     color: var(--light-grey-color);
+}
+
+.hide_footer {
+    display: none;
 }
 
 footer {
