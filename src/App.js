@@ -63,7 +63,7 @@ function App() {
     if(context.length === 0) { // context가 입력되지 않을 경우 => 검색엔진 사용
       searchApi(CONF['QUERY'], question)
       .then((data) => {
-        inferenceApi(question, data[0]['fields']['content'])
+        inferenceApi(question, data[0]['fields']['content'].slice(0, 2000))
         .then((answer) => {
           setAnswer(answer)
           setData(data)
