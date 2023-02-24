@@ -254,7 +254,6 @@ header{
 .dropdown{
     position : relative;
     display : inline-block;
-    padding: var(--spacing-micro);
 }
 .dropBtn{
     display: flex;
@@ -329,7 +328,7 @@ header{
 .result .list div {
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: space-around; */
 }
 
 .list div .ranking {
@@ -342,28 +341,24 @@ header{
 }
 
 .result .answer {
-    /* width: 100%; */
+    font-weight: bolder;
+    font-size: var(--font-large);
+    flex: 1;
 }
 
 .result .answerbox-gold .answer {
     /* 임시 */
     color: goldenrod;
-    font-weight: bolder;
-    font-size: var(--font-large);
 }
 
 .result .answerbox-silver .answer {
     /* 임시 */
     color: silver;
-    font-weight: bolder;
-    font-size: var(--font-large);
 }
 
 .result .answerbox-bronze .answer {
     /* 임시 */
     color: #CD7F32;
-    font-weight: bolder;
-    font-size: var(--font-large);
 }
 
 .result .showContext {
