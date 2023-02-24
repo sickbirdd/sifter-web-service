@@ -6,7 +6,7 @@ import axios from 'axios';
 import {CONF} from './config';
 import './index.css';
 function App() {
-  const [data, setData] = useState([{"content":"본문", "title":"제목", "answer":"정답", "answer_start":0, "score":0.0}]);
+  const [data, setData] = useState([]);
   const [isLoad, setLoad] = useState(false);
   const [isClick, setClick] = useState(false);
   const [modelPath, setModelPath] = useState(CONF['SPORTS_MODEL_PATH']);
@@ -31,10 +31,12 @@ function App() {
 
   const search = async(question, context) =>{
     try {
+      console.log(context.length);
       const mrc_result = context.length === 0 ? 
       await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question}}) :
       await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context});
-      setData(mrc_result);
+      setData(mrc_result["data"]);
+      setLoad(true);
     } catch (error) {
       console.log(error);
     } finally {
