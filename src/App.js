@@ -7,7 +7,9 @@ import {CONF} from './config';
 import './index.css';
 function App() {
   const [data, setData] = useState([{"fields":{"content":"본문", "title":"제목"}}]);
-  const [topAnswers, setAnswer] = useState([{"answer":"정답", "answer_start":0, "score":"모델 점수"}]);
+  const [topAnswers, setAnswer] = useState([{"answer":"정답", "answer_start":0, "score":0.0},
+  {"answer":"정답", "answer_start":0, "score":0.0},
+  {"answer":"정답", "answer_start":0, "score":0.0}]);
   const [isLoad, setLoad] = useState(false);
   const [isClick, setClick] = useState(false);
   const [modelPath, setModelPath] = useState(CONF['SPORTS_MODEL_PATH']);
@@ -16,7 +18,7 @@ function App() {
   const inferenceApi = (question, context) => {
     return new Promise(async(resolve, reject) => {
       try {
-        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question, top_k: 1}});
+        const guess = await axios.get(CONF['BASE_URL'] + '/inference', {params: {context: context, question: question}});
         console.log(guess);
         resolve(guess['data']);
       } catch (error) {
@@ -61,7 +63,7 @@ function App() {
     if(context.length === 0) { // context가 입력되지 않을 경우 => 검색엔진 사용
       searchApi(CONF['QUERY'], question)
       .then((data) => {
-        inferenceApi(question, data[0]['fields']['content'])
+        inferenceApi(question, data[0]['fields']['content'].slice(0, 2000))
         .then((answer) => {
           setAnswer(answer)
           setData(data)
