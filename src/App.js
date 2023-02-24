@@ -88,7 +88,7 @@ function App() {
     <div className='wrapper'>
         <div className='contentWrapper'>
           {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
-          <Header search={search} context={context} isLoad={isLoad} domainSelect={domainSelect} isClick = {isClick} setClick={setClick}/>
+          <Header search={search} context={context} setContext={setContext} isLoad={isLoad} domainSelect={domainSelect} isClick = {isClick} setClick={setClick}/>
           {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
           <Content data={data} isLoad={isLoad} topAnswers={topAnswers} isClick={isClick} context={context} setContext={setContext}/>
         </div>

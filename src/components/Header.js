@@ -1,7 +1,8 @@
 import MainLogo from '../img/android-chrome-192x192.png';
 import SearchLogo from '../img/favicon-32x32.png';
 import React, { useState } from 'react';
-function Header({search, context, isLoad, domainSelect, isClick, setClick}) {
+import Parser from './Parser';
+function Header({search, context, setContext, isLoad, domainSelect, isClick, setClick}) {
     const [question, setQuestion] = useState("");
     const [domain, setDomain] = useState("Sport");
     const handleOnKeyPress = e => {
@@ -43,10 +44,7 @@ function Header({search, context, isLoad, domainSelect, isClick, setClick}) {
                 {/* <!-- 
                     첨부 파일 버튼 클릭시 main 파트에 Drag&Drop 창 띄워짐
                 --> */}
-                <button className="attachBtn">
-                    <i className="fa-solid fa-file-arrow-up"></i>
-                    <span> 첨부 파일</span>
-                </button>
+                <Parser setContext={setContext}/>
                 {/* <!-- 
                     ? 버튼에 마우스 호버 시 설명서가 뜬다.
                     PC가 아닌 경우 따로 옆에 뜨도록 만들어야 할 듯
