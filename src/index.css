@@ -296,7 +296,7 @@ header{
 .main{
     display: flex;
     flex-direction: column;
-    /* margin: var(--spacing-medium); */
+    margin-bottom: var(--spacing-huge);
     
     width: 100%;
     align-items: center;
@@ -307,11 +307,35 @@ header{
 }
 
 .example {
+    display: flex;
+    justify-content: center;
     width: 70%;
     margin-top: var(--spacing-large);
+    margin-bottom: var(--spacing-medium);
     padding: var(--spacing-small);
-    border: 2px solid var(--black-color);
-    border-radius: 8px;
+    /* border: 2px solid var(--black-color);
+    border-radius: 8px; */
+}
+
+.example .exampleList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    list-style: none;
+}
+
+.exampleBtn {
+    margin: var(--spacing-small);
+}
+
+.exampleBtn:hover {
+    border-bottom: 2px solid;
+}
+
+.example .exampleAnswer {
+    border: 1px solid;
 }
 
 .result {
@@ -328,7 +352,6 @@ header{
 .result .list div {
     display: flex;
     align-items: center;
-    /* justify-content: space-around; */
 }
 
 .list div .ranking {
