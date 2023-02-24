@@ -5,7 +5,7 @@ function AnswerBox({text, score, img, type}) {
         <div className={`answerbox-${type}`}>
             <div className="ranking">
                 {
-                        (img === null) ? "" : <img alt="Medal" className="medal" src={img}/> 
+                        (img === "") ? "" : <img alt="Medal" className="medal" src={img}/> 
                 }
                 <div className="score">
                     {
@@ -23,7 +23,6 @@ function AnswerBox({text, score, img, type}) {
     )
 }
 AnswerBox.defaultProps = { 
-    img: null,
     text: "정답 예시",
     score: 0.0
 }
