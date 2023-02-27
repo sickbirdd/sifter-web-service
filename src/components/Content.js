@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import ContextBox from './ContextBox';
 import ResultBox from './ResultBox';
-function Content({search, data, isLoad, isClick, context, setContext}) {
+function Content({search, data, isLoad, clickMode, context, setContext, setFile}) {
     const [more, setMore] = useState(false);
     return (
         <div className="main">
@@ -18,19 +18,19 @@ function Content({search, data, isLoad, isClick, context, setContext}) {
                 <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀", "")}>예시 질문 4</button> 
                 <button className='exampleBtn five' onClick={() => search("2020 한국시리즈 우승팀", "")}>예시 질문 5</button>
             </div>
-            {console.log(data)}
-            {data.length !== 0 ? <ResultBox key={0} result={data[0]} index={0} isLoad={isLoad} context={context}/> : ""}
+            {data.length !== 0 ? <ResultBox key={0} result={data[0]} index={0} isLoad={isLoad} clickMode={clickMode}/> : ""}
             <div className={ isLoad ? "" : "hide"}>
                 <span>더보기</span>
                 <button className={more ? "hide" : "downBtn"} onClick={() => isLoad ? setMore(!more) : ""}><i className="fa-solid fa-caret-down"></i></button>
                 <button className={more ? "upBtn" : "hide"} onClick={() => setMore(!more)}><i className="fa-solid fa-caret-up"></i></button>
             </div>
             <div className={ more ? "realview" : "preview"}>
-                {data.length !== 0 ? <ResultBox key={1} result={data[1]} index={1} isLoad={isLoad} context={context}/> : ""}
+                {data.length !== 0 ? <ResultBox key={1} result={data[1]} index={1} isLoad={isLoad} clickMode={clickMode}/> : ""}
             </div>      
             <div className={ more ? "blurrr" : "hiden"}>
                 {
-                    data.slice(3).map((result, index) => {return <ResultBox key={index+2} result={result} index={index+2} isLoad={isLoad} context={context}/>})
+                    data.slice(3).map((result, index) => {return <ResultBox key={index+2} result={result} index={index+2} isLoad={isLoad} clickMode={clickMode}/>})
+                    
                 }
             </div>
             <ContextBox clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
