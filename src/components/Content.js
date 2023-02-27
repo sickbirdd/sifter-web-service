@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import ContextBox from './ContextBox';
 import ResultBox from './ResultBox';
-function Content({data, isLoad, isClick, context, setContext}) {
+function Content({data, isLoad, clickMode, context, setContext, setFile}) {
     const [exam, setExam] = useState(-1);
     return (
         <div className="main">
@@ -25,9 +25,9 @@ function Content({data, isLoad, isClick, context, setContext}) {
                 </div>
             </div>
             {
-                data.map((result, index) => {return <ResultBox key={index} result={result} index={index} isLoad={isLoad} context={context}/>})
+                data.map((result, index) => {return <ResultBox key={index} result={result} index={index} isLoad={isLoad} clickMode={clickMode}/>})
             }
-            <ContextBox isClick={isClick} context={context} setContext={setContext}/>
+            <ContextBox clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
             {/*<div className="attachFile">
                 <span>Drag and drop your files!</span>
                 <!-- 끝나면 밑에 빼기 --> 

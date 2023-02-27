@@ -5,14 +5,14 @@ import SilverMedal from '../img/silver.png';
 import BronzeMedal from '../img/bronze.png';
 const images = [GoldMedal, SilverMedal, BronzeMedal, "", "", "", "", "", "", ""];
 const types = ["gold", "silver", "bronze", "common", "common", "common", "common", "common", "common", "common"];
-function ResultBox({result, isLoad, context, index}) {
+function ResultBox({result, isLoad, clickMode, index}) {
     const [visible, setVisible] = useState(false);
     return (
         <div className={isLoad ? "result" : "hide"}>
             {   
                 isLoad ? <AnswerBox text={result['answer']} key={index} score={result['score']} img={images[index]} type={types[index]}/>:<div></div>
             }
-            <div className={ (isLoad && context) ? "hide" : "showContext"}>
+            <div className={ (isLoad && clickMode !== 'none') ? "hide" : "showContext"}>
                 <span>출처</span>
                 <button className={visible ? "hide" : "downBtn"} onClick={() => isLoad ? setVisible(!visible) : ""}><i className="fa-solid fa-caret-down"></i></button>
                 <button className={visible ? "upBtn" : "hide"} onClick={() => setVisible(!visible)}><i className="fa-solid fa-caret-up"></i></button>
