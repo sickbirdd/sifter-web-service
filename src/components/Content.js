@@ -33,7 +33,7 @@ function Content({search, data, isLoad, isClick, context, setContext}) {
                     data.slice(3).map((result, index) => {return <ResultBox key={index+2} result={result} index={index+2} isLoad={isLoad} context={context}/>})
                 }
             </div>
-            <ContextBox isClick={isClick} context={context} setContext={setContext}/>
+            <ContextBox clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
             {/*<div className="attachFile">
                 <span>Drag and drop your files!</span>
                 <!-- 끝나면 밑에 빼기 --> 
