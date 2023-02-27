@@ -107,6 +107,7 @@ header{
     background-color: var(--white-color);
     margin-top: var(--spacing-huge);
     margin-bottom: var(--spacing-huge);
+    z-index: 10;
 }
 
 .logoBig {
@@ -427,7 +428,7 @@ div .ranking {
 }
 
 .preview {
-    animation: real-view 5s;
+    /* animation: real-view 3s; */
     animation-fill-mode: forwards;
     opacity: 0.3;
 
@@ -438,25 +439,25 @@ div .ranking {
 }
 
 .preview .result {
-    animation: result-pre 5s;
+    /* animation: result-pre 2s; */
     animation-fill-mode: forwards;
 
     height: 30%;
     overflow: hidden;
+    border-bottom: none;
 }
 .realview {
-    animation: pre-view 5s;
+    /* animation: pre-view 3s; */
     animation-fill-mode: forwards;
 
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
 }
 
 .realview .result {
-    animation: result-real 5s;
+    /* animation: result-real 2s; */
     animation-fill-mode: forwards;
 }
 
@@ -496,18 +497,16 @@ div .ranking {
     }
     to {
         opacity: 0.3;
-        height: 10%;
+        height: 100%;
     }
 }
 
 .hiden {
-    animation: fade-out 3s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-    height: 0;
     z-index: -1;
 
     width: 100%;
+    height: 0;
+    opacity: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -515,36 +514,34 @@ div .ranking {
 }
 
 .blurrr {
-    animation: fade-in 3s;
+    /* animation: fade-in-h 3s; */
+    /* animation: fade-in-ans 5s; */
     animation-fill-mode: forwards;
-    
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-@keyframes fade-in {
+@keyframes fade-in-h {
     from {
         opacity: 0;
         height: 0;
     }
     to {
-        opacity: 1;
+        opacity: 0;
         height: 100%;
     }
 }
 
-@keyframes fade-out {
+@keyframes fade-in-ans {
     from {
-        opacity: 1;
-        height: 100%;
-
+        opacity: 0;
     }
     to {
-        opacity: 0;
-        height: 0;
+        opacity: 1;
     }
 }
 

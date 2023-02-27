@@ -2,6 +2,7 @@ import {React, useState} from 'react';
 import ContextBox from './ContextBox';
 import ResultBox from './ResultBox';
 function Content({data, isLoad, isClick, context, setContext}) {
+    const [exam, setExam] = useState(-1);
     const [more, setMore] = useState(false);
     return (
         <div className="main">
@@ -11,7 +12,7 @@ function Content({data, isLoad, isClick, context, setContext}) {
                 file -> attachFile ... 첨부 파일 버튼 클릭 시 보여줌
                 정답 -> result ... 검색 시 결과 띄워줘야 한다 (더보기 버튼 누를 시 top-k)
             --> */}
-            {/* <div className={isLoad ? "hide" : "hide"}>
+            <div className={isLoad ? "hide" : "example"}>
                 <div className='exampleList'>
                     <button className='exampleBtn' onClick={() => exam !== 1 ? setExam(1) : setExam(-1)}>예시 질문 1</button> 
                     <button className='exampleBtn' onClick={() => exam !== 2 ? setExam(2) : setExam(-1)}>예시 질문 2</button> 
@@ -23,7 +24,7 @@ function Content({data, isLoad, isClick, context, setContext}) {
                     <div>예시 정답 {exam}</div>
                     <div>예시 지문 {exam}</div>
                 </div>
-            </div> */}
+            </div>
             {console.log(data)}
             {data.length !== 0 ? <ResultBox key={0} result={data[0]} index={0} isLoad={isLoad} context={context}/> : ""}
             <div className={ isLoad ? "" : "hide"}>
