@@ -2,7 +2,7 @@ import {React} from 'react';
 
 function AnswerBox({text, score, img, type}) {
     return (
-        <div className={`answerbox-${type}`}>
+        <div className={`answerbox ${type}`}>
             <div className="ranking">
                 {
                         (img === "") ? "" : <img alt="Medal" className="medal" src={img}/> 

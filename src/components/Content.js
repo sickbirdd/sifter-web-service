@@ -2,16 +2,16 @@ import {React, useState} from 'react';
 import ContextBox from './ContextBox';
 import ResultBox from './ResultBox';
 function Content({data, isLoad, isClick, context, setContext}) {
-    const [exam, setExam] = useState(-1);
+    const [more, setMore] = useState(false);
     return (
         <div className="main">
             {/* <!-- 
-                초기 -> example ... 정답 예시 내용만 띄워둠
+                초기 -> example ... 예시 질문 버튼
                 text -> attachText ... text 입력 버튼 클릭 시 보여줌
                 file -> attachFile ... 첨부 파일 버튼 클릭 시 보여줌
-                정답 -> result ... 검색 시 결과 띄워줘야 한다
+                정답 -> result ... 검색 시 결과 띄워줘야 한다 (더보기 버튼 누를 시 top-k)
             --> */}
-            <div className={isLoad ? "hide" : "hide"}>
+            {/* <div className={isLoad ? "hide" : "hide"}>
                 <div className='exampleList'>
                     <button className='exampleBtn' onClick={() => exam !== 1 ? setExam(1) : setExam(-1)}>예시 질문 1</button> 
                     <button className='exampleBtn' onClick={() => exam !== 2 ? setExam(2) : setExam(-1)}>예시 질문 2</button> 
@@ -23,10 +23,20 @@ function Content({data, isLoad, isClick, context, setContext}) {
                     <div>예시 정답 {exam}</div>
                     <div>예시 지문 {exam}</div>
                 </div>
+            </div> */}
+            {console.log(data)}
+            {data.length !== 0 ? 
+            <ResultBox key={0} result={data[0]} index={0} isLoad={isLoad} context={context}/> : ""}
+            <div className={ isLoad ? "" : "hide"}>
+                <span>더보기</span>
+                <button className={more ? "hide" : "downBtn"} onClick={() => isLoad ? setMore(!more) : ""}><i className="fa-solid fa-caret-down"></i></button>
+                <button className={more ? "upBtn" : "hide"} onClick={() => setMore(!more)}><i className="fa-solid fa-caret-up"></i></button>
+            </div>       
+            <div className={ more ? "moreAnswers" : "hide"}>
+                {
+                    data.slice(2).map((result, index) => {return <ResultBox key={index+1} result={result} index={index+1} isLoad={isLoad} context={context}/>})
+                }
             </div>
-            {
-                data.map((result, index) => {return <ResultBox key={index} result={result} index={index} isLoad={isLoad} context={context}/>})
-            }
             <ContextBox isClick={isClick} context={context} setContext={setContext}/>
             {/*<div className="attachFile">
                 <span>Drag and drop your files!</span>

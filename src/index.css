@@ -13,6 +13,9 @@
     --red-color: #ff0000;
     --dark-grey-color: #555;
     --light-grey-color: #ececec;
+    --gold-color: #D5A11E;
+    --silver-color: #A3A3A3;
+    --bronze-color: #CD7F32 ;
 
     /* Size */
     --spacing-huge: 25px;
@@ -349,12 +352,12 @@ header{
     margin-bottom: var(--spacing-medium);
 }
 
-.result .list div {
+.result .answerbox {
     display: flex;
     align-items: center;
 }
 
-.list div .ranking {
+div .ranking {
     display: flex;
     flex-direction: column;
 }
@@ -369,19 +372,19 @@ header{
     flex: 1;
 }
 
-.result .answerbox-gold .answer {
+.result .gold .answer {
     /* 임시 */
-    color: goldenrod;
+    color: var(--gold-color);
 }
 
-.result .answerbox-silver .answer {
+.result .silver .answer {
     /* 임시 */
-    color: silver;
+    color: var(--silver-color);
 }
 
-.result .answerbox-bronze .answer {
+.result .bronze .answer {
     /* 임시 */
-    color: #CD7F32;
+    color: var(--bronze-color);
 }
 
 .result .showContext {
@@ -421,6 +424,14 @@ header{
 
 .result .context div {
     font-size: var(--font-small);
+}
+
+.moreAnswers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .attachText{
