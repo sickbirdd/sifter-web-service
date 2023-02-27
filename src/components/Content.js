@@ -1,8 +1,7 @@
 import {React, useState} from 'react';
 import ContextBox from './ContextBox';
 import ResultBox from './ResultBox';
-function Content({data, isLoad, isClick, context, setContext}) {
-    const [exam, setExam] = useState(-1);
+function Content({search, data, isLoad, isClick, context, setContext}) {
     const [more, setMore] = useState(false);
     return (
         <div className="main">
@@ -13,17 +12,11 @@ function Content({data, isLoad, isClick, context, setContext}) {
                 정답 -> result ... 검색 시 결과 띄워줘야 한다 (더보기 버튼 누를 시 top-k)
             --> */}
             <div className={isLoad ? "hide" : "example"}>
-                <div className='exampleList'>
-                    <button className='exampleBtn' onClick={() => exam !== 1 ? setExam(1) : setExam(-1)}>예시 질문 1</button> 
-                    <button className='exampleBtn' onClick={() => exam !== 2 ? setExam(2) : setExam(-1)}>예시 질문 2</button> 
-                    <button className='exampleBtn' onClick={() => exam !== 3 ? setExam(3) : setExam(-1)}>예시 질문 3</button> 
-                    <button className='exampleBtn' onClick={() => exam !== 4 ? setExam(4) : setExam(-1)}>예시 질문 4</button> 
-                    <button className='exampleBtn' onClick={() => exam !== 5 ? setExam(5) : setExam(-1)}>예시 질문 5</button>
-                </div>
-                <div className={exam === -1 ? "hide" : "exampleAnswer " + exam}>
-                    <div>예시 정답 {exam}</div>
-                    <div>예시 지문 {exam}</div>
-                </div>
+                <button className='exampleBtn one' onClick={() => search("메시 소속 팀", "")}>예시 질문 1</button> 
+                <button className='exampleBtn two' onClick={() => search("마이클 조던 신장", "")}>예시 질문 2</button> 
+                <button className='exampleBtn three' onClick={() => search("2020 롤드컵 우승팀", "")}>예시 질문 3</button>
+                <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀", "")}>예시 질문 4</button> 
+                <button className='exampleBtn five' onClick={() => search("2020 한국시리즈 우승팀", "")}>예시 질문 5</button>
             </div>
             {console.log(data)}
             {data.length !== 0 ? <ResultBox key={0} result={data[0]} index={0} isLoad={isLoad} context={context}/> : ""}
