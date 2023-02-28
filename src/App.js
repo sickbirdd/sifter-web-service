@@ -59,7 +59,7 @@ function App() {
           {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
           <Header search={search} context={context} isLoad={isLoad} domainSelect={domainSelect} clickMode={clickMode} setClick={setClick}/>
           {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
-          <Content data={data} isLoad={isLoad} clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
+          <Content search={search} data={data} isLoad={isLoad} clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
         </div>
         {/* <!-- Footer : copyright 등 조원 정보 및 문서화 사이트 연결 --> */}
         <Footer isLoad={isLoad} />
