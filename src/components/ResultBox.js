@@ -25,7 +25,10 @@ function ResultBox({result, isLoad, clickMode, index}) {
                     다시 버튼을 돌려야함
                 --> */}
                 <div className='title'>&lt;{result['title']}&gt;</div>
-                <div>{result['content']}</div>
+                {console.log(result)}
+                <div>{result['content'].substr(0, result['start'])}</div>
+                <div className='answer'>{result['content'].substr(result['start'], result['answer'].length)}</div>
+                <div>{result['content'].substr(result['end'] + 1)}</div>
             </div>
         </div>
     )

@@ -423,6 +423,11 @@ div .ranking {
     text-align: center;
 }
 
+.result .context .answer { 
+    background-color: yellow;
+    width: max-content;
+}
+
 .result .context div {
     font-size: var(--font-small);
 }
