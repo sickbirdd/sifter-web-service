@@ -27,7 +27,7 @@ function Content({search, data, isLoad, clickMode, context, setContext, setFile}
             <div className={ more ? "realview" : "preview"}>
                 {data.length !== 0 ? <ResultBox key={1} result={data[1]} index={1} isLoad={isLoad} clickMode={clickMode}/> : ""}
             </div>      
-            <div className={ more ? "blurrr" : "hiden"}>
+            <div className={ more ? "blurrr" : "hide"}>
                 {
                     data.slice(3).map((result, index) => {return <ResultBox key={index+2} result={result} index={index+2} isLoad={isLoad} clickMode={clickMode}/>})
                     

@@ -12,7 +12,7 @@ function ResultBox({result, isLoad, clickMode, index}) {
             {   
                 isLoad ? <AnswerBox text={result['answer']} key={index} score={result['score']} img={images[index]} type={types[index]}/>:<div></div>
             }
-            <div className={ (!isLoad && clickMode !== 'none') ? "hide" : "showContext"}>
+            <div className={ (isLoad && clickMode !== 'none') ? "hide" : "showContext"}>
                 <span>출처</span>
                 <button className={visible ? "hide" : "downBtn"} onClick={() => isLoad ? setVisible(!visible) : ""}><i className="fa-solid fa-caret-down"></i></button>
                 <button className={visible ? "upBtn" : "hide"} onClick={() => setVisible(!visible)}><i className="fa-solid fa-caret-up"></i></button>
@@ -27,7 +27,7 @@ function ResultBox({result, isLoad, clickMode, index}) {
                         다시 버튼을 돌려야함
                     --> */}
                     <div className='title'>&lt;{result['title']}&gt;</div>
-                    <div>
+                    <div className='paragraph'>
                         {result['content'].substr(0, result['start'])}
                         <span className='answerPart'>{result['content'].substr(result['start'], result['answer'].length)}</span>
                         {result['content'].substr(result['end'] + 1)}
