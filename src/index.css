@@ -592,8 +592,13 @@ div .ranking {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) var(--spacing-medium); 
-    border-radius: 8px; 
+    width: 70%;
+    height: 30vh;
+
+    border: 2px solid var(--black-color);
+    border-radius: 8px;
+    padding: var(--spacing-small);
+    
     outline: 2px dashed var(--light-grey-color);
     outline-offset:-10px; 
     transition: all .15s ease-in-out;
