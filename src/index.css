@@ -99,14 +99,27 @@ button{
     -moz-appearance: none;
     appearance: none;
 }
-header{
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--white-color);
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.head{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: var(--white-color);
     margin-top: var(--spacing-huge);
-    margin-bottom: var(--spacing-huge);
+    margin-bottom: var(--spacing-medium);
     z-index: 10;
 }
 
@@ -119,10 +132,6 @@ header{
 .logoSmall {
     /* 정답들어오면 활성화 */
     width: 70%;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
 }
 
 .notLogo {
@@ -157,7 +166,7 @@ header{
 
 .buttons button {
     margin: var(--spacing-small);
-    font-size: var(--font-small);
+    font-size: var(--font-medium);
 }
 
 .textBtn:hover, .attachBtn:hover{
@@ -373,6 +382,15 @@ div .ranking {
     flex: 1;
 }
 
+.result .context .answerPart { 
+    font-weight: bolder;
+    font-size: var(--font-medium);
+    text-decoration-line: underline;
+    color: var(--gold-color);
+    /* background-color: yellow;
+    width: max-content; */
+}
+
 .result .gold .answer {
     /* 임시 */
     color: var(--gold-color);
@@ -421,11 +439,6 @@ div .ranking {
     font-weight: bolder;
     font-size: var(--font-small);
     text-align: center;
-}
-
-.result .context .answer { 
-    background-color: yellow;
-    width: max-content;
 }
 
 .result .context div {
