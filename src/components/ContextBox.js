@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function ContextBox({clickMode, context, setContext, setFile}) {
-    const [fileName, setFileName] = useState("Drag and drop your files!");
+    const [fileName, setFileName] = useState("Drag and drop your files! (PDF, Word, PPT, HWP)");
     const dragDrop = (e) => {
         e.preventDefault();
 
