@@ -164,6 +164,7 @@ header {
 
 /* Helptip container */
 .helpBtn {
+    cursor: help;
     position: relative;
     display: inline-block;
 }
@@ -239,6 +240,7 @@ header {
 
 /* FLOAT */
 .searchBtn {
+    cursor: pointer;
     margin-right: var(--spacing-micro);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
@@ -281,6 +283,7 @@ header {
 }
 
 .dropdownContent button{
+    cursor: pointer;
     display : block;
     width: 100%;
     text-decoration : none;
@@ -309,6 +312,7 @@ header {
 }
 
 .example button {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
