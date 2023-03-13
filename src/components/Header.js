@@ -1,5 +1,9 @@
-import MainLogo from '../img/android-chrome-192x192.png';
-import SearchLogo from '../img/favicon-32x32.png';
+// import MainLogo from '../img/android-chrome-192x192.png';
+// import SearchLogo from '../img/favicon-32x32.png';
+
+import MainLogo from '../img/Symbol+typo.png';
+import SearchLogo from '../img/Frame Symbol.png';
+import SearchBtn from '../img/Symbol Logo.png';
 import React, { useState } from 'react';
 
 function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
@@ -41,26 +45,13 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
 
                 <div className={isLoad ? "notLogo Small" : "notLogo Big"}>
                     <div className={isLoad ? "buttons btnSmall" : "buttons btnBig"}>
-                        {/* <!-- 
-                            TEXT 입력 버튼 클릭시 main 파트에 text 입력 창 띄워짐
-                        --> */}
-                        <button className="textBtn" onClick={() => contextAction("context")}>
-                            <i className="fa-solid fa-file-lines"></i>
-                            {/* <span> TEXT 입력</span> */}
-                        </button>
-                        {/* <!-- 
-                            첨부 파일 버튼 클릭시 main 파트에 Drag&Drop 창 띄워짐
-                        --> */}
-                        <button className="attachBtn" onClick={() => contextAction("file")}>
-                            <i className="fa-solid fa-file-arrow-up"></i>
-                            {/* <span> 첨부 파일</span> */}
-                        </button>
+                        
                         {/* <!-- 
                             ? 버튼에 마우스 호버 시 설명서가 뜬다.
                             PC가 아닌 경우 따로 옆에 뜨도록 만들어야 할 듯
                         --> */}
                         <button className="helpBtn">
-                            <i className ="fa-solid fa-circle-question"></i>
+                            <i className ="fa-solid fa-circle-info"></i>
                             <div className="helpText">
                                 <div>설명서</div>
                                 <ol>
@@ -100,9 +91,49 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                             onKeyDown={handleOnKeyPress}
                         />
                         <button className="searchBtn" onClick={() => search(question, context)}>
-                            <i className="fa-solid fa-magnifying-glass"></i>
+                            {/* <i className="fa-solid fa-magnifying-glass"></i> */}
+                            <img alt="Search-Logo" src={SearchBtn}/>
                         </button>
                     </div>
+                </div>
+
+                <div className={isLoad ? "hide" : "example"}>
+                    {/* <!-- 
+                        TEXT 입력 버튼 클릭시 main 파트에 text 입력 창 띄워짐
+                    --> */}
+                    <button className="textBtn" onClick={() => contextAction("context")}>
+                        <div className='tile-icon'><i className="fa-solid fa-file-lines"></i></div>
+                        <div>TEXT 입력</div>
+                        {/* <span> TEXT 입력</span> */}
+                    </button>
+                    {/* <!-- 
+                        첨부 파일 버튼 클릭시 main 파트에 Drag&Drop 창 띄워짐
+                    --> */}
+                    <button className="attachBtn" onClick={() => contextAction("file")}>
+                        <div className='tile-icon'><i className="fa-solid fa-file-arrow-up"></i></div>
+                        <div>파일 첨부</div>
+                        {/* <span> 첨부 파일</span> */}
+                    </button>
+                    <button className='exampleBtn one' onClick={() => search("메시 소속 팀", "")}>
+                        <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
+                        <div>예시 질문 1</div>
+                    </button> 
+                    <button className='exampleBtn two' onClick={() => search("마이클 조던 신장", "")}>
+                        <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
+                        <div>예시 질문 2</div>
+                    </button> 
+                    <button className='exampleBtn three' onClick={() => search("2020 롤드컵 우승팀", "")}>
+                        <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
+                        <div>예시 질문 3</div>
+                    </button>
+                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀", "")}>
+                        <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
+                        <div>예시 질문 4</div>
+                    </button> 
+                    <button className='exampleBtn five' onClick={() => search("2020 한국시리즈 우승팀", "")}>
+                        <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
+                        <div>예시 질문 5</div>
+                    </button>
                 </div>
             </div>
         </header>
