@@ -20,7 +20,7 @@ function ContextBox({clickMode, context, setContext, setFile}) {
                     오른쪽 상단에 X 버튼을 누르면 창 비활성화
                     지문 입력 후, 입력 버튼 누르면 입력되도록
                 --> */}
-                <textarea cols="30" rows="15" value={context} onChange={(e) => setContext(e.target.value)}></textarea>
+                <textarea cols="26" rows="13" value={context} onChange={(e) => setContext(e.target.value)}></textarea>
                 <button className="exitBtn" onClick={() => setContext('')}>
                     {/* <i className="fa-solid fa-circle-xmark"></i> */}
                     초기화

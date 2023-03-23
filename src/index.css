@@ -126,6 +126,7 @@ header {
 .logoSmall {
     /* 정답들어오면 활성화 */
     width: 60%;
+    margin-top: var(--spacing-medium);
 }
 
 .notLogo {
@@ -145,7 +146,11 @@ header {
 
 .logo{
     width: 25%;
-    margin: var(--spacing-small);
+}
+
+.logoSmall .logo {
+    width: 5%;
+    margin-right: var(--spacing-small);
 }
 
 .buttons{
@@ -162,8 +167,30 @@ header {
     font-size: var(--font-large);
 }
 
+.inputText, .fileText {
+    visibility: hidden;
+    width: 5rem;
+    font-size: var(--font-small);
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
+    border-radius: 6px; 
+    /* Position the helptip text */
+    position: absolute;
+    z-index: 1;
+    left: -90%;
+    /* Fade in helptip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.helpText div{
+    font-size: var(--font-);
+    margin-top: var(--spacing-small);
+    text-align: center;
+}
+
 /* Helptip container */
-.helpBtn {
+.helpBtn, .textBtnHead, .attachBtnHead {
     cursor: help;
     position: relative;
     display: inline-block;
@@ -196,14 +223,8 @@ header {
     text-align: left;
 }
 
-/* Helptip arrow */
-.helpText::after {
-    content: "";
-    position: absolute;
-}
-
 /* Show the helptip text when you mouse over the helptip container */
-.helpBtn:hover .helpText {
+.helpBtn:hover .helpText, .textBtnHead:hover .inputText, .attachBtnHead:hover .fileText {
     visibility: visible;
     opacity: 1;
 }
@@ -396,42 +417,28 @@ div .ranking {
     flex: 1;
 }
 
-.result .context span {
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-}
-
-.result .context .answerPart { 
-    font-weight: bolder;
+.result .context .answerPart {
+    font-weight: 900;
+    color: var(--black-color);
     font-size: var(--font-medium);
-    color: var(--gold-color);
-    padding: 2px 0 2px 0;
-    /* background-color: yellow;
-    width: max-content; */
+    padding: var(--spacing-micro);
 }
 
 .result .gold .answer {
-    /* 임시 */
     color: var(--gold-color);
 }
 
 .result .silver .answer {
-    /* 임시 */
     color: var(--silver-color);
 }
 
 .result .bronze .answer {
-    /* 임시 */
     color: var(--bronze-color);
 }
 
 .result .showContext {
     align-self: flex-end;
     font-size: var(--font-small);
-}
-
-.result .showContext span {
-    font-weight: bolder;
 }
 
 .result .showContext button {
@@ -457,11 +464,15 @@ div .ranking {
 .result .context .title {
     font-weight: bolder;
     font-size: var(--font-small);
+    color: var(--dark-grey-color);
     text-align: center;
 }
 
 .result .context .paragraph {
     font-size: var(--font-small);
+    color: var(--dark-grey-color);
+    font-weight: 700;
+    line-height: 2em;
     height: 100%;
 }
 
@@ -515,7 +526,10 @@ div .ranking {
 }
 
 .attachText .exitBtn{
-    align-self: flex-end;
+    align-self: center;
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: var(--spacing-small);
     font-size: var(--font-medium);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
@@ -527,13 +541,16 @@ div .ranking {
     box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
-.attachText textarea{   
-    border: 2px dashed var(--dark-grey-color);  
+.attachText textarea{
+    background-color: var(--white-color);
+    border: 2px solid var(--dark-grey-color);
     border-radius: 8px;
     font-size: var(--font-medium);
-    
-    width: 100%;
+    font-family: 'Pretendard';
+    font-weight: 600;
     padding: var(--spacing-small);
+    width: 100%;
+    /* margin: 0 var(--spacing-huge) 0 var(--spacing-huge); */
 }
 
 .attachText textarea:focus{
@@ -546,7 +563,7 @@ div .ranking {
     align-items: center;
     flex-direction: column;
     width: 60%;
-    height: 30vh;
+    height: 26vh;
 
     border: 2px solid var(--black-color);
     border-radius: 8px;

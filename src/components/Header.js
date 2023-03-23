@@ -50,6 +50,19 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                             ? 버튼에 마우스 호버 시 설명서가 뜬다.
                             PC가 아닌 경우 따로 옆에 뜨도록 만들어야 할 듯
                         --> */}
+
+                        <button className={isLoad ? "textBtnHead" : "hide"} onClick={() => contextAction("context")}>
+                            <i className="fa-solid fa-file-lines"></i>
+                            <div className="inputText">TEXT 입력</div>
+                        </button>
+                        {/* <!-- 
+                            첨부 파일 버튼 클릭시 main 파트에 Drag&Drop 창 띄워짐
+                        --> */}
+                        <button className={isLoad ? "attachBtnHead" : "hide"}onClick={() => contextAction("file")}>
+                            <i className="fa-solid fa-file-arrow-up"></i>
+                            <div className="fileText">파일 첨부</div>
+                        </button>
+
                         <button className="helpBtn">
                             <i className ="fa-solid fa-circle-info"></i>
                             <div className="helpText">
@@ -104,7 +117,6 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                     <button className="textBtn" onClick={() => contextAction("context")}>
                         <div className='tile-icon'><i className="fa-solid fa-file-lines"></i></div>
                         <div>TEXT 입력</div>
-                        {/* <span> TEXT 입력</span> */}
                     </button>
                     {/* <!-- 
                         첨부 파일 버튼 클릭시 main 파트에 Drag&Drop 창 띄워짐
@@ -112,7 +124,6 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                     <button className="attachBtn" onClick={() => contextAction("file")}>
                         <div className='tile-icon'><i className="fa-solid fa-file-arrow-up"></i></div>
                         <div>파일 첨부</div>
-                        {/* <span> 첨부 파일</span> */}
                     </button>
                     <button className='exampleBtn one' onClick={() => search("메시 소속 팀", "")}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
