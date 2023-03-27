@@ -16,6 +16,10 @@
     --spacing-medium: 12px;
     --spacing-small: 6px;
     --spacing-micro: 3px;
+    --big-logo-width: 325px;
+    --big-logo-height: 70px;
+    --small-logo-size: 40px;
+    --search-logo-size: 15px;
 
     /* Font size */
     /* --font-large: 1.4rem;
@@ -144,12 +148,14 @@ header {
     justify-content: flex-end;
 }
 
-.logo{
-    width: 25%;
+.logoBig .logo{
+    width: var(--big-logo-width);
+    height: var(--big-logo-height);
 }
 
 .logoSmall .logo {
-    width: 5%;
+    width: var(--small-logo-size);
+    height: var(--small-logo-size);
     margin-right: var(--spacing-small);
 }
 
@@ -275,7 +281,8 @@ header {
 } 
 
 .searchBtn img {
-    width: 15px;
+    width: var(--search-logo-size);
+    height: var(--search-logo-size);
 }
 
 .dropdown{
@@ -350,6 +357,11 @@ header {
     border-radius: 50%;
     background-color: var(--light-grey-color);
     margin-bottom: var(--spacing-small);
+}
+
+.textBtn .tile-icon, .attachBtn .tile-icon {
+    background-color: var(--black-color);
+    color: var(--white-color);
 }
 
 .textBtn:hover, .attachBtn:hover, .exampleBtn:hover{
@@ -557,7 +569,7 @@ div .ranking {
     outline: none;
 }
 
-.attachFile{
+.attachFile {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -574,6 +586,10 @@ div .ranking {
     transition: all .15s ease-in-out;
     background-color: var(--dark-grey-color);
     color: var(--light-grey-color);
+}
+
+.attachFile input[type="file"] {
+    display: none;
 }
 
 footer {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function ContextBox({clickMode, context, setContext, setFile}) {
-    const [fileName, setFileName] = useState("Drag and drop your files! (PDF, Word, PPT)");
+    const [fileName, setFileName] = useState("Drag and drop your files or Click here!");
     const dragDrop = (e) => {
         e.preventDefault();
 
@@ -10,6 +10,13 @@ function ContextBox({clickMode, context, setContext, setFile}) {
         console.log(files[0]);
         setFile(files[0]);
         setFileName(files[0].name)
+    }
+
+    const inputFile = (e) => {
+        e.preventDefault();
+
+        setFile(e.target.files[0]);
+        setFileName(e.target.files[0].name);
     }
 
     if(clickMode === "context"){
@@ -30,7 +37,8 @@ function ContextBox({clickMode, context, setContext, setFile}) {
     } else if(clickMode === "file") {
         return (
             <div className="attachFile" onDragOver={(e) => e.preventDefault()} onDrop = {(e) => dragDrop(e)}>
-                <span>{fileName}</span>
+                <input type="file" multiple id="file" onChange={(e) => inputFile(e)} />
+                <label for="file">{fileName}</label>
             </div>
         )
     } else {
