@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function ContextBox({clickMode, context, setContext, setFile}) {
     const [fileName, setFileName] = useState("Drag and drop your files or Click here!");
+
     const dragDrop = (e) => {
         e.preventDefault();
 
@@ -9,7 +10,7 @@ function ContextBox({clickMode, context, setContext, setFile}) {
 
         console.log(files[0]);
         setFile(files[0]);
-        setFileName(files[0].name)
+        setFileName(files[0].name);
     }
 
     const inputFile = (e) => {
@@ -28,17 +29,22 @@ function ContextBox({clickMode, context, setContext, setFile}) {
                     지문 입력 후, 입력 버튼 누르면 입력되도록
                 --> */}
                 <textarea cols="26" rows="13" value={context} onChange={(e) => setContext(e.target.value)}></textarea>
-                <button className="exitBtn" onClick={() => setContext('')}>
-                    {/* <i className="fa-solid fa-circle-xmark"></i> */}
-                    초기화
-                </button>
+                <button className="resetBtn" onClick={() => setContext('')}>초기화</button>
             </div>
         )
     } else if(clickMode === "file") {
         return (
-            <div className="attachFile" onDragOver={(e) => e.preventDefault()} onDrop = {(e) => dragDrop(e)}>
+            <div className="attachFile" onDragOver={(e) => e.preventDefault()} onDrop={(e) => dragDrop(e)}>
                 <input type="file" multiple id="file" onChange={(e) => inputFile(e)} />
-                <label for="file">{fileName}</label>
+                <label htmlFor="file">
+                    <i className={
+                        fileName === "Drag and drop your files or Click here!" 
+                        ? "fa-solid fa-box-open fa-2xl" 
+                        : "fa-solid fa-box-open fa-bounce fa-2xl"
+                        }
+                    ></i>
+                    <span>{fileName}</span>
+                </label>
             </div>
         )
     } else {

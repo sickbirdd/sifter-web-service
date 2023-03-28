@@ -5,6 +5,7 @@ function Content({search, data, isLoad, clickMode, context, setContext, setFile}
     const [more, setMore] = useState(false);
     return (
         <div className="main">
+            <ContextBox clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
             {/* <!-- 
                 초기 -> example ... 예시 질문 버튼
                 text -> attachText ... text 입력 버튼 클릭 시 보여줌
@@ -23,10 +24,8 @@ function Content({search, data, isLoad, clickMode, context, setContext, setFile}
             <div className={ more ? "blurrr" : "hide"}>
                 {
                     data.slice(3).map((result, index) => {return <ResultBox key={index+2} result={result} index={index+2} isLoad={isLoad} clickMode={clickMode}/>})
-                    
                 }
             </div>
-            <ContextBox clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
         </div>
     );
 }

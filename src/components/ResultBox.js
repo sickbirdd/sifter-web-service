@@ -12,7 +12,8 @@ function ResultBox({result, isLoad, clickMode, index}) {
             {   
                 isLoad ? <AnswerBox text={result['answer']} key={index} score={result['score']} img={images[index]} type={types[index]}/>:<div></div>
             }
-            <div className={ (isLoad && clickMode !== 'none') ? "hide" : "showContext"}>
+            {/* (isLoad && clickMode !== 'none') */}
+            <div className={ !isLoad ? "hide" : "showContext"}>
                 <span>출처</span>
                 <button className={visible ? "hide" : "downBtn"} onClick={() => isLoad ? setVisible(!visible) : ""}><i className="fa-solid fa-caret-down"></i></button>
                 <button className={visible ? "upBtn" : "hide"} onClick={() => setVisible(!visible)}><i className="fa-solid fa-caret-up"></i></button>
@@ -26,7 +27,7 @@ function ResultBox({result, isLoad, clickMode, index}) {
                         다시 버튼을 누르면 지문 일부만 보이도록하고
                         다시 버튼을 돌려야함
                     --> */}
-                    <div className='title'>&lt;{result['title']}&gt;</div>
+                    <div className='title'>{result['title']}</div>
                     <div className='paragraph'>
                         {result['content'].substr(0, result['start'])}
                         <span className='answerPart'>{result['content'].substr(result['start'], result['answer'].length)}</span>
