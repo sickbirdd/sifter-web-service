@@ -33,19 +33,26 @@ function App() {
   const search = async(question, context) =>{
     try {
       let mrc_result = null
-      if(clickMode === "none"){
-        mrc_result = await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question}});
-      } else if(clickMode === "context"){
-        mrc_result = await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context});
-      } else if(clickMode === "file"){
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("question", question)
-
-        mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}});
+      if(question === ''){
+        alert('질문을 입력해주세요');
       }
-      setData(mrc_result["data"]);
-      setLoad(true);
+      else {
+        if(clickMode === "none"){
+          mrc_result = await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question}});
+        } else if(clickMode === "context"){
+          if(context === ''){
+            alert('본문을 입력해주세요');
+          }
+          mrc_result = await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context});
+        } else if(clickMode === "file"){
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("question", question)
+          mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}});
+        }
+        setData(mrc_result["data"]);
+        setLoad(true);
+      }
     } catch (error) {
       console.log(error);
     } finally {
