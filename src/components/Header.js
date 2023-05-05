@@ -104,8 +104,8 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                             onKeyDown={handleOnKeyPress}
                         />
                         <button className="searchBtn" onClick={() => search(question, context)}>
-                            {/* <i className="fa-solid fa-magnifying-glass"></i> */}
-                            <img alt="Search-Logo" src={SearchBtn}/>
+                            <i className="fa-solid fa-magnifying-glass"></i>
+                            {/* <img alt="Search-Logo" src={SearchBtn}/> */}
                         </button>
                     </div>
                 </div>
