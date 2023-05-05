@@ -1,10 +1,3 @@
-@font-face {
-    font-family: 'NEXON Lv1 Gothic OTF';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
     /* Color */
     --white-color: #f9f9f9;
@@ -23,49 +16,53 @@
     --spacing-medium: 12px;
     --spacing-small: 6px;
     --spacing-micro: 3px;
+    --big-logo-width: 325px;
+    --big-logo-height: 70px;
+    --small-logo-size: 40px;
+    --search-logo-size: 15px;
 
     /* Font size */
-    --font-large: 1.4rem;
+    /* --font-large: 1.4rem;
     --font-regular: 1.2rem; 
     --font-medium: 1.0rem;
     --font-small: 0.8rem; 
-    --font-micro: 0.6rem;
+    --font-micro: 0.6rem; */
 }
 
-/* @media all and (min-width:320px) {
+@media all and (min-width:320px) {
     :root{
-        Font size
-        --font-large: 3px;
-        --font-regular: 1px; 
-        --font-medium: 1px;
-        --font-small: 1px; 
-        --font-micro: 1px;
+        /* Font size */
+        --font-large: 1rem;
+        --font-regular: 0.8rem; 
+        --font-medium: 0.6rem;
+        --font-small: 0.4rem; 
+        --font-micro: 0.2rem;
     }
 }
 @media all and (min-width:768px) {
     :root{
-        Font size
-        --font-large: 1.5rem;
-        --font-regular: 1.3rem; 
-        --font-medium: 1rem;
-        --font-small: 0.8rem; 
-        --font-micro: 0.6rem;
+        /* Font size */
+        --font-large: 1.2rem;
+        --font-regular: 1rem; 
+        --font-medium: 0.8rem;
+        --font-small: 0.6rem; 
+        --font-micro: 0.4rem;
     }
 }
 @media all and (min-width:1024px) {
     :root{
-        Font size
-        --font-large: 1.7rem;
-        --font-regular: 1.5rem; 
-        --font-medium: 1.2rem;
-        --font-small: 1.0rem; 
-        --font-micro: 0.8rem;
+        /* Font size */
+        --font-large: 1.4rem;
+        --font-regular: 1.2rem; 
+        --font-medium: 1.0rem;
+        --font-small: 0.8rem; 
+        --font-micro: 0.6rem;
     }
-} */
-
+}
 
 body {
-    font-family: 'NEXON Lv1 Gothic OTF';
+    font-family: 'Pretendard';
+    font-weight: 800;
     margin: 0;
     height: 100%;
     display: flex;
@@ -89,24 +86,38 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 button{
-    font-family: 'NEXON Lv1 Gothic OTF';
+    font-family: 'Pretendard';
+    font-weight: 800;
     border: none;
     background: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
-header{
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--white-color);
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.head{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: var(--white-color);
-    margin-top: var(--spacing-huge);
-    margin-bottom: var(--spacing-huge);
+    margin-bottom: var(--spacing-medium);
     z-index: 10;
 }
 
@@ -118,11 +129,8 @@ header{
 
 .logoSmall {
     /* 정답들어오면 활성화 */
-    width: 70%;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 60%;
+    margin-top: var(--spacing-medium);
 }
 
 .notLogo {
@@ -140,10 +148,15 @@ header{
     justify-content: flex-end;
 }
 
-.logo{
-    border: 3px solid var(--dark-grey-color);
-    border-radius: 50%;
-    margin: var(--spacing-small);
+.logoBig .logo{
+    width: var(--big-logo-width);
+    height: var(--big-logo-height);
+}
+
+.logoSmall .logo {
+    width: var(--small-logo-size);
+    height: var(--small-logo-size);
+    margin-right: var(--spacing-small);
 }
 
 .buttons{
@@ -152,22 +165,39 @@ header{
 }
 
 .btnBig {
-    width: 70%;
+    width: 60%;
 }
 
 .buttons button {
     margin: var(--spacing-small);
-    font-size: var(--font-small);
+    font-size: var(--font-large);
 }
 
-.textBtn:hover, .attachBtn:hover{
-    background-color : var(--light-grey-color);
-    outline: 1px solid var(--black-color);
-    border-radius: 4px;
+.inputText, .fileText {
+    visibility: hidden;
+    width: 5rem;
+    font-size: var(--font-small);
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
+    border-radius: 6px; 
+    /* Position the helptip text */
+    position: absolute;
+    z-index: 1;
+    left: -90%;
+    /* Fade in helptip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.helpText div{
+    font-size: var(--font-);
+    margin-top: var(--spacing-small);
+    text-align: center;
 }
 
 /* Helptip container */
-.helpBtn {
+.helpBtn, .textBtnHead, .attachBtnHead {
+    cursor: help;
     position: relative;
     display: inline-block;
 }
@@ -183,7 +213,7 @@ header{
     /* Position the helptip text */
     position: absolute;
     z-index: 1;
-    left: -550%;
+    left: -400%;
     /* Fade in helptip */
     opacity: 0;
     transition: opacity 0.3s;
@@ -199,14 +229,8 @@ header{
     text-align: left;
 }
 
-/* Helptip arrow */
-.helpText::after {
-    content: "";
-    position: absolute;
-}
-
 /* Show the helptip text when you mouse over the helptip container */
-.helpBtn:hover .helpText {
+.helpBtn:hover .helpText, .textBtnHead:hover .inputText, .attachBtnHead:hover .fileText {
     visibility: visible;
     opacity: 1;
 }
@@ -215,7 +239,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 60%;
     border: 2px solid var(--black-color);
     border-radius: 8px;
     background-color: var(--white-color);
@@ -227,22 +251,23 @@ header{
 }
 
 .searching {
-    font-family: 'NEXON Lv1 Gothic OTF';
+    font-family: 'Pretendard';
 }
 .searchBar input[type=text] {
-    padding: 0;
     width: 100%;
+    height: 100%;
     font-size: var(--font-medium);
     border: none;
     background-color: var(--white-color);
 }
 
 .searchBar input[type=text]:focus {
-    outline: none;
+    /* outline: none; */
 }
 
 /* FLOAT */
 .searchBtn {
+    cursor: pointer;
     margin-right: var(--spacing-micro);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
@@ -253,7 +278,7 @@ header{
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
     box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
-} 
+}
 
 .dropdown{
     position : relative;
@@ -281,6 +306,7 @@ header{
 }
 
 .dropdownContent button{
+    cursor: pointer;
     display : block;
     width: 100%;
     text-decoration : none;
@@ -297,28 +323,45 @@ header{
     display: block;
 }
 
-.main{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: var(--spacing-huge);
-    
-    width: 100%;
-    align-items: center;
-}
-
-.hide{
-    display: none;
-}
-
 .example {
     display: flex;
     justify-content: center;
-    width: 70%;
+    width: 60%;
     margin-top: var(--spacing-large);
     margin-bottom: var(--spacing-medium);
     padding: var(--spacing-small);
     /* border: 2px solid var(--black-color);
     border-radius: 8px; */
+}
+
+.example button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--spacing-micro);
+}
+
+.example .tile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-medium);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--light-grey-color);
+    margin-bottom: var(--spacing-small);
+}
+
+.textBtn .tile-icon, .attachBtn .tile-icon {
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.textBtn:hover, .attachBtn:hover, .exampleBtn:hover{
+    outline: 1px solid var(--black-color);
+    border-radius: 4px;
 }
 
 .example .exampleList {
@@ -330,23 +373,29 @@ header{
     list-style: none;
 }
 
-.exampleBtn {
-    margin: var(--spacing-small);
-}
-
-.exampleBtn:hover {
-    border-bottom: 2px solid;
-}
-
 .example .exampleAnswer {
     border: 1px solid;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-huge);
+    
+    width: 100%;
+    align-items: center;
+}
+
+.hide{
+    height: 0;
+    display: none;
 }
 
 .result {
     display: flex;
     flex-direction: column;
 
-    width: 70%;
+    width: 60%;
     border: 2px solid var(--black-color);
     border-radius: 8px;
     padding: var(--spacing-small);
@@ -361,6 +410,8 @@ header{
 div .ranking {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .ranking .score {
@@ -368,33 +419,33 @@ div .ranking {
 }
 
 .result .answer {
-    font-weight: bolder;
+    font-weight: 900;
     font-size: var(--font-large);
     flex: 1;
 }
 
+.result .context .answerPart {
+    font-weight: 900;
+    color: var(--black-color);
+    font-size: var(--font-medium);
+    padding: var(--spacing-micro);
+}
+
 .result .gold .answer {
-    /* 임시 */
     color: var(--gold-color);
 }
 
 .result .silver .answer {
-    /* 임시 */
     color: var(--silver-color);
 }
 
 .result .bronze .answer {
-    /* 임시 */
     color: var(--bronze-color);
 }
 
 .result .showContext {
     align-self: flex-end;
     font-size: var(--font-small);
-}
-
-.result .showContext span {
-    font-weight: bolder;
 }
 
 .result .showContext button {
@@ -420,16 +471,16 @@ div .ranking {
 .result .context .title {
     font-weight: bolder;
     font-size: var(--font-small);
+    color: var(--dark-grey-color);
     text-align: center;
 }
 
-.result .context .answer { 
-    background-color: yellow;
-    width: max-content;
-}
-
-.result .context div {
+.result .context .paragraph {
     font-size: var(--font-small);
+    color: var(--dark-grey-color);
+    font-weight: 700;
+    line-height: 2em;
+    height: 100%;
 }
 
 .preview {
@@ -444,110 +495,25 @@ div .ranking {
 }
 
 .preview .result {
-    /* animation: result-pre 2s; */
-    animation-fill-mode: forwards;
-
     height: 30%;
     overflow: hidden;
     border-bottom: none;
 }
+
 .realview {
-    /* animation: pre-view 3s; */
-    animation-fill-mode: forwards;
-
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.realview .result {
-    /* animation: result-real 2s; */
-    animation-fill-mode: forwards;
-}
-
-@keyframes result-pre {
-    from {
-        height: 100%;
-    }
-    to {
-        height: 30%;
-        border-bottom: none;
-    }
-}
-
-@keyframes result-real {
-    from {
-        height: 30%;
-        border-bottom: none;
-    }
-    to {
-        height: 100%;
-    }
-}
-
-@keyframes pre-view {
-    from {
-        opacity: 0.3;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes real-view {
-    from {
-        opacity: 1;
-
-    }
-    to {
-        opacity: 0.3;
-        height: 100%;
-    }
-}
-
-.hiden {
-    z-index: -1;
-
-    width: 100%;
-    height: 0;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .blurrr {
-    /* animation: fade-in-h 3s; */
-    /* animation: fade-in-ans 5s; */
     animation-fill-mode: forwards;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-@keyframes fade-in-h {
-    from {
-        opacity: 0;
-        height: 0;
-    }
-    to {
-        opacity: 0;
-        height: 100%;
-    }
-}
-
-@keyframes fade-in-ans {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 .moreAnswers {
@@ -563,55 +529,85 @@ div .ranking {
     flex-direction: column;
     align-items: center;
 
-    width: 70%;
+    width: 60%;
+    
+    transition: all .15s ease-in-out;
 }
 
-.attachText .exitBtn{
-    align-self: flex-end;
+.attachText .resetBtn{
+    align-self: center;
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin: var(--spacing-small);
     font-size: var(--font-medium);
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-.attachText .exitBtn:hover{
+.attachText .resetBtn:hover{
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
     box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
-.attachText textarea{   
-    border: 2px dashed var(--dark-grey-color);  
+.attachText textarea{
+    background-color: var(--light-grey-color);
+    border: 2px solid var(--dark-grey-color);
     border-radius: 8px;
     font-size: var(--font-medium);
-    
-    width: 100%;
+    font-family: 'Pretendard';
+    font-weight: 600;
     padding: var(--spacing-small);
+    width: 100%;
 }
 
 .attachText textarea:focus{
     outline: none;
 }
 
-.attachFile{
+.attachFile {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 70%;
-    height: 30vh;
+    width: 60%;
+    height: 25vh;
 
-    border: 2px solid var(--black-color);
+    border: 2px dashed var(--black-color);
     border-radius: 8px;
     padding: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
     
     outline: 2px dashed var(--light-grey-color);
     outline-offset:-10px; 
     transition: all .15s ease-in-out;
-    background-color: var(--dark-grey-color);
-    color: var(--light-grey-color);
+    background-color: var(--light-grey-color);
+}
+
+.attachFile:hover {
+    font-size: var(--font-regular);
+}
+
+.attachFile label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.attachFile i {
+    line-height: 1em;
+    font-size: 4em;
+}
+
+.attachFile input[type="file"] {
+    display: none;
 }
 
 footer {
+    align-items: flex-end;
     display: flex;
     justify-content: space-between;
     width: 100%;
