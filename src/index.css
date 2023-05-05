@@ -20,13 +20,6 @@
     --big-logo-height: 70px;
     --small-logo-size: 40px;
     --search-logo-size: 15px;
-
-    /* Font size */
-    /* --font-large: 1.4rem;
-    --font-regular: 1.2rem; 
-    --font-medium: 1.0rem;
-    --font-small: 0.8rem; 
-    --font-micro: 0.6rem; */
 }
 
 @media all and (min-width:320px) {
@@ -69,9 +62,6 @@ body {
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--white-color);
-
-    /* 정답이 하나라도 들어오면 활성화 */
-    /* padding-top: 5px;  */
 }
 
 .wrapper {
@@ -91,7 +81,7 @@ body {
 
 button{
     font-family: 'Pretendard';
-    font-weight: 800;
+    font-weight: 400;
     border: none;
     background: none;
     -webkit-appearance: none;
@@ -159,6 +149,11 @@ header {
     margin-right: var(--spacing-small);
 }
 
+.logoSmall .logo:hover {
+    width: calc(var(--small-logo-size) + 2px);
+    height: calc(var(--small-logo-size) + 2px);
+}
+
 .buttons{
     display: flex;
     justify-content: flex-end;
@@ -173,22 +168,6 @@ header {
     font-size: var(--font-large);
 }
 
-.inputText, .fileText {
-    visibility: hidden;
-    width: 5rem;
-    font-size: var(--font-small);
-    background-color: var(--dark-grey-color);
-    color: var(--white-color);
-    border-radius: 6px; 
-    /* Position the helptip text */
-    position: absolute;
-    z-index: 1;
-    left: -90%;
-    /* Fade in helptip */
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
 .helpText div{
     font-size: var(--font-);
     margin-top: var(--spacing-small);
@@ -196,14 +175,14 @@ header {
 }
 
 /* Helptip container */
-.helpBtn, .textBtnHead, .attachBtnHead {
+.helpBtn, .textBtnHead, .attachBtnHead, .homeBtn {
     cursor: help;
     position: relative;
     display: inline-block;
 }
 
 /* Helptip text */
-.helpText {
+.helpText, .inputText, .fileText, .homeText {
     visibility: hidden;
     width: 20rem;
     font-size: var(--font-small);
@@ -219,6 +198,18 @@ header {
     transition: opacity 0.3s;
 }
 
+.inputText, .fileText {
+    width: 5rem;
+    left: -90%;
+}
+
+.homeText {
+    text-align: center;
+    width: 5rem;
+    left: -40%;
+}
+
+
 .helpText div{
     font-size: var(--font-);
     margin-top: var(--spacing-small);
@@ -230,7 +221,7 @@ header {
 }
 
 /* Show the helptip text when you mouse over the helptip container */
-.helpBtn:hover .helpText, .textBtnHead:hover .inputText, .attachBtnHead:hover .fileText {
+.helpBtn:hover .helpText, .textBtnHead:hover .inputText, .attachBtnHead:hover .fileText, .homeBtn:hover .homeText {
     visibility: visible;
     opacity: 1;
 }
@@ -326,8 +317,6 @@ header {
     margin-top: var(--spacing-large);
     margin-bottom: var(--spacing-medium);
     padding: var(--spacing-small);
-    /* border: 2px solid var(--black-color);
-    border-radius: 8px; */
 }
 
 .example button {
@@ -355,9 +344,15 @@ header {
     color: var(--white-color);
 }
 
-.textBtn:hover, .attachBtn:hover, .exampleBtn:hover{
+.textBtn:hover, .attachBtn:hover, .exampleBtn:hover  {
     outline: 1px solid var(--black-color);
     border-radius: 4px;
+    font-weight: 800;
+}
+
+.textBtn:hover .tile-icon, .attachBtn:hover .tile-icon, .exampleBtn:hover .tile-icon {
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
 }
 
 .example .exampleList {
