@@ -277,6 +277,7 @@ header {
     justify-content: space-between;
     cursor : pointer;
     font-size: var(--font-small);
+    font-weight: 800;
     background-color: var(--white-color);
 }
 
@@ -297,6 +298,7 @@ header {
     display : block;
     width: 100%;
     text-decoration : none;
+    font-weight: 800;
     color : var(--black-color);
     font-size: var(--font-small);
     padding : var(--spacing-medium) var(--spacing-medium);
