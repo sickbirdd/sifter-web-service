@@ -3,7 +3,6 @@
 
 import MainLogo from '../img/Symbol+typo.png';
 import SearchLogo from '../img/Frame Symbol.png';
-import SearchBtn from '../img/Symbol Logo.png';
 import React, { useState } from 'react';
 
 function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {

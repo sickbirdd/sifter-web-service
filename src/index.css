@@ -261,10 +261,6 @@ header {
     background-color: var(--white-color);
 }
 
-.searchBar input[type=text]:focus {
-    /* outline: none; */
-}
-
 /* FLOAT */
 .searchBtn {
     cursor: pointer;
