@@ -4,8 +4,9 @@
 import MainLogo from '../img/Symbol+typo.png';
 import SearchLogo from '../img/Frame Symbol.png';
 import React, { useState } from 'react';
+import {TailSpin} from 'react-loader-spinner';
 
-function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
+function Header({search, context, isLoad, domainSelect, clickMode, setClick, loading}) {
     const [question, setQuestion] = useState("");
     const [domain, setDomain] = useState("SPORTS");
     const handleOnKeyPress = e => {
@@ -45,6 +46,20 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                     />
                 }
                 
+                {loading && (
+                    <div className="overlay">
+                        <TailSpin
+                            height="80"
+                            width="80"
+                            color="#0C134F"
+                            ariaLabel="tail-spin-loading"
+                            radius="0"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    </div>
+                )}
 
                 <div className={isLoad ? "notLogo Small" : "notLogo Big"}>
                     <div className={isLoad ? "buttons btnSmall" : "buttons btnBig"}>

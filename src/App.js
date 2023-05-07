@@ -7,6 +7,7 @@ import {CONF} from './config';
 import './index.css';
 function App() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [isLoad, setLoad] = useState(false);
   const [clickMode, setClick] = useState("none");
   const [modelPath, setModelPath] = useState(CONF['SPORTS_MODEL_PATH']);
@@ -37,6 +38,7 @@ function App() {
         alert('질문을 입력해주세요');
       }
       else {
+        setLoading(true);
         if(clickMode === "none"){
           mrc_result = await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question}});
         } else if(clickMode === "context"){
@@ -51,6 +53,7 @@ function App() {
           mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}});
         }
         setData(mrc_result["data"]);
+        setLoading(false);
         setLoad(true);
       }
     } catch (error) {
@@ -64,7 +67,7 @@ function App() {
     <div className='wrapper'>
         <div className='contentWrapper'>
           {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
-          <Header search={search} context={context} isLoad={isLoad} domainSelect={domainSelect} clickMode={clickMode} setClick={setClick}/>
+          <Header search={search} context={context} loading = {loading} isLoad={isLoad} domainSelect={domainSelect} clickMode={clickMode} setClick={setClick}/>
           {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
           <Content search={search} data={data} isLoad={isLoad} clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
         </div>
