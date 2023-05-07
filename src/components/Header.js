@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 
 function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
     const [question, setQuestion] = useState("");
-    const [domain, setDomain] = useState("Sport");
+    const [domain, setDomain] = useState("SPORTS");
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
             search(question, context);
