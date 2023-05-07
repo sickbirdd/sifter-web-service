@@ -38,19 +38,28 @@ function App() {
         alert('질문을 입력해주세요');
       }
       else {
-        setLoading(true);
         if(clickMode === "none"){
+          setLoading(true);
           mrc_result = await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question}});
         } else if(clickMode === "context"){
           if(context === ''){
             alert('본문을 입력해주세요');
           }
-          mrc_result = await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context});
+          else {
+             setLoading(true);
+             mrc_result = await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context});
+          }
         } else if(clickMode === "file"){
-          const formData = new FormData();
-          formData.append("file", file);
-          formData.append("question", question)
-          mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}});
+          if(file === undefined){
+            alert('파일을 넣어주세요');
+          }
+          else {
+            setLoading(true);
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("question", question)
+            mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}});
+          }
         }
         setData(mrc_result["data"]);
         setLoading(false);
