@@ -40,7 +40,7 @@ function ContextBox({clickMode, context, setContext, setFile}) {
                     <i className={
                         fileName === "Drag and drop your files or Click here!" 
                         ? "fa-solid fa-box-open fa-2xl" 
-                        : "fa-solid fa-box-open fa-bounce fa-2xl"
+                        : "fa-solid fa-box fa-2xl"
                         }
                     ></i>
                     <span>{fileName}</span>
