@@ -362,7 +362,6 @@ header {
 .textBtn:hover, .attachBtn:hover, .exampleBtn:hover  {
     outline: 1px solid var(--black-color);
     border-radius: 4px;
-    font-weight: 800;
 }
 
 .textBtn:hover .tile-icon, .attachBtn:hover .tile-icon, .exampleBtn:hover .tile-icon {
