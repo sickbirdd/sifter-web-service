@@ -51,7 +51,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <TailSpin
                             height="80"
                             width="80"
-                            color="#0C134F"
+                            color="#205295"
                             ariaLabel="tail-spin-loading"
                             radius="0"
                             wrapperStyle={{}}

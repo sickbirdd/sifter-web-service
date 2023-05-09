@@ -620,4 +620,10 @@ footer a{
     text-decoration: none;
     color: var(--white-color);
 }
-
+.img404 {
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
