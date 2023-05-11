@@ -16,7 +16,7 @@ function App() {
   const [file, setFile] = useState();
   const [status, setStatus] = useState(200);
   
-  const domainelect = (sel) => {
+  const domainSelect = (sel) => {
     if(sel === "SPORTS") {
       setDomain("SPORTS");
     }
@@ -77,7 +77,7 @@ function App() {
     <div className='wrapper'>
         <div className='contentWrapper'>
           {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
-          <Header search={search} context={context} loading = {loading} isLoad={isLoad} domainelect={domainelect} clickMode={clickMode} setClick={setClick}/>
+          <Header search={search} context={context} loading = {loading} isLoad={isLoad} domainSelect={domainSelect} clickMode={clickMode} setClick={setClick}/>
           {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
           {
             

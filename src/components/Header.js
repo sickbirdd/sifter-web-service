@@ -8,7 +8,7 @@ import {TailSpin} from 'react-loader-spinner';
 
 function Header({search, context, isLoad, domainSelect, clickMode, setClick, loading}) {
     const [question, setQuestion] = useState("");
-    const [domain, setDomain] = useState("SPORTS");
+    const [dropdown, setDropdown] = useState("SPORTS");
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
             search(question, context);
@@ -103,13 +103,13 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         --> */}
                         <div className="dropdown">
                             <button className="dropBtn">
-                                <span>{domain}</span>
+                                <span>{dropdown}</span>
                                 <i className="fa-solid fa-caret-down"></i>
                             </button>
                             <div className="dropdownContent">
-                                <button onClick={() => setDomain(domainSelect("SPORTS"))}>SPORTS</button>
-                                <button onClick={() => setDomain(domainSelect("IT"))}>IT</button>
-                                <button onClick={() => setDomain(domainSelect("ERICA"))}>ERICA</button>
+                                <button onClick={() => setDropdown(domainSelect("SPORTS"))}>SPORTS</button>
+                                <button onClick={() => setDropdown(domainSelect("IT"))}>IT</button>
+                                <button onClick={() => setDropdown(domainSelect("ERICA"))}>ERICA</button>
                             </div>
                         </div>
                         {/* <!-- 
