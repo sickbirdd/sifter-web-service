@@ -28,8 +28,8 @@ function ResultBox({result, isLoad, clickMode, index}) {
 
                 <div className='paragraph'>
                     {result['content'].substr(0, result['start'])}
-                    <span className='answerPart'>{result['content'].substr(result['start'], result['answer'].length)}</span>
-                    {result['content'].substr(result['end'] + 1)}
+                    <span className='answerPart'>{result['content'].substr(result['start'], result['end'] - result['start'])}</span>
+                    {result['content'].substr(result['end'])}
                 </div>
             </div>
         </div>
