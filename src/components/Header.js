@@ -4,10 +4,11 @@
 import MainLogo from '../img/Symbol+typo.png';
 import SearchLogo from '../img/Frame Symbol.png';
 import React, { useState } from 'react';
+import {TailSpin} from 'react-loader-spinner';
 
-function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
+function Header({search, context, isLoad, domainSelect, clickMode, setClick, loading}) {
     const [question, setQuestion] = useState("");
-    const [domain, setDomain] = useState("Sport");
+    const [domain, setDomain] = useState("SPORTS");
     const handleOnKeyPress = e => {
         if (e.key === 'Enter') {
             search(question, context);
@@ -32,15 +33,33 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                 --> */}
                 {
                     isLoad ? 
-                    <img 
+                    <div className="homeBtn">
+                        <img 
                         alt="LOGO-SMALL" className="logo" src={SearchLogo} 
                         onClick={() => window.location.reload()} 
-                    /> : 
+                        />
+                        <div className="homeText">HOME</div>
+                    </div> : 
                     <img 
                         alt="LOGO-BIG" className="logo" src={MainLogo} 
                         onClick={() => window.location.reload()} 
                     />
                 }
+                
+                {loading && (
+                    <div className="overlay">
+                        <TailSpin
+                            height="80"
+                            width="80"
+                            color="#205295"
+                            ariaLabel="tail-spin-loading"
+                            radius="0"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                        />
+                    </div>
+                )}
 
                 <div className={isLoad ? "notLogo Small" : "notLogo Big"}>
                     <div className={isLoad ? "buttons btnSmall" : "buttons btnBig"}>
@@ -88,7 +107,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick}) {
                                 <i className="fa-solid fa-caret-down"></i>
                             </button>
                             <div className="dropdownContent">
-                                <button onClick={() => setDomain(domainSelect("SPORTS"))}>Sports</button>
+                                <button onClick={() => setDomain(domainSelect("SPORTS"))}>SPORTS</button>
                                 <button onClick={() => setDomain(domainSelect("IT"))}>IT</button>
                                 <button onClick={() => setDomain(domainSelect("ERICA"))}>ERICA</button>
                             </div>

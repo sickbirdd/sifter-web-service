@@ -28,8 +28,10 @@ function ContextBox({clickMode, context, setContext, setFile}) {
                     오른쪽 상단에 X 버튼을 누르면 창 비활성화
                     지문 입력 후, 입력 버튼 누르면 입력되도록
                 --> */}
-                <textarea cols="26" rows="13" value={context} onChange={(e) => setContext(e.target.value)}></textarea>
-                <button className="resetBtn" onClick={() => setContext('')}>초기화</button>
+                <textarea cols="26" rows="12" value={context} onChange={(e) => setContext(e.target.value)}></textarea>
+                <button className="resetBtn" onClick={() => setContext('')}>
+                <i class="fa-solid fa-eraser fa-lg"></i>
+                </button>
             </div>
         )
     } else if(clickMode === "file") {
@@ -40,7 +42,7 @@ function ContextBox({clickMode, context, setContext, setFile}) {
                     <i className={
                         fileName === "Drag and drop your files or Click here!" 
                         ? "fa-solid fa-box-open fa-2xl" 
-                        : "fa-solid fa-box-open fa-bounce fa-2xl"
+                        : "fa-solid fa-box fa-2xl"
                         }
                     ></i>
                     <span>{fileName}</span>

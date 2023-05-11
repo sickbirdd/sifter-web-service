@@ -20,13 +20,6 @@
     --big-logo-height: 70px;
     --small-logo-size: 40px;
     --search-logo-size: 15px;
-
-    /* Font size */
-    /* --font-large: 1.4rem;
-    --font-regular: 1.2rem; 
-    --font-medium: 1.0rem;
-    --font-small: 0.8rem; 
-    --font-micro: 0.6rem; */
 }
 
 @media all and (min-width:320px) {
@@ -69,9 +62,6 @@ body {
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--white-color);
-
-    /* 정답이 하나라도 들어오면 활성화 */
-    /* padding-top: 5px;  */
 }
 
 .wrapper {
@@ -91,7 +81,7 @@ body {
 
 button{
     font-family: 'Pretendard';
-    font-weight: 800;
+    font-weight: 400;
     border: none;
     background: none;
     -webkit-appearance: none;
@@ -109,6 +99,19 @@ header {
     top: 0;
     left: 0;
     right: 0;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
 }
 
 .head{
@@ -153,10 +156,22 @@ header {
     height: var(--big-logo-height);
 }
 
+.logoBig .logo:hover {
+    width: var(--big-logo-width);
+    height: var(--big-logo-height);
+    cursor: pointer;
+}
+
 .logoSmall .logo {
     width: var(--small-logo-size);
     height: var(--small-logo-size);
     margin-right: var(--spacing-small);
+}
+
+.logoSmall .logo:hover {
+    width: calc(var(--small-logo-size));
+    height: calc(var(--small-logo-size));
+    cursor: pointer;
 }
 
 .buttons{
@@ -173,22 +188,6 @@ header {
     font-size: var(--font-large);
 }
 
-.inputText, .fileText {
-    visibility: hidden;
-    width: 5rem;
-    font-size: var(--font-small);
-    background-color: var(--dark-grey-color);
-    color: var(--white-color);
-    border-radius: 6px; 
-    /* Position the helptip text */
-    position: absolute;
-    z-index: 1;
-    left: -90%;
-    /* Fade in helptip */
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
 .helpText div{
     font-size: var(--font-);
     margin-top: var(--spacing-small);
@@ -196,14 +195,14 @@ header {
 }
 
 /* Helptip container */
-.helpBtn, .textBtnHead, .attachBtnHead {
+.helpBtn, .textBtnHead, .attachBtnHead, .homeBtn {
     cursor: help;
     position: relative;
     display: inline-block;
 }
 
 /* Helptip text */
-.helpText {
+.helpText, .inputText, .fileText, .homeText {
     visibility: hidden;
     width: 20rem;
     font-size: var(--font-small);
@@ -219,6 +218,18 @@ header {
     transition: opacity 0.3s;
 }
 
+.inputText, .fileText {
+    width: 5rem;
+    left: -90%;
+}
+
+.homeText {
+    text-align: center;
+    width: 5rem;
+    left: -40%;
+}
+
+
 .helpText div{
     font-size: var(--font-);
     margin-top: var(--spacing-small);
@@ -230,7 +241,7 @@ header {
 }
 
 /* Show the helptip text when you mouse over the helptip container */
-.helpBtn:hover .helpText, .textBtnHead:hover .inputText, .attachBtnHead:hover .fileText {
+.helpBtn:hover .helpText, .textBtnHead:hover .inputText, .attachBtnHead:hover .fileText, .homeBtn:hover .homeText {
     visibility: visible;
     opacity: 1;
 }
@@ -273,7 +284,7 @@ header {
     transform: scale(1.1,1.1);
     -ms-transform: scale(1.1,1.1);
     -webkit-transform: scale(1.1,1.1);
-    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25); */
 }
 
 .dropdown{
@@ -286,6 +297,7 @@ header {
     justify-content: space-between;
     cursor : pointer;
     font-size: var(--font-small);
+    font-weight: 800;
     background-color: var(--white-color);
 }
 
@@ -306,6 +318,7 @@ header {
     display : block;
     width: 100%;
     text-decoration : none;
+    font-weight: 800;
     color : var(--black-color);
     font-size: var(--font-small);
     padding : var(--spacing-medium) var(--spacing-medium);
@@ -326,8 +339,6 @@ header {
     margin-top: var(--spacing-large);
     margin-bottom: var(--spacing-medium);
     padding: var(--spacing-small);
-    /* border: 2px solid var(--black-color);
-    border-radius: 8px; */
 }
 
 .example button {
@@ -355,9 +366,14 @@ header {
     color: var(--white-color);
 }
 
-.textBtn:hover, .attachBtn:hover, .exampleBtn:hover{
+.textBtn:hover, .attachBtn:hover, .exampleBtn:hover  {
     outline: 1px solid var(--black-color);
     border-radius: 4px;
+}
+
+.textBtn:hover .tile-icon, .attachBtn:hover .tile-icon, .exampleBtn:hover .tile-icon {
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
 }
 
 .example .exampleList {
@@ -522,38 +538,29 @@ div .ranking {
 
 .attachText{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-
     width: 60%;
-    
+    background-color: var(--light-grey-color);
+    border: 2px solid var(--dark-grey-color);
+    border-radius: 8px;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
     transition: all .15s ease-in-out;
 }
 
 .attachText .resetBtn{
-    align-self: center;
-    border: 1px solid #000;
-    border-radius: 8px;
-    margin: var(--spacing-small);
     font-size: var(--font-medium);
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 .attachText .resetBtn:hover{
     transform: scale(1.1,1.1);
-    -ms-transform: scale(1.1,1.1);
-    -webkit-transform: scale(1.1,1.1);
-    box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 }
 
 .attachText textarea{
     background-color: var(--light-grey-color);
-    border: 2px solid var(--dark-grey-color);
     border-radius: 8px;
     font-size: var(--font-medium);
     font-family: 'Pretendard';
-    font-weight: 600;
-    padding: var(--spacing-small);
+    font-weight: 400;
     width: 100%;
 }
 
@@ -567,14 +574,14 @@ div .ranking {
     align-items: center;
     flex-direction: column;
     width: 60%;
-    height: 25vh;
+    height: 25.435vh;
 
-    border: 2px dashed var(--black-color);
+    border: 2px solid var(--black-color);
     border-radius: 8px;
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-medium);
     
-    outline: 2px dashed var(--light-grey-color);
+    outline: 2px solid var(--light-grey-color);
     outline-offset:-10px; 
     transition: all .15s ease-in-out;
     background-color: var(--light-grey-color);
@@ -620,4 +627,10 @@ footer a{
     text-decoration: none;
     color: var(--white-color);
 }
-
+.img404 {
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
