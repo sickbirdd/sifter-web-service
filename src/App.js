@@ -11,23 +11,20 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [isLoad, setLoad] = useState(false);
   const [clickMode, setClick] = useState("none");
-  const [modelPath, setModelPath] = useState(CONF['SPORTS_MODEL_PATH']);
+  const [domain, setDomain] = useState("SPORTS");
   const [context, setContext] = useState("");
   const [file, setFile] = useState();
   const [status, setStatus] = useState(200);
   
-  const domainSelect = (sel) => {
+  const domainelect = (sel) => {
     if(sel === "SPORTS") {
-      setModelPath(CONF['SPORTS_MODEL_PATH']);
-      console.log(CONF['SPORTS_MODEL_PATH']);
+      setDomain("SPORTS");
     }
     else if(sel === "IT") {
-      setModelPath(CONF['IT_MODEL_PATH']);
-      console.log(CONF['IT_MODEL_PATH']);
+      setDomain("IT");
     }
     else if(sel === "ERICA") {
-      setModelPath(CONF['ERICA_MODEL_PATH']);
-      console.log(CONF['ERICA_MODEL_PATH']);
+      setDomain("ERICA");
     }
     else sel = "NULL";
     return sel;
@@ -42,13 +39,13 @@ function App() {
       }
       else {
         if(clickMode === "none"){
-          mrc_result = await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question}});
+          mrc_result = await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question, domain: domain}});
         } else if(clickMode === "context"){
           if(context === ''){
             alert('본문을 입력해주세요');
           }
           else {
-             mrc_result = await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context});
+             mrc_result = await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context, domain: domain});
           }
         } else if(clickMode === "file"){
           if(file === undefined){
@@ -58,7 +55,7 @@ function App() {
             const formData = new FormData();
             formData.append("file", file);
             formData.append("question", question)
-            mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}});
+            mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}, domain: domain});
           }
         }
         setData(mrc_result["data"]);
@@ -80,7 +77,7 @@ function App() {
     <div className='wrapper'>
         <div className='contentWrapper'>
           {/* <!-- Header : 로고, 버튼, 검색 바 --> */}
-          <Header search={search} context={context} loading = {loading} isLoad={isLoad} domainSelect={domainSelect} clickMode={clickMode} setClick={setClick}/>
+          <Header search={search} context={context} loading = {loading} isLoad={isLoad} domainelect={domainelect} clickMode={clickMode} setClick={setClick}/>
           {/* <!-- Result : 검색 결과 예시 및 실제 결과 --> */}
           {
             
