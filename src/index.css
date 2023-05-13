@@ -257,6 +257,10 @@ header {
     padding: var(--spacing-small);
 }
 
+.searchBar:hover {
+    border: 2px solid #045fd4;
+}
+
 .searchSmall {
     width: 100%;
 }
@@ -264,12 +268,17 @@ header {
 .searching {
     font-family: 'Pretendard';
 }
+
 .searchBar input[type=text] {
     width: 100%;
     height: 100%;
     font-size: var(--font-medium);
     border: none;
     background-color: var(--white-color);
+}
+
+.searchBar input[type=text]:focus {
+    outline: none;
 }
 
 /* FLOAT */
@@ -426,10 +435,6 @@ div .ranking {
     align-items: center;
 }
 
-.ranking .score {
-    font-size: var(--font-micro);
-}
-
 .result .answer {
     font-weight: 900;
     font-size: var(--font-large);
@@ -473,11 +478,11 @@ div .ranking {
 } 
 
 .result .context{
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: var(--spacing-large);
     text-align: justify;
     line-height : 1.5;
-    
 }
 
 .result .context .title {
@@ -493,6 +498,11 @@ div .ranking {
     font-weight: 700;
     line-height: 2em;
     height: 100%;
+}
+
+.result .context .score {
+    align-self: center;
+    font-size: var(--font-small);
 }
 
 .preview {
