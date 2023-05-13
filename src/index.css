@@ -16,8 +16,6 @@
     --spacing-medium: 12px;
     --spacing-small: 6px;
     --spacing-micro: 3px;
-    --big-logo-width: 325px;
-    --big-logo-height: 70px;
     --small-logo-size: 40px;
     --search-logo-size: 15px;
 }
@@ -25,24 +23,40 @@
 @media all and (min-width:320px) {
     :root{
         /* Font size */
-        --font-large: 1rem;
-        --font-regular: 0.8rem; 
-        --font-medium: 0.6rem;
-        --font-small: 0.4rem; 
-        --font-micro: 0.2rem;
+        --font-large: 0.9rem;
+        --font-regular: 0.7rem; 
+        --font-medium: 0.5rem;
+        --font-small: 0.3rem; 
+        --font-micro: 0.1rem;
+        
+        /* Size */
+        --big-logo-width: 195px;
+        --big-logo-height: 42px;
+        --tile-icon-size: 24px;
+        --medal-icon-size: 30px;
     }
 }
 @media all and (min-width:768px) {
     :root{
         /* Font size */
-        --font-large: 1.2rem;
-        --font-regular: 1rem; 
-        --font-medium: 0.8rem;
-        --font-small: 0.6rem; 
-        --font-micro: 0.4rem;
+        --font-large: 1.1rem;
+        --font-regular: 0.9rem; 
+        --font-medium: 0.7rem;
+        --font-small: 0.5rem; 
+        --font-micro: 0.3rem;
+
+        /* Size */
+        --big-logo-width: 260px;
+        --big-logo-height: 56px;
+        --tile-icon-size: 36px;
+        --medal-icon-size: 45px;
+    }
+
+    .example button {
+        margin-top: var(--spacing-micro);
     }
 }
-@media all and (min-width:1024px) {
+@media all and (min-width:1030px) {
     :root{
         /* Font size */
         --font-large: 1.4rem;
@@ -50,6 +64,16 @@
         --font-medium: 1.0rem;
         --font-small: 0.8rem; 
         --font-micro: 0.6rem;
+
+        /* Size */
+        --big-logo-width: 325px;
+        --big-logo-height: 70px;
+        --tile-icon-size: 48px;
+        --medal-icon-size: 60px;
+    }
+
+    .example button {
+        margin: var(--spacing-micro);
     }
 }
 
@@ -87,6 +111,7 @@ button{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    font-size: var(--font-medium);
 }
 
 header {
@@ -257,8 +282,8 @@ header {
     padding: var(--spacing-small);
 }
 
-.searchBar:hover {
-    border: 2px solid #045fd4;
+.searchBar:focus-within {
+    border: 2px solid var(--gold-color);
 }
 
 .searchSmall {
@@ -343,6 +368,7 @@ header {
 
 .example {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     width: 60%;
     margin-top: var(--spacing-large);
@@ -355,7 +381,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: var(--spacing-micro);
 }
 
 .example .tile-icon {
@@ -363,8 +388,8 @@ header {
     align-items: center;
     justify-content: center;
     font-size: var(--font-medium);
-    width: 48px;
-    height: 48px;
+    width: var(--tile-icon-size);
+    height: var(--tile-icon-size);
     border-radius: 50%;
     background-color: var(--light-grey-color);
     margin-bottom: var(--spacing-small);
@@ -435,9 +460,14 @@ div .ranking {
     align-items: center;
 }
 
+.ranking img {
+    width: var(--medal-icon-size);
+    height: var(--medal-icon-size);
+}
+
 .result .answer {
     font-weight: 900;
-    font-size: var(--font-large);
+    font-size: var(--font-regular);
     flex: 1;
 }
 

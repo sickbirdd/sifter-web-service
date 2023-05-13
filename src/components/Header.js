@@ -86,8 +86,8 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                             <div className="helpText">
                                 <div>설명서</div>
                                 <ol>
-                                    <li>DOMAIN 선택</li>
-                                    <li>검색어 입력</li>
+                                    <li>검색을 원하는 DOMAIN 선택</li>
+                                    <li>검색어 입력 후 답변 출력</li>
                                     <li>검색을 원하는 TEXT 입력 가능</li>
                                     <li>검색을 원하는 첨부 파일 첨부 가능</li>
                                 </ol>
@@ -95,7 +95,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         </button>
                     </div>
                     
-                    <div className={isLoad ? "searchBar searchSmall" : "searchBar"}>
+                    <div tainbox="0" className={isLoad ? "searchBar searchSmall" : "searchBar"}>
                         {/* <!-- 
                             초기에는 Default 도메인이 써져있고 
                             드롭다운 선택지 클릭 시 그 도메인으로 바뀐 후
