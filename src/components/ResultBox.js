@@ -25,13 +25,16 @@ function ResultBox({result, isLoad,  clickMode, index}) {
                     다시 버튼을 돌려야함
                 --> */}
                 {result['title'] ? <div className='title'>&lt;{result['title']}&gt;</div> : ""}
-
-                <div className='paragraph'>
-                    {result['content'].substr(0, result['start'])}
-                    <span className='answerPart'>{result['content'].substr(result['start'], result['end'] - result['start'])}</span>
-                    {result['content'].substr(result['end'])}
-                </div>
-
+                {result['domain'] === "HYU" ? 
+                    <div className='url'>
+                        <a href={result['url']}>본문 URL로 이동</a>
+                    </div>
+                    : <div className='paragraph'>
+                        {result['content'].substr(0, result['start'])}
+                        <span className='answerPart'>{result['content'].substr(result['start'], result['end'] - result['start'])}</span>
+                        {result['content'].substr(result['end'])}
+                    </div>
+                }
                 <div className="score">
                     {`score : ${result['score'].toFixed(5)}`}
                 </div>

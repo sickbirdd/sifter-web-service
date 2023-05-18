@@ -535,6 +535,15 @@ div .ranking {
     font-size: var(--font-small);
 }
 
+.result .context .url {
+    font-size: var(--font-small);
+    color: var(--dark-grey-color);
+    font-weight: 700;
+    line-height: 2em;
+    height: 100%;
+    text-align: center;
+}
+
 .preview {
     /* animation: real-view 3s; */
     animation-fill-mode: forwards;
