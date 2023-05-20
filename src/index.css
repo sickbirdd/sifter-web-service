@@ -1,9 +1,10 @@
 :root {
     /* Color */
-    --white-color: #f9f9f9;
+    --white-color: #F2F4FF;
     --black-color: #140a00;
-    --blue-color: #045fd4;
-    --red-color: #ff0000;
+    --skyblue-color: #849FFB;
+    --blue-color: #557CF9;
+    --navy-color: #0F1D4A;
     --dark-grey-color: #555;
     --light-grey-color: #ececec;
     --gold-color: #D5A11E;
@@ -124,6 +125,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 100;
 }
 
 .overlay {
@@ -231,7 +233,7 @@ header {
     visibility: hidden;
     width: 20rem;
     font-size: var(--font-small);
-    background-color: var(--dark-grey-color);
+    background-color: var(--navy-color);
     color: var(--white-color);
     border-radius: 6px; 
     /* Position the helptip text */
@@ -276,14 +278,14 @@ header {
     justify-content: center;
     align-items: center;
     width: 60%;
-    border: 2px solid var(--black-color);
+    border: 2px solid var(--navy-color);
     border-radius: 8px;
     background-color: var(--white-color);
     padding: var(--spacing-small);
 }
 
 .searchBar:focus-within {
-    border: 2px solid var(--gold-color);
+    border: 2px solid var(--skyblue-color);
 }
 
 .searchSmall {
@@ -353,7 +355,7 @@ header {
     width: 100%;
     text-decoration : none;
     font-weight: 800;
-    color : var(--black-color);
+    color : var(--navy-color);
     font-size: var(--font-small);
     padding : var(--spacing-medium) var(--spacing-medium);
 }
@@ -391,22 +393,27 @@ header {
     width: var(--tile-icon-size);
     height: var(--tile-icon-size);
     border-radius: 50%;
-    background-color: var(--light-grey-color);
+    background-color: var(--skyblue-color);
     margin-bottom: var(--spacing-small);
 }
 
 .textBtn .tile-icon, .attachBtn .tile-icon {
-    background-color: var(--black-color);
+    background-color: var(--navy-color);
     color: var(--white-color);
 }
 
 .textBtn:hover, .attachBtn:hover, .exampleBtn:hover  {
-    outline: 1px solid var(--black-color);
+    outline: 1px solid var(--navy-color);
     border-radius: 4px;
 }
 
-.textBtn:hover .tile-icon, .attachBtn:hover .tile-icon, .exampleBtn:hover .tile-icon {
-    background-color: var(--dark-grey-color);
+.textBtn:hover .tile-icon, .attachBtn:hover .tile-icon {
+    background-color: var(--blue-color);
+    color: var(--navy-color);
+}
+
+.exampleBtn:hover .tile-icon {
+    background-color: var(--blue-color);
     color: var(--white-color);
 }
 
@@ -442,7 +449,7 @@ header {
     flex-direction: column;
 
     width: 60%;
-    border: 2px solid var(--black-color);
+    border: 2px solid var(--navy-color);
     border-radius: 8px;
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-medium);
@@ -515,6 +522,25 @@ div .ranking {
     line-height : 1.5;
 }
 
+.result .context .url {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    padding-bottom: 5%;
+
+    font-size: var(--font-medium);
+    color: var(--dark-grey-color);
+    font-weight: 600;
+    line-height: 2em;
+    text-align: center;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
 .result .context .title {
     font-weight: bolder;
     font-size: var(--font-small);
@@ -533,15 +559,6 @@ div .ranking {
 .result .context .score {
     align-self: center;
     font-size: var(--font-small);
-}
-
-.result .context .url {
-    font-size: var(--font-small);
-    color: var(--dark-grey-color);
-    font-weight: 700;
-    line-height: 2em;
-    height: 100%;
-    text-align: center;
 }
 
 .preview {
@@ -589,7 +606,7 @@ div .ranking {
     display: flex;
     width: 60%;
     background-color: var(--light-grey-color);
-    border: 2px solid var(--dark-grey-color);
+    border: 2px solid var(--navy-color);
     border-radius: 8px;
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-medium);
@@ -598,6 +615,7 @@ div .ranking {
 
 .attachText .resetBtn{
     font-size: var(--font-medium);
+    color: var(--navy-color);
 }
 
 .attachText .resetBtn:hover{
@@ -625,7 +643,7 @@ div .ranking {
     width: 60%;
     height: 25.435vh;
 
-    border: 2px solid var(--black-color);
+    border: 2px solid var(--navy-color);
     border-radius: 8px;
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-medium);
@@ -634,6 +652,7 @@ div .ranking {
     outline-offset:-10px; 
     transition: all .15s ease-in-out;
     background-color: var(--light-grey-color);
+    color: var(--navy-color);
 }
 
 .attachFile:hover {
@@ -663,7 +682,7 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: var(--dark-grey-color);
+    background-color: var(--blue-color);
     color: var(--white-color);
 }
 
@@ -673,9 +692,9 @@ footer div{
 
 footer a{
     padding: var(--spacing-small);
-    text-decoration: none;
     color: var(--white-color);
 }
+
 .img404 {
     display: block; 
     margin-left: auto;

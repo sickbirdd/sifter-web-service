@@ -51,7 +51,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <TailSpin
                             height="80"
                             width="80"
-                            color="#205295"
+                            color="#557CF9"
                             ariaLabel="tail-spin-loading"
                             radius="0"
                             wrapperStyle={{}}
@@ -155,7 +155,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 3</div>
                     </button>
-                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀", setQuestion("2020-2021 유로파리그 우승팀"))}>
+                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀은 어디야?", setQuestion("2020-2021 유로파리그 우승팀"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 4</div>
                     </button> 

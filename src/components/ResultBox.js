@@ -27,7 +27,8 @@ function ResultBox({result, isLoad,  clickMode, index}) {
                 {result['title'] ? <div className='title'>&lt;{result['title']}&gt;</div> : ""}
                 {result['domain'] === "HYU" ? 
                     <div className='url'>
-                        <a href={result['url']}>본문 URL로 이동</a>
+                        <a href={result['url']} target='_blank' rel='noreferrer'>본문 URL로 이동</a>
+                        <iframe title='url_link' src={result['url']} seamless></iframe>
                     </div>
                     : <div className='paragraph'>
                         {result['content'].substr(0, result['start'])}
