@@ -5,7 +5,7 @@ function Content({search, data, isLoad, clickMode, context, setContext, setFile}
     const [more, setMore] = useState(false);
     return (
         <div className="main">
-            <ContextBox clickMode={clickMode} context={context} setContext={setContext} setFile={setFile}/>
+            <ContextBox clickMode={clickMode} context={context} setContext={setContext} setFile={setFile} isLoad={isLoad}/>
             {/* <!-- 
                 초기 -> example ... 예시 질문 버튼
                 text -> attachText ... text 입력 버튼 클릭 시 보여줌

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ContextBox({clickMode, context, setContext, setFile}) {
+function ContextBox({clickMode, context, setContext, setFile, isLoad}) {
     const [fileName, setFileName] = useState("Drag and drop your files or Click here!");
 
     const dragDrop = (e) => {
@@ -28,7 +28,7 @@ function ContextBox({clickMode, context, setContext, setFile}) {
                     오른쪽 상단에 X 버튼을 누르면 창 비활성화
                     지문 입력 후, 입력 버튼 누르면 입력되도록
                 --> */}
-                <textarea cols="26" rows="12" value={context} onChange={(e) => setContext(e.target.value)}></textarea>
+                <textarea cols="20" rows="12" value={context} onChange={(e) => setContext(e.target.value)}></textarea>
                 <button className="resetBtn" onClick={() => setContext('')}>
                 <i class="fa-solid fa-eraser fa-lg"></i>
                 </button>
@@ -36,7 +36,7 @@ function ContextBox({clickMode, context, setContext, setFile}) {
         )
     } else if(clickMode === "file") {
         return (
-            <div className="attachFile" onDragOver={(e) => e.preventDefault()} onDrop={(e) => dragDrop(e)}>
+            <div className={ !isLoad ? "attachFile" : "attachFile answerFile"} onDragOver={(e) => e.preventDefault()} onDrop={(e) => dragDrop(e)}>
                 <input type="file" multiple id="file" onChange={(e) => inputFile(e)} />
                 <label htmlFor="file">
                     <i className={

@@ -51,7 +51,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <TailSpin
                             height="80"
                             width="80"
-                            color="#205295"
+                            color="#557CF9"
                             ariaLabel="tail-spin-loading"
                             radius="0"
                             wrapperStyle={{}}
@@ -86,16 +86,16 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                             <div className="helpText">
                                 <div>설명서</div>
                                 <ol>
-                                    <li>DOMAIN 선택</li>
-                                    <li>검색어 입력</li>
-                                    <li>검색을 원하는 TEXT 입력 가능</li>
-                                    <li>검색을 원하는 첨부 파일 첨부 가능</li>
+                                    <li>검색을 원하는 DOMAIN 선택 (Sports, IT, ERICA)</li>
+                                    <li>원하는 질문을 입력한 후 답변 출력</li>
+                                    <li>따로 검색하기 원하는 TEXT 입력 가능</li>
+                                    <li>따로 검색하기 원하는 파일 첨부 가능</li>
                                 </ol>
                             </div>
                         </button>
                     </div>
                     
-                    <div className={isLoad ? "searchBar searchSmall" : "searchBar"}>
+                    <div tainbox="0" className={isLoad ? "searchBar searchSmall" : "searchBar"}>
                         {/* <!-- 
                             초기에는 Default 도메인이 써져있고 
                             드롭다운 선택지 클릭 시 그 도메인으로 바뀐 후
@@ -117,7 +117,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         --> */}
 
                         <input 
-                            className="searching" type="text" placeholder="질문을 입력해주세요." 
+                            className="searching" type="text" value={question} placeholder="질문을 입력해주세요." 
                             onChange={(e)=>{setQuestion(e.target.value);}} 
                             onKeyDown={handleOnKeyPress}
                         />
@@ -143,23 +143,23 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <div className='tile-icon'><i className="fa-solid fa-file-arrow-up"></i></div>
                         <div>파일 첨부</div>
                     </button>
-                    <button className='exampleBtn one' onClick={() => search("메시 소속 팀", "")}>
+                    <button className='exampleBtn one' onClick={() => search("메시 소속 팀이 뭐야?", setQuestion("메시 소속 팀이 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 1</div>
                     </button> 
-                    <button className='exampleBtn two' onClick={() => search("마이클 조던 신장", "")}>
+                    <button className='exampleBtn two' onClick={() => search("마이클 조던 신장은 얼마야?", setQuestion("마이클 조던 신장은 얼마야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 2</div>
                     </button> 
-                    <button className='exampleBtn three' onClick={() => search("2020 롤드컵 우승팀", "")}>
+                    <button className='exampleBtn three' onClick={() => search("2020 롤드컵 우승팀은 어디야?", setQuestion("2020 롤드컵 우승팀은 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 3</div>
                     </button>
-                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀", "")}>
+                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀은 어디야?", setQuestion("2020-2021 유로파리그 우승팀은 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 4</div>
                     </button> 
-                    <button className='exampleBtn five' onClick={() => search("2020 한국시리즈 우승팀", "")}>
+                    <button className='exampleBtn five' onClick={() => search("2020 한국시리즈 우승팀이 어디야?", setQuestion("2020 한국시리즈 우승팀이 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 5</div>
                     </button>

@@ -5,12 +5,12 @@ import SilverMedal from '../img/silver.png';
 import BronzeMedal from '../img/bronze.png';
 const images = [GoldMedal, SilverMedal, BronzeMedal, "", "", "", "", "", "", ""];
 const types = ["gold", "silver", "bronze", "common", "common", "common", "common", "common", "common", "common"];
-function ResultBox({result, isLoad, clickMode, index}) {
+function ResultBox({result, isLoad,  clickMode, index}) {
     const [visible, setVisible] = useState(false);
     return (
         <div className="result">
             {   
-                isLoad ? <AnswerBox text={result['answer']} key={index} score={result['score']} img={images[index]} type={types[index]}/>:<div></div>
+                isLoad ? <AnswerBox text={result['answer']} key={index} img={images[index]} type={types[index]}/>:<div></div>
             }
             <div className="showContext">
                 <span>출처</span>
@@ -25,11 +25,19 @@ function ResultBox({result, isLoad, clickMode, index}) {
                     다시 버튼을 돌려야함
                 --> */}
                 {result['title'] ? <div className='title'>&lt;{result['title']}&gt;</div> : ""}
-
-                <div className='paragraph'>
-                    {result['content'].substr(0, result['start'])}
-                    <span className='answerPart'>{result['content'].substr(result['start'], result['end'] - result['start'])}</span>
-                    {result['content'].substr(result['end'])}
+                {result['domain'] === "HYU" ? 
+                    <div className='url'>
+                        <a href={result['url']} target='_blank' rel='noreferrer'>본문 URL로 이동</a>
+                        <iframe title='url_link' src={result['url']} seamless></iframe>
+                    </div>
+                    : <div className='paragraph'>
+                        {result['content'].substr(0, result['start'])}
+                        <span className='answerPart'>{result['content'].substr(result['start'], result['end'] - result['start'])}</span>
+                        {result['content'].substr(result['end'])}
+                    </div>
+                }
+                <div className="score">
+                    {`score : ${result['score'].toFixed(5)}`}
                 </div>
             </div>
         </div>
