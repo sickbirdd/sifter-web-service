@@ -86,10 +86,10 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                             <div className="helpText">
                                 <div>설명서</div>
                                 <ol>
-                                    <li>검색을 원하는 DOMAIN 선택</li>
-                                    <li>검색어 입력 후 답변 출력</li>
-                                    <li>검색을 원하는 TEXT 입력 가능</li>
-                                    <li>검색을 원하는 첨부 파일 첨부 가능</li>
+                                    <li>검색을 원하는 DOMAIN 선택 (Sports, IT, ERICA)</li>
+                                    <li>원하는 질문을 입력한 후 답변 출력</li>
+                                    <li>따로 검색하기 원하는 TEXT 입력 가능</li>
+                                    <li>따로 검색하기 원하는 파일 첨부 가능</li>
                                 </ol>
                             </div>
                         </button>
@@ -143,7 +143,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <div className='tile-icon'><i className="fa-solid fa-file-arrow-up"></i></div>
                         <div>파일 첨부</div>
                     </button>
-                    <button className='exampleBtn one' onClick={() => search("메시 소속 팀이 뭐야?", setQuestion("메시 소속 팀이 뭐야?"))}>
+                    <button className='exampleBtn one' onClick={() => search("메시 소속 팀이 뭐야?", setQuestion("메시 소속 팀이 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 1</div>
                     </button> 
@@ -155,7 +155,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 3</div>
                     </button>
-                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀은 어디야?", setQuestion("2020-2021 유로파리그 우승팀"))}>
+                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀은 어디야?", setQuestion("2020-2021 유로파리그 우승팀은 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 4</div>
                     </button> 
