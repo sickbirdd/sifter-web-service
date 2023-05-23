@@ -2,6 +2,7 @@
     /* Color */
     --white-color: #F2F4FF;
     --black-color: #140a00;
+    --orange-color: #ff7f00;
     --skyblue-color: #849FFB;
     --blue-color: #557CF9;
     --navy-color: #0F1D4A;
@@ -408,7 +409,7 @@ header {
 }
 
 .textBtn:hover .tile-icon, .attachBtn:hover .tile-icon {
-    background-color: var(--blue-color);
+    background-color: var(--orange-color);
     color: var(--navy-color);
 }
 
