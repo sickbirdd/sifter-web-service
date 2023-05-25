@@ -159,7 +159,7 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 4</div>
                     </button> 
-                    <button className='exampleBtn five' onClick={() => search("2020 한국시리즈 우승팀이 어디야?", setQuestion("2020 한국시리즈 우승팀이 어디야?"))}>
+                    <button className='exampleBtn five' onClick={() => search("김영훈 교수님 연구실 위치는 어디야?", setQuestion("김영훈 교수님 연구실 위치는 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 5</div>
                     </button>

@@ -25,7 +25,7 @@ function ResultBox({result, isLoad,  clickMode, index}) {
                     다시 버튼을 돌려야함
                 --> */}
                 {result['title'] ? <div className='title'>&lt;{result['title']}&gt;</div> : ""}
-                {result['domain'] === "HYU" ? 
+                {result['domain'] === "HYU" && result['url'] !== "" ? 
                     <div className='url'>
                         <a href={result['url']} target='_blank' rel='noreferrer'>본문 URL로 이동</a>
                         <iframe title='url_link' src={result['url']} seamless></iframe>
