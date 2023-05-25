@@ -403,11 +403,6 @@ header {
     color: var(--white-color);
 }
 
-/* .textBtn:hover, .attachBtn:hover, .exampleBtn:hover  {
-    outline: 1px solid var(--navy-color);
-    border-radius: 4px;
-} */
-
 .textBtn:hover .tile-icon, .attachBtn:hover .tile-icon {
     cursor: pointer;
     transform: scale(1.1,1.1);

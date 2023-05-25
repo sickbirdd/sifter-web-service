@@ -143,19 +143,19 @@ function Header({search, context, isLoad, domainSelect, clickMode, setClick, loa
                         <div className='tile-icon'><i className="fa-solid fa-file-arrow-up"></i></div>
                         <div>파일 첨부</div>
                     </button>
-                    <button className='exampleBtn one' onClick={() => search("메시 소속 팀이 뭐야?", setQuestion("메시 소속 팀이 어디야?"))}>
+                    <button className='exampleBtn one' onClick={() => search("손흥민 소속 팀은 어디야?", setQuestion("손흥민 소속 팀은 어디야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 1</div>
                     </button> 
-                    <button className='exampleBtn two' onClick={() => search("마이클 조던 신장은 얼마야?", setQuestion("마이클 조던 신장은 얼마야?"))}>
+                    <button className='exampleBtn two' onClick={() => search("마이클 조던의 우승 횟수는?", setQuestion("마이클 조던의 우승 횟수는?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 2</div>
                     </button> 
-                    <button className='exampleBtn three' onClick={() => search("2020 롤드컵 우승팀은 어디야?", setQuestion("2020 롤드컵 우승팀은 어디야?"))}>
+                    <button className='exampleBtn three' onClick={() => search("LG Gram에 사용된 CPU가 뭐야?", setQuestion("LG Gram에 사용된 CPU가 뭐야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 3</div>
                     </button>
-                    <button className='exampleBtn four' onClick={() => search("2020-2021 유로파리그 우승팀은 어디야?", setQuestion("2020-2021 유로파리그 우승팀은 어디야?"))}>
+                    <button className='exampleBtn four' onClick={() => search("이세돌과 대결한 인공지능이 뭐야?", setQuestion("이세돌과 대결한 인공지능이 뭐야?"))}>
                         <div className='tile-icon'><i className ="fa-solid fa-circle-question"></i></div>
                         <div>예시 질문 4</div>
                     </button> 
