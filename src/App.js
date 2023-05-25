@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Page404 from './components/Page404';
 import axios from 'axios';
-import {CONF} from './config';
 import './index.css';
 function App() {
   const [data, setData] = useState([]);
@@ -39,13 +38,13 @@ function App() {
       }
       else {
         if(clickMode === "none"){
-          mrc_result = await axios.get(CONF['BASE_URL'] + '/inference', {params: {question: question, domain: domain}});
+          mrc_result = await axios.get('http://localhost:3000/inference', {params: {question: question, domain: domain}});
         } else if(clickMode === "context"){
           if(context === ''){
             alert('본문을 입력해주세요');
           }
           else {
-             mrc_result = await axios.post(CONF['BASE_URL'] + '/inference', {question: question, context: context, domain: domain});
+             mrc_result = await axios.post('http://localhost:3000/inference', {question: question, context: context, domain: domain});
           }
         } else if(clickMode === "file"){
           if(file === undefined){
@@ -55,7 +54,7 @@ function App() {
             const formData = new FormData();
             formData.append("file", file);
             formData.append("question", question)
-            mrc_result = await axios.post(CONF['BASE_URL'] + '/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}, domain: domain});
+            mrc_result = await axios.post('http://localhost:3000/inference/file', formData, {headers: {"Content-Type": "multipart/form-data"}, domain: domain});
           }
         }
         setData(mrc_result["data"]);
