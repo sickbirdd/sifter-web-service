@@ -403,17 +403,25 @@ header {
     color: var(--white-color);
 }
 
-.textBtn:hover, .attachBtn:hover, .exampleBtn:hover  {
+/* .textBtn:hover, .attachBtn:hover, .exampleBtn:hover  {
     outline: 1px solid var(--navy-color);
     border-radius: 4px;
-}
+} */
 
 .textBtn:hover .tile-icon, .attachBtn:hover .tile-icon {
-    background-color: var(--orange-color);
-    color: var(--navy-color);
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+    background-color: var(--dark-grey-color);
+    color: var(--white-color);
 }
 
 .exampleBtn:hover .tile-icon {
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
     background-color: var(--blue-color);
     color: var(--white-color);
 }
