@@ -60,6 +60,7 @@ function App() {
         }
         setData(mrc_result["data"]);
         setLoad(true);
+        setStatus(200);
       }
     } catch (error) {
       if (error.response.status === 404) {
