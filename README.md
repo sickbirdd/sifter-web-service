@@ -8,19 +8,21 @@ MRC 모듈과 검색엔진의 결과를 보여주는 웹 페이지입니다.
 #### Node.js  
 #### npm  
 
-## curl 설치(Linux)
-```
-sudo apt update
-sudo apt install curl
-```
 ## Node.js 설치(Linux)
 ```
-sudo apt install nodejs
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
-
 ## npm 설치(Linux)
 ```
-sudo apt install npm
+sudo apt install aptitude
+sudo aptitude install npm
+```
+
+## n 설치 및 node.js 버전 업데이트 Linux)
+```
+sudo npm install -g n
+n lts
 ```
 
 ## 패키지 설치 명령어
