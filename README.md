@@ -22,7 +22,7 @@ sudo aptitude install npm
 ## n 설치 및 node.js 버전 업데이트 Linux)
 ```
 sudo npm install -g n
-n lts
+sudo n lts
 ```
 
 ## 패키지 설치 명령어
