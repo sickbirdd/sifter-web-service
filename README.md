@@ -1,4 +1,5 @@
 # Web Service Page
+![MainView](https://github.com/sickbirdd/sifter-web-service/assets/39708676/54b47e78-8d20-41df-abbd-fc9a1c0fec41)
 
 MRC 모듈과 검색엔진의 결과를 보여주는 웹 페이지입니다.  
 질문을 입력한 뒤, 검색 버튼을 누르면 MRC 모듈 점수를 기준으로 내림차 순으로 결과가 나옵니다.  
@@ -34,3 +35,6 @@ npm install
 ```
 npm start
 ```
+
+## 검색 결과 예시
+![Results](https://github.com/sickbirdd/sifter-web-service/assets/39708676/0e1b6451-dc58-418d-84e8-af5f79385c9f)
